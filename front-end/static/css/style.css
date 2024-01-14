@@ -27,6 +27,10 @@
     font-size: 30px;
 }
 
+.font-25 {
+    font-size: 25px;
+}
+
 #logo {
     background-image: url("../image/logo.png");
     background-position: center center;
