@@ -7,3 +7,14 @@
     font-family: "sayeh";
     src: url("../font/Sayeh.ttf");
 }
+
+* {
+    font-size: 100%;
+    font-family: calibri;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.300);
+}
+
+.f-bold {
+    font-weight: bold;
+}
