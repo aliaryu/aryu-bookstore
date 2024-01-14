@@ -15,6 +15,45 @@
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.300);
 }
 
+.f-sayeh {
+    font-family: "sayeh";
+}
+
 .f-bold {
     font-weight: bold;
 }
+
+.font-30 {
+    font-size: 30px;
+}
+
+#logo {
+    background-image: url("../image/logo.png");
+    background-position: center center;
+    background-size: cover;              
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    position: relative;
+    top: -10px;
+
+    animation: rotate 4s forwards infinite 2s;
+}
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(25deg)
+    }
+    40% {
+        transform: rotate(-5deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    }
+}
+
