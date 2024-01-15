@@ -41,7 +41,7 @@ body {
 }
 
 #header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.150), rgba(0, 0, 0, 0.150)), url("../image/gif/augustin-cart-gif-lofi-final.gif");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.220), rgba(0, 0, 0, 0.220)), url("../image/gif/augustin-cart-gif-lofi-final.gif");
     background-position: center 75%;
     background-size: cover;
     background-color: #464646;
