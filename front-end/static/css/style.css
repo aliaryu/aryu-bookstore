@@ -110,3 +110,42 @@ body {
 .form-control::placeholder {
     color: #ffffff;
 }
+
+.scrolling-wrapper {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.card {
+    display: inline-block;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.img-shadow {
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.692);
+}
+
+.bg-even {
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(173, 8, 145, 0.123) 50%, rgba(255,255,255,0.16848746334471287) 100%);
+}
+
+::-webkit-scrollbar {
+
+    height: 10px;
+    width: 10px;
+    background: #dadada;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #424242;
+    border-radius: 5px;
+}
+
+.poem {
+    overflow-x: scroll;
+    scrollbar-color: #424242 #dadada;
+    scrollbar-width: thin;
+}
