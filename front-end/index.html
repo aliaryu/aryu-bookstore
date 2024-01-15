@@ -58,7 +58,7 @@
                         <a class="nav-link active navbar-brand text-white" aria-current="true" href="#">صفحه اصلی</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link active navbar-brand text-white" aria-disabled="true" href="#">سفارش آنلاین</a>
+                        <button type="button" class="nav-link active navbar-brand text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">دسته بندی ها</button>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link active navbar-brand text-white" aria-disabled="true" href="#">درباره ما</a>
@@ -78,10 +78,54 @@
                 </div>
             </div>
 
+            <!-- MODAL CATEGORIES -->
+            <div class="modal fade bg-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content bg-modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <ul class="pe-0">
+
+                                <li class="list-group-item font-20">
+                                    ادبیات <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
+                                    <ul class="list-group list-unstyled">
+                                        <li class="font-20">رمان</li>
+                                        <li class="font-20">نمایش نامه</li>
+                                        <li class="font-20">داستان کوتاه</li>
+                                    </ul>
+                                </li>
+
+                                <li class="list-group-item font-20">
+                                    روانشاسی <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
+                                    <ul class="list-group list-unstyled">
+                                        <li class="font-20">عمومی</li>
+                                        <li class="font-20">کودکان</li>
+                                        <li class="font-20">
+                                            اجتماعی <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
+                                            <ul class="list-group list-unstyled">
+                                                <li class="font-20">فرهنگی</li>
+                                                <li class="font-20">جغرافیایی</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="list-group-item font-20">تاریخی</li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </header>
     </div>
-    
-
+  
 
 </body>
 

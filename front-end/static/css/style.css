@@ -36,6 +36,10 @@ body {
     font-size: 25px;
 }
 
+.font-20 {
+    font-size: 20px;
+}
+
 .bg-white-glass {
     background-color: rgba(255, 255, 255, 0.116);
 }
@@ -83,4 +87,18 @@ body {
 .navbar-toggler-icon:focus {
     outline: none;
     box-shadow: none;
+}
+
+.bg-modal {
+    background-color: rgba(0, 0, 0, 0.300);
+}
+
+.bg-modal-content {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.801) 0%, rgba(255, 170, 247, 0.589) 100%);
+    border: none;
+}
+
+.top-2px {
+    position: relative;
+    top: 1.5px;
 }
