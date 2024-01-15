@@ -49,6 +49,7 @@ body {
 
 #logo {
     background-image: url("../image/logo.png");
+    filter: brightness(0) invert(1);
     background-position: center center;
     background-size: cover;
     display: inline-block;
@@ -77,3 +78,9 @@ body {
     }
 }
 
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
