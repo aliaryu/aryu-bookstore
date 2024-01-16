@@ -24,6 +24,7 @@ commit. It serves as a brief summary of what the commit is accomplishing.
 - **&lt;description&gt;:** Provides additional details & context for changes made in commit.
 
 ## Types
+- **init** Initialize new part, component or important package.
 - **feat:** New feature, indicating a significant addition or enhancement.
 - **style:** Code style changes, that do not affect the code's functionality.
 - **refactor:** Refactored code that neither fixes a bug nor adds a feature.
@@ -35,6 +36,7 @@ commit. It serves as a brief summary of what the commit is accomplishing.
 
 ## More Examples
 ```
+git commit -m "init(app): create app user in django project"
 git commit -m "feat(user): add registration form"
 git commit -m "style(css): adjust spacing in stylesheets"
 git commit -m "refactor(api): improve error handling"
