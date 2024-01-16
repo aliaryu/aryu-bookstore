@@ -16,10 +16,6 @@
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.300);
 }
 
-body {
-    height: 500vh;
-}
-
 .f-sayeh {
     font-family: "sayeh";
 }
@@ -152,4 +148,11 @@ body {
     overflow-x: scroll;
     scrollbar-color: #424242 #dadada;
     scrollbar-width: thin;
+}
+
+#background-footer {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../image/gif/rainy-cati.gif");
+    background-position: center 55%;
+    background-size: cover;
+    background-color: #464646;
 }
