@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     # EXTERNAL APPS
 
     # INTERNAL APPS
+    "apps.user.apps.UserConfig",
 
 ]
 
