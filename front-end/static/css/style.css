@@ -123,6 +123,10 @@ body {
     margin-right: 10px;
 }
 
+.feat-img {
+    filter: drop-shadow(3px 3px 2px #222);
+}
+
 .img-shadow {
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.692);
 }
