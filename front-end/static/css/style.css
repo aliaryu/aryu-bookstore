@@ -1,0 +1,158 @@
+@font-face {
+    font-family: "calibri";
+    src: url("../font/Calibri.ttf");
+}
+
+@font-face {
+    font-family: "sayeh";
+    src: url("../font/Sayeh.ttf");
+}
+
+* {
+    font-size: 100%;
+    font-family: calibri;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.300);
+}
+
+.f-sayeh {
+    font-family: "sayeh";
+}
+
+.f-bold {
+    font-weight: bold;
+}
+
+.font-30 {
+    font-size: 30px;
+}
+
+.font-25 {
+    font-size: 25px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.font-17 {
+    font-size: 17px;
+}
+
+.bg-white-glass {
+    background-color: rgba(255, 255, 255, 0.116);
+}
+
+#header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.220), rgba(0, 0, 0, 0.220)), url("../image/gif/augustin-cart-gif-lofi-final.gif");
+    background-position: center 75%;
+    background-size: cover;
+    background-color: #464646;
+}
+
+#logo {
+    background-image: url("../image/logo.png");
+    filter: brightness(0) invert(1);
+    background-position: center center;
+    background-size: cover;
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    position: relative;
+    top: -10px;
+
+    animation: rotate 4s forwards infinite 2s;
+}
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(25deg)
+    }
+    40% {
+        transform: rotate(-5deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    }
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.bg-modal {
+    background-color: rgba(0, 0, 0, 0.300);
+}
+
+.bg-modal-content {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.801) 0%, rgba(255, 170, 247, 0.589) 100%);
+    border: none;
+}
+
+.top-2px {
+    position: relative;
+    top: 1.5px;
+}
+
+.form-control::placeholder {
+    color: #ffffff;
+}
+
+.scrolling-wrapper {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.card {
+    display: inline-block;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.feat-img {
+    filter: drop-shadow(3px 3px 2px #222);
+}
+
+.img-shadow {
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.692);
+}
+
+.bg-even {
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0, 0, 0, 0.123) 50%, rgba(255,255,255,0.16848746334471287) 100%);
+}
+
+::-webkit-scrollbar {
+
+    height: 10px;
+    width: 10px;
+    background: #dadada;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #424242;
+    border-radius: 5px;
+}
+
+.poem {
+    overflow-x: scroll;
+    scrollbar-color: #424242 #dadada;
+    scrollbar-width: thin;
+}
+
+#background-footer {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../image/gif/rainy-cati.gif");
+    background-position: center 55%;
+    background-size: cover;
+    background-color: #464646;
+}
