@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # EXTERNAL APPS
+    "debug_toolbar",
 
     # INTERNAL APPS
     "apps.user.apps.UserConfig",
@@ -29,6 +30,9 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
+
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -101,6 +105,11 @@ if DEBUG:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
+    # DEBUG TOOLBAR
+    INTERNAL_IPS = [
+        "127.0.0.1",
+    ]
 else:
     STATIC_ROOT = BASE_DIR / "static"
 
