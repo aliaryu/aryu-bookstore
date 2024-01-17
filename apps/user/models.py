@@ -1,9 +1,9 @@
-from typing import Any
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.urls import reverse
+from .managers import CustomUserManager
 
 
 class User(AbstractUser):
@@ -41,6 +41,8 @@ class User(AbstractUser):
         default=False,
     )
 
+    objects = CustomUserManager()
+
     def clean(self):
         super().clean()
         if self.image:
@@ -52,12 +54,12 @@ class User(AbstractUser):
         self.is_delete = True
         self.save()
 
-    def force_delete(self):
-        super().delete()
-
     def undelete(self):
         self.is_delete = False
         self.save()
+
+    def force_delete(self):
+        super().delete()
 
     class Meta:
         verbose_name = _("user")
@@ -65,3 +67,6 @@ class User(AbstractUser):
 
     def __str__(self):
         return f"{self.username}"
+    
+
+    REQUIRED_FIELDS = ["email", "phone"]
