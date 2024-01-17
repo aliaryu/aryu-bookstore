@@ -32,3 +32,29 @@ class UserModelTests(TestCase):
         self.assertIsNone(self.User.objects.filter(username='testuser').first())
 
 
+class AddressModelTests(TestCase):
+    def setUp(self):
+        self.User = get_user_model()
+        self.user = self.User.objects.create_user(
+            username = 'testuser',
+            email = 'test@test.com',
+            phone = '09180000000',
+            password = 'password1234'
+        )
+        self.address = Address.objects.create(
+            user = self.user,
+            province = 'TEH',
+            postal_code = 1234567890,
+            address_path = 'test path'
+        )
+
+    def test_create_address(self):
+        self.address.full_clean()
+        self.assertEqual(self.address.user, self.user)
+        self.assertEqual(self.address.province, 'TEH')
+        self.assertEqual(self.address.postal_code, 1234567890)
+        self.assertEqual(self.address.address_path, 'test path')
+
+    def test_address_str_method(self):
+        expected_str = f"{self.address.id} - {self.address.postal_code}"
+        self.assertEqual(str(self.address), expected_str)
