@@ -1,7 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
-from .managers import CustomUserManager
+from .managers import (
+    CustomUserManager,
+    AddressManager
+)
 from .validators import (
     phone_format_validator,
     phone_numeric_validator,
@@ -131,6 +134,8 @@ class Address(models.Model):
     address_path = models.TextField(
         verbose_name = _("address")
     )
+
+    objects = AddressManager()
 
     class Meta:
         verbose_name = _("address")

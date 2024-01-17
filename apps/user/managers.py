@@ -1,5 +1,6 @@
 from django.contrib.auth.models import UserManager
 from apps.core.managers import LogicalQuerySet
+from django.db import models
 
 
 class CustomUserManager(UserManager):
@@ -16,3 +17,8 @@ class CustomUserManager(UserManager):
 
     def deleted(self):
         return LogicalQuerySet(self.model, using=self._db).filter(is_delete=True)
+    
+
+class AddressManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(user__is_delete=False)
