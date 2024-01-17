@@ -164,3 +164,26 @@ class Role(models.Model):
 
     def __str__(self):
         return f"{self.role_name}"
+
+
+class Staff(models.Model):
+    user = models.OneToOneField(
+        verbose_name = _("user"),
+        to = "User",
+        on_delete = models.CASCADE,
+    )
+    role = models.ForeignKey(
+        verbose_name = _("role"),
+        to = "Role",
+        on_delete = models.SET_NULL,
+        null = True
+    )
+
+    objects = UserRelatedModelBaseManager()
+
+    class Meta:
+        verbose_name = _("staff")
+        verbose_name_plural = _("staffs")
+
+    def __str__(self):
+        return f"{self.user.username}"
