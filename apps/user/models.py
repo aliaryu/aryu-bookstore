@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from .managers import (
     CustomUserManager,
-    AddressManager
+    UserRelatedModelBaseManager
 )
 from .validators import (
     phone_format_validator,
@@ -83,7 +83,6 @@ class User(AbstractUser):
 
 
 class Address(models.Model):
-
     IRAN_PROVINCES = [
         ("AZR", "آذربایجان شرقی"),
         ("AZL", "آذربایجان غربی"),
@@ -135,7 +134,7 @@ class Address(models.Model):
         verbose_name = _("address")
     )
 
-    objects = AddressManager()
+    objects = UserRelatedModelBaseManager()
 
     class Meta:
         verbose_name = _("address")
@@ -143,3 +142,25 @@ class Address(models.Model):
 
     def __str__(self):
         return f"{self.id} - {self.postal_code}"
+
+
+class Role(models.Model):
+    role_name = models.CharField(
+        verbose_name = _("role"),
+        max_length = 255,
+        unique = True,
+    )
+    salary = models.DecimalField(
+        verbose_name = _("salary"),
+        max_digits = 10,
+        decimal_places = 2,
+    )
+
+    objects = UserRelatedModelBaseManager()
+
+    class Meta:
+        verbose_name = _("role")
+        verbose_name_plural = _("roles")
+
+    def __str__(self):
+        return f"{self.role_name}"
