@@ -13,6 +13,7 @@ from .validators import (
     square_image_validator,
     postal_code_validator
 )
+from apps.core.models import LogicalBaseModel
 
 
 class User(AbstractUser):
@@ -144,7 +145,7 @@ class Address(models.Model):
         return f"{self.id} - {self.postal_code}"
 
 
-class Role(models.Model):
+class Role(LogicalBaseModel):
     role_name = models.CharField(
         verbose_name = _("role"),
         max_length = 255,
@@ -155,8 +156,6 @@ class Role(models.Model):
         max_digits = 10,
         decimal_places = 2,
     )
-
-    objects = UserRelatedModelBaseManager()
 
     class Meta:
         verbose_name = _("role")
