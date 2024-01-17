@@ -1,3 +1,4 @@
+from typing import Any
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
@@ -46,6 +47,17 @@ class User(AbstractUser):
             width, height = self.image.width, self.image.height
             if width != height:
                 raise ValidationError({"image": _("The image must be square. Width and height should be the same.")})
+
+    def delete(self, using=None, keep_parents=False):
+        self.is_delete = True
+        self.save()
+
+    def force_delete(self):
+        super().delete()
+
+    def undelete(self):
+        self.is_delete = False
+        self.save()
 
     class Meta:
         verbose_name = _("user")
