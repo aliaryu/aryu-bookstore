@@ -2,8 +2,16 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
-from django.urls import reverse
 from .managers import CustomUserManager
+from .validators import (
+    phone_format_validator,
+    phone_numeric_validator,
+    birth_date_validator,
+    image_extension_validator,
+    square_image_validator,
+)
+
+from django.urls import reverse
 
 
 class User(AbstractUser):
@@ -16,11 +24,16 @@ class User(AbstractUser):
         verbose_name = _("phone"),
         max_length = 11,
         unique = True,
+        validators = [
+            phone_format_validator,
+            phone_numeric_validator,
+        ]
     )
     birth_date = models.DateField(
         verbose_name = _("birth date"),
         blank = True,
         null = True,
+        validators = [birth_date_validator]
     )
     is_active = models.BooleanField(
         verbose_name = _("active"),
@@ -35,20 +48,17 @@ class User(AbstractUser):
         upload_to = "user_image/",
         blank = True,
         null = True,
+        validators = [
+            image_extension_validator,
+            square_image_validator,
+        ]
     )
     is_delete = models.BooleanField(
         verbose_name = _("delete"),
-        default=False,
+        default = False,
     )
 
     objects = CustomUserManager()
-
-    def clean(self):
-        super().clean()
-        if self.image:
-            width, height = self.image.width, self.image.height
-            if width != height:
-                raise ValidationError({"image": _("The image must be square. Width and height should be the same.")})
 
     def delete(self, using=None, keep_parents=False):
         self.is_delete = True
@@ -67,6 +77,5 @@ class User(AbstractUser):
 
     def __str__(self):
         return f"{self.username}"
-    
 
     REQUIRED_FIELDS = ["email", "phone"]
