@@ -104,6 +104,7 @@ if DEBUG:
 else:
     STATIC_ROOT = BASE_DIR / "static"
 
+    # REDIS
     REDIS_HOST = config("REDIS_HOST")
     REDIS_PORT = config("REDIS_PORT")
     REDIS_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}"
@@ -136,3 +137,6 @@ else:
             "PORT": config("DB_PORT"),
         },
     }
+
+# AUTH CONFIG
+AUTH_USER_MODEL = "user.User"
