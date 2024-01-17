@@ -17,8 +17,8 @@ class CustomUserManager(UserManager):
 
     def deleted(self):
         return LogicalQuerySet(self.model, using=self._db).filter(is_delete=True)
-    
 
-class AddressManager(models.Manager):
+
+class UserRelatedModelBaseManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(user__is_delete=False)
