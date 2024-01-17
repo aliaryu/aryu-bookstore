@@ -8,6 +8,7 @@ from .validators import (
     birth_date_validator,
     image_extension_validator,
     square_image_validator,
+    postal_code_validator
 )
 
 
@@ -76,3 +77,64 @@ class User(AbstractUser):
         return f"{self.username}"
 
     REQUIRED_FIELDS = ["email", "phone"]
+
+
+class Address(models.Model):
+
+    IRAN_PROVINCES = [
+        ("AZR", "آذربایجان شرقی"),
+        ("AZL", "آذربایجان غربی"),
+        ("ARD", "اردبیل"),
+        ("ESF", "اصفحان"),
+        ("ALB", "البرز"),
+        ("ILA", "ایلام"),
+        ("BOS", "بوشهر"),
+        ("TEH", "تهران"),
+        ("CHR", "چهارمحال و بختیاری"),
+        ("KHC", "خراسان رضوی"),
+        ("KHT", "خراسان شمالی"),
+        ("KHB", "خراسان جنوبی"),
+        ("KHU", "خوزستان"),
+        ("ZAN", "زنجان"),
+        ("SEM", "سمنان"),
+        ("SIS", "سیستان و بلوچستان"),
+        ("FAR", "فارس"),
+        ("QAZ", "قزوین"),
+        ("QOM", "قم"),
+        ("KOR", "کردستان"),
+        ("KRN", "کرمان"),
+        ("KRH", "کرمانشاه"),
+        ("KOH", "کهگیلویه و بویراحمد"),
+        ("GOL", "گلستان"),
+        ("GIL", "گیلان"),
+        ("LOR", "لرستان"),
+        ("MAZ", "مازندران"),
+        ("MAR", "مرکزی"),
+        ("HOR", "هرمزگان"),
+        ("HAM", "همدان"),
+        ("YAZ", "یزد"),
+    ]
+    user = models.ForeignKey(
+        verbose_name = _("user"),
+        to = "User",
+        on_delete = models.CASCADE,
+    )
+    province = models.CharField(
+        verbose_name = _("province"),
+        max_length = 3,
+        choices = IRAN_PROVINCES,
+    )
+    postal_code = models.PositiveBigIntegerField(
+        verbose_name = _("postal code"),
+        validators = [postal_code_validator]
+    )
+    address_path = models.TextField(
+        verbose_name = _("address")
+    )
+
+    class Meta:
+        verbose_name = _("address")
+        verbose_name_plural = _("addresses")
+
+    def __str__(self):
+        return f"{self.id} - {self.postal_code}"
