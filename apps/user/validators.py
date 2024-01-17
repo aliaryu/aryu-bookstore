@@ -1,5 +1,5 @@
 from django.core.validators import RegexValidator
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, FileExtensionValidator
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from datetime import date
@@ -18,4 +18,12 @@ phone_format_validator = RegexValidator(
 birth_date_validator = MaxValueValidator(
     limit_value = date.today(),
     message = _("birth date cannot be in the future")
+)
+
+def square_image_validator(image):
+    if image.width != image.height:
+        raise ValidationError(_("image must be square. width and height should be the same"))
+    
+image_extension_validator = FileExtensionValidator(
+    allowed_extensions = ['jpg', 'jpeg', 'png',]
 )
