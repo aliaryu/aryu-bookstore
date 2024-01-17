@@ -20,16 +20,24 @@ class User(AbstractUser):
         verbose_name = _("birth date"),
         blank = True,
         null = True,
-        )
-    is_delete = models.BooleanField(
-        verbose_name = _("delete"),
-        default=False,
-        )
+    )
+    is_active = models.BooleanField(
+        verbose_name = _("active"),
+        default = False,
+        help_text = _(
+            "Designates whether this user should be treated as active. "
+            "Unselect this instead of deleting accounts."
+        ),
+    )
     image = models.ImageField(
         verbose_name = _("image"),
         upload_to = "user_image/",
         blank = True,
         null = True,
+    )
+    is_delete = models.BooleanField(
+        verbose_name = _("delete"),
+        default=False,
     )
 
     def clean(self):
