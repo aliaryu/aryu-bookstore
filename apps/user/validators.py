@@ -27,3 +27,7 @@ def square_image_validator(image):
 image_extension_validator = FileExtensionValidator(
     allowed_extensions = ['jpg', 'jpeg', 'png',]
 )
+
+def postal_code_validator(value):
+    if not str(value).isdigit() or len(str(value)) != 10:
+        raise ValidationError(_("postal code must be a 10-digit number"))
