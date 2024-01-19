@@ -76,3 +76,34 @@ class RoleModelTests(TestCase):
         )
         expected_str = f"{role.role_name}"
         self.assertEqual(str(role), expected_str)
+
+
+class StaffModelTests(TestCase):
+    def setUp(self):
+        self.User = get_user_model()
+        self.user = self.User.objects.create_user(
+            username = 'testuser',
+            email = 'test@test.com',
+            phone = '09180000000',
+            password = 'password1234'
+        )
+        self.role = Role.objects.create(
+            role_name = 'Operator',
+            salary = 10000000.00
+        )
+
+    def test_create_staff(self):
+        staff = Staff.objects.create(
+            user = self.user,
+            role = self.role
+        )
+        self.assertEqual(staff.user, self.user)
+        self.assertEqual(staff.role, self.role)
+
+    def test_staff_str_method(self):
+        staff = Staff.objects.create(
+            user = self.user,
+            role = self.role
+        )
+        expected_str = f"{staff.user.username}"
+        self.assertEqual(str(staff), expected_str)
