@@ -58,3 +58,21 @@ class AddressModelTests(TestCase):
     def test_address_str_method(self):
         expected_str = f"{self.address.id} - {self.address.postal_code}"
         self.assertEqual(str(self.address), expected_str)
+
+
+class RoleModelTests(TestCase):
+    def test_create_role(self):
+        role = Role.objects.create(
+            role_name = 'Operator',
+            salary = 10000000.00
+        )
+        self.assertEqual(role.role_name, 'Operator')
+        self.assertEqual(role.salary, 10000000.00)
+
+    def test_role_str_method(self):
+        role = Role.objects.create(
+            role_name = 'Manager',
+            salary = 20000000.00
+        )
+        expected_str = f"{role.role_name}"
+        self.assertEqual(str(role), expected_str)
