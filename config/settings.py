@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
 
     # INTERNAL APPS
+    "apps.core.apps.CoreConfig",
     "apps.user.apps.UserConfig",
 
 ]
