@@ -88,3 +88,7 @@ class Author(LogicalBaseModel):
         blank = True,
         null = True,
     )
+
+
+class Book(models.Model):
+    pass
