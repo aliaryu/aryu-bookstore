@@ -51,3 +51,18 @@ class Genre(models.Model):
 
     def __str__(self):
         return f"{self.genre_name}"
+    
+
+class Tag(models.Model):
+    tag_name = models.CharField(
+        verbose_name = _("tag"),
+        max_length = 255,
+        unique = True,
+    )
+
+    class Meta:
+        verbose_name = _("tag")
+        verbose_name_plural = _("tags")
+
+    def __str__(self):
+        return f"{self.tag_name}"
