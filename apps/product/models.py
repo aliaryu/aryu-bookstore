@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from apps.core.models import LogicalBaseModel
 
 
 class Category(models.Model):
@@ -66,3 +67,24 @@ class Tag(models.Model):
 
     def __str__(self):
         return f"{self.tag_name}"
+    
+
+class Author(LogicalBaseModel):
+    full_name = models.CharField(
+        verbose_name = _("full name"),
+        max_length = 255,
+    )
+    biography = models.TextField(
+        verbose_name = _("biography"),
+        blank = True,
+    )
+    nationality = models.CharField(
+        verbose_name = _("nationality"),
+        max_length = 255,
+    )
+    image = models.ImageField(
+        verbose_name = _("image"),
+        upload_to = "author_image/",
+        blank = True,
+        null = True,
+    )
