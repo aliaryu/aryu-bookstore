@@ -104,7 +104,7 @@ class Discount(models.Model):
     )
     percent = models.PositiveIntegerField(
         verbose_name = _("percent"),
-        validators = [min_percent_validator, max_percent_validator]
+        validators = [min_percent_validator, max_percent_validator],
         blank = True,
         null = True,
     )
