@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     # INTERNAL APPS
     "apps.core.apps.CoreConfig",
     "apps.user.apps.UserConfig",
-
+    "apps.product.apps.ProductConfig",
 ]
 
 MIDDLEWARE = [
