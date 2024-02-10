@@ -16,7 +16,7 @@ class Discount(models.Model):
         blank = True,
         null = True,
     )
-    cash = percent = models.PositiveIntegerField(
+    cash = models.PositiveIntegerField(
         verbose_name = _("cash"),
         blank = True,
         null = True,
