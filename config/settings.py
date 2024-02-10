@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "apps.core.apps.CoreConfig",
     "apps.user.apps.UserConfig",
     "apps.product.apps.ProductConfig",
+    "apps.discount.apps.DiscountConfig",
 ]
 
 MIDDLEWARE = [
