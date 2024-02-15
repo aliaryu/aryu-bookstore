@@ -89,6 +89,13 @@ class Author(LogicalBaseModel):
         null = True,
     )
 
+    class Meta:
+        verbose_name = _("author")
+        verbose_name_plural = _("authors")
+
+    def __str__(self):
+        return f"{self.full_name}"
+
 
 class Book(LogicalBaseModel):
 
