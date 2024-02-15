@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from apps.core.models import LogicalBaseModel
+from django.contrib.contenttypes.fields import GenericRelation
 
 
 class Category(models.Model):
@@ -88,6 +89,8 @@ class Author(LogicalBaseModel):
         blank = True,
         null = True,
     )
+
+    comments = GenericRelation("comment.Comment")
 
     class Meta:
         verbose_name = _("author")
@@ -183,6 +186,8 @@ class Book(LogicalBaseModel):
         verbose_name = _("like(s)"),
         to = "user.User",
     )
+
+    comments = GenericRelation("comment.Comment")
 
     class Meta:
         verbose_name = _("book")
