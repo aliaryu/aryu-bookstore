@@ -1,3 +1,4 @@
+from typing import Iterable
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
@@ -14,6 +15,7 @@ from .validators import (
     postal_code_validator
 )
 from apps.core.models import LogicalBaseModel
+from django.contrib.auth.models import Group, Permission
 
 
 class User(AbstractUser):
@@ -179,6 +181,83 @@ class Staff(models.Model):
     )
 
     objects = UserRelatedModelBaseManager()
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        if self.role.role_name == "Manager":
+            group, created = Group.objects.get_or_create(name="Manager")
+            if created:
+                permissions_codenames = [
+                    "add_book",
+                    "change_book",
+                    "delete_book",
+                    "view_book",
+                    "add_category",
+                    "change_category",
+                    "delete_category",
+                    "view_category",
+                    "add_discount",
+                    "change_discount",
+                    "delete_discount",
+                    "view_discount",
+                ]
+                permissions = Permission.objects.filter(codename__in = permissions_codenames)
+                group.permissions.add(*permissions)
+            self.user.is_staff = True
+            self.user.groups.set([group])
+            self.user.save()
+
+        elif self.role.role_name == "Supervisor":
+            group, created = Group.objects.get_or_create(name="Supervisor")
+            if created:
+                permissions_codenames = [
+                    "view_user",
+                    "view_address",
+                    "view_role",
+                    "view_staff",
+                    "view_author",
+                    "view_genre",
+                    "view_tag",
+                    "view_category",
+                    "view_book",
+                    "view_discount",
+                    "view_comment",
+                    "view_order",
+                    "view_orderbook",
+                ]
+                permissions = Permission.objects.filter(codename__in = permissions_codenames)
+                group.permissions.add(*permissions)
+            self.user.is_staff = True
+            self.user.groups.set([group])
+            self.user.save()
+            
+        elif self.role.role_name == "Operator":
+            group, created = Group.objects.get_or_create(name="Operator")
+            if created:
+                permissions_codenames = [
+                    "add_user",
+                    "change_user",
+                    "delete_user",
+                    "view_user",
+                    "add_address",
+                    "change_address",
+                    "delete_address",
+                    "view_address",
+                    "add_order",
+                    "change_order",
+                    "delete_order",
+                    "view_order",
+                    "add_orderbook",
+                    "change_orderbook",
+                    "delete_orderbook",
+                    "view_orderbook",
+                ]
+                permissions = Permission.objects.filter(codename__in = permissions_codenames)
+                group.permissions.add(*permissions)
+            self.user.is_staff = True
+            self.user.groups.set([group])
+            self.user.save()
 
     class Meta:
         verbose_name = _("staff")
