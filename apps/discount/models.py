@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from .validators import min_percent_validator, max_percent_validator
 from django.core.exceptions import ValidationError
+import uuid
 
 
 class Discount(models.Model):
@@ -9,6 +10,8 @@ class Discount(models.Model):
         verbose_name = _("code"),
         max_length = 10,
         unique = True,
+        blank = True,
+        # editable = False,
     )
     percent = models.PositiveIntegerField(
         verbose_name = _("percent"),
@@ -38,6 +41,11 @@ class Discount(models.Model):
             raise ValidationError(_("It is not possible to enter both 'percent' and 'cash'."))
         elif not self.percent and not self.cash:
             raise ValidationError(_("At least one of 'percent' and 'cash' must be entered."))
+        
+    def save(self, *args, **kwargs):
+        if not self.code:
+            self.code = str(uuid.uuid4())[:11].replace('-', '').upper()
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = _("discount")
