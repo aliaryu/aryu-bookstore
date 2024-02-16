@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from apps.core.models import LogicalBaseModel
+from django.contrib.contenttypes.fields import GenericRelation
 
 
 class Category(models.Model):
@@ -89,6 +90,108 @@ class Author(LogicalBaseModel):
         null = True,
     )
 
+    comments = GenericRelation("comment.Comment")
 
-class Book(models.Model):
-    pass
+    class Meta:
+        verbose_name = _("author")
+        verbose_name_plural = _("authors")
+
+    def __str__(self):
+        return f"{self.full_name}"
+
+
+class Book(LogicalBaseModel):
+
+    # Fields:
+
+    book_name = models.CharField(
+        verbose_name = _("book name"),
+        max_length = 255,
+    )
+    publisher = models.CharField(
+        verbose_name = _("publisher"),
+        max_length = 255,
+    )
+    description = models.TextField(
+        verbose_name = _("description"),
+        blank = True,
+    )
+    excerpt = models.TextField(
+        verbose_name = _("excerpt"),
+        blank = True,
+    )
+    pub_date = models.DateField(
+        verbose_name = _("pub date"),
+    )
+    language = models.CharField(
+        verbose_name = _("language"),
+        max_length = 255,
+    )
+    height = models.PositiveIntegerField(
+        verbose_name = _("height"),
+    )
+    width = models.PositiveIntegerField(
+        verbose_name = _("width"),
+    )
+    page = models.PositiveIntegerField(
+        verbose_name = _("page"),
+    )
+    count = models.PositiveIntegerField(
+        verbose_name = _("count"),
+    )
+    price = models.DecimalField(
+        verbose_name = _("price"),
+        max_digits = 10,
+        decimal_places = 2
+    )
+    image = models.ImageField(
+        verbose_name = _("image"),
+        upload_to = "book_image/",
+    )
+
+    # Relations:
+
+    discount = models.ForeignKey(
+        verbose_name = _("discount"),
+        to = "discount.Discount",
+        on_delete = models.SET_NULL,
+        blank = True,
+        null = True,
+    )
+    category = models.ForeignKey(
+        verbose_name = _("category"),
+        to = "product.Category",
+        on_delete = models.SET_NULL,
+        null = True,
+    )
+    author = models.ManyToManyField(
+        verbose_name = _("author(s)"),
+        to = "product.Author",
+        related_name = "author_books",
+    )
+    translator = models.ManyToManyField(
+        verbose_name = _("translator(s)"),
+        to = "product.Author",
+        related_name = "translator_books",
+    )
+    genre = models.ManyToManyField(
+        verbose_name = _("genre(s)"),
+        to = "product.Genre",
+    )
+    tag = models.ManyToManyField(
+        verbose_name = _("tag(s)"),
+        to = "product.Tag",
+    )
+    like = models.ManyToManyField(
+        verbose_name = _("like(s)"),
+        to = "user.User",
+    )
+
+    comments = GenericRelation("comment.Comment")
+
+    class Meta:
+        verbose_name = _("book")
+        verbose_name_plural = _("books")
+
+    def __str__(self):
+        return f"{self.book_name}"
