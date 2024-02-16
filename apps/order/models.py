@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from apps.core.models import LogicalBaseModel, TimeStampBaseModel
 from django.core.exceptions import ValidationError
+from django.db.models import F
 from django.contrib.auth import get_user_model
 
 
@@ -74,9 +75,8 @@ class OrderBook(LogicalBaseModel):
             raise ValidationError(_("The order quantity is more than the available stock."))
         
     def save(self, *args, **kwargs):
-        updated_count = self.book.count - self.count
-        self.book.count = updated_count
-        self.book.save()
+        self.book.count = F('count') - self.count
+        self.book.save(update_fields=['count'])
         super().save(*args, **kwargs)
 
     class Meta:
