@@ -44,7 +44,8 @@ class Discount(models.Model):
         
     def save(self, *args, **kwargs):
         if not self.code:
-            self.code = str(uuid.uuid4())[:11].replace('-', '').upper()
+            self.code = str(uuid.uuid4()).replace('-', '').upper()[:10]
+            print(len(self.code))
         super().save(*args, **kwargs)
 
     class Meta:
