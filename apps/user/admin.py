@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.db.models.query import QuerySet
+from django.http import HttpRequest
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.admin import UserAdmin
 from .models import User, Address, Staff, Role
@@ -17,6 +19,10 @@ class StaffInline(admin.TabularInline):
     model = Staff
     verbose_name = _("staff information")
     classes = ["collapse"]
+    extra = 0
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).select_related("user")
 
 
 @admin.register(User)
@@ -88,7 +94,7 @@ class UserAdmin(UserAdmin):
 
 
 @admin.register(Address)
-class Address(admin.ModelAdmin):
+class AddressAdmin(admin.ModelAdmin):
     model = Address
     ordering = ["-id"]
     search_fields = ["postal_code", "user__username", "user__email"]
@@ -119,6 +125,26 @@ class Address(admin.ModelAdmin):
 
     def get_queryset(self, request):
         return super().get_queryset(request).select_related("user")
-    
 
-admin.site.register([Staff, Role])
+
+@admin.register(Role)
+class RoleAdmin(admin.ModelAdmin):
+    model = Role
+    ordering = ["role_name"]
+    search_fields = ["role_name"]
+    list_display_links = None
+    list_display = ["role_name", "salary", "edit"]
+    fields = ["role_name", "salary", "is_delete"]
+
+    def edit(self, obj):
+        translate = _("view/edit")
+        return format_html(
+            '<a class="button" href="{}">{}</a>',
+            reverse('admin:user_role_change', args=[obj.id]),
+            translate
+        )
+    
+    edit.short_description = _("view/edit")
+
+
+admin.site.register([Staff,])
