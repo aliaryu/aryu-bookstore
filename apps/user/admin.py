@@ -9,10 +9,23 @@ from django.urls import reverse
 admin.site.register([Address, Staff, Role])
 
 
+class AddressInline(admin.TabularInline):
+    model = Address
+    verbose_name = _("addresses")
+    extra = 0
+    classes = ["collapse"]
+
+
+class StaffInline(admin.TabularInline):
+    model = Staff
+    verbose_name = _("staff information")
+    classes = ["collapse"]
+
+
 @admin.register(User)
 class UserAdmin(UserAdmin):
     model = User
-    # inlines
+    inlines = [AddressInline, StaffInline]
     ordering = ["username"]
     search_fields = ["username", "email", "last_name", "phone", "staff__role__role_name"]
     list_display_links = None
@@ -21,9 +34,9 @@ class UserAdmin(UserAdmin):
         [_("unique information"), {"fields": ["username", "email", "phone"]}],
         [_("personal information"), {"fields": ["first_name", "last_name", "birth_date"]}],
         [_("image"), {"fields": ["image", "display_image"]}],
+        [_("related dates"), {"fields": ["last_login", "date_joined"]}],
         [_("access level"), {"fields": ["is_superuser", "is_staff", "is_active", "is_delete"]}],
         [_("groups & permissions"), {"fields": ["groups", "user_permissions"], "classes": ["collapse"]}],
-        [_("related dates"), {"fields": ["last_login", "date_joined"]}],
     ]
     readonly_fields = ["last_login", "date_joined", "display_image"]
 
