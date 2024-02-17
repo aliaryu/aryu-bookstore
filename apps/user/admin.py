@@ -6,9 +6,6 @@ from django.utils.html import format_html
 from django.urls import reverse
 
 
-admin.site.register([Address, Staff, Role])
-
-
 class AddressInline(admin.TabularInline):
     model = Address
     verbose_name = _("addresses")
@@ -79,7 +76,7 @@ class UserAdmin(UserAdmin):
 
     
     role.short_description = _("role")
-    edit.short_description = _("edit")
+    edit.short_description = _("view/edit")
     delete.short_description = _("delete")
     display_image.short_description = _("preview")
     
@@ -88,4 +85,40 @@ class UserAdmin(UserAdmin):
             return self.model.objects.archive().select_related("staff__role")
         else:
             return super().get_queryset(request).select_related("staff__role")
-        
+
+
+@admin.register(Address)
+class Address(admin.ModelAdmin):
+    model = Address
+    ordering = ["-id"]
+    search_fields = ["postal_code", "user__username", "user__email"]
+    list_display_links = None
+    list_display = ["username", "postal_code", "province", "edit"]
+    fields = ["user", "postal_code", "province", "address_path"]
+    readonly_fields = ["user"]
+
+    def get_readonly_fields(self, request, obj=None):
+        if obj:
+            return self.readonly_fields
+        else:
+            return []
+
+    def username(self, obj):
+        return obj.user.username
+    
+    def edit(self, obj):
+        translate = _("view/edit")
+        return format_html(
+            '<a class="button" href="{}">{}</a>',
+            reverse('admin:user_address_change', args=[obj.id]),
+            translate
+        )
+    
+    username.short_description = _("username")
+    edit.short_description = _("view/edit")
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).select_related("user")
+    
+
+admin.site.register([Staff, Role])
