@@ -39,7 +39,13 @@ class UserAdmin(UserAdmin):
         [_("groups & permissions"), {"fields": ["groups", "user_permissions"], "classes": ["collapse"]}],
     ]
     readonly_fields = ["last_login", "date_joined", "display_image"]
-
+    add_fieldsets = [
+        [_("unique information"), {"fields": ["username", "email", "phone"]}],
+        [_("personal information"), {"fields": ["first_name", "last_name", "birth_date"]}],
+        [_("image"), {"fields": ["image", "display_image"]}],
+        [_("access level"), {"fields": ["is_superuser", "is_staff", "is_active"]}],
+        [_("password"), {"fields": ["password1", "password2"]}]
+    ]
 
     def role(self, obj):
         if obj.is_superuser:
