@@ -147,4 +147,24 @@ class RoleAdmin(admin.ModelAdmin):
     edit.short_description = _("view/edit")
 
 
-admin.site.register([Staff,])
+@admin.register(Staff)
+class StaffAdmin(admin.ModelAdmin):
+    model = Staff
+    ordering = ["-id"]
+    search_fields = ["user__username", "user__email", "role__role_name"]
+    list_display_links = None
+    list_display = ["user", "role", "edit"]
+    fields = ["user", "role"]
+
+    def edit(self, obj):
+        translate = _("view/edit")
+        return format_html(
+            '<a class="button" href="{}">{}</a>',
+            reverse('admin:user_staff_change', args=[obj.id]),
+            translate
+        )
+    
+    edit.short_description = _("view/edit")
+    
+    def get_queryset(self, request):
+        return super().get_queryset(request).select_related("user").select_related("role")
