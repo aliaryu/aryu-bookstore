@@ -144,7 +144,7 @@ class Address(models.Model):
         verbose_name_plural = _("addresses")
 
     def __str__(self):
-        return f"{self.id} - {self.postal_code}"
+        return f"id: [ {self.id} ] - postal code: [ {self.postal_code} ]"
 
 
 class Role(LogicalBaseModel):
