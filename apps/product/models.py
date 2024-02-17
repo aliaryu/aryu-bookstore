@@ -78,6 +78,12 @@ class Author(LogicalBaseModel):
     biography = models.TextField(
         verbose_name = _("biography"),
         blank = True,
+        null = True,
+    )
+    brief = models.TextField(
+        verbose_name = _("brief"),
+        blank = True,
+        null = True,
     )
     nationality = models.CharField(
         verbose_name = _("nationality"),
