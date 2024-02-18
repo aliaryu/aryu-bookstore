@@ -158,13 +158,21 @@ class AuthorCommentNotApprovedInline(GenericStackedInline):
         return False
 
 
+class BookInline(admin.StackedInline):
+    model = Book.author.through
+    extra = 0
+    verbose_name = _("book")
+    verbose_name_plural = _("books")
+    classes = ('collapse',)
+
+
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     model = Author
     inlines = [
+        BookInline,
         AuthorCommentApprovedInline,
         AuthorCommentNotApprovedInline,
-        
     ]
     ordering = ["-id"]
     search_fields = ["full_name", "nationality"]

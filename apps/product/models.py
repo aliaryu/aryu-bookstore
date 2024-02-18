@@ -171,6 +171,7 @@ class Book(LogicalBaseModel):
         to = "product.Category",
         on_delete = models.SET_NULL,
         null = True,
+        blank = True,
     )
     author = models.ManyToManyField(
         verbose_name = _("author(s)"),
@@ -181,18 +182,22 @@ class Book(LogicalBaseModel):
         verbose_name = _("translator(s)"),
         to = "product.Author",
         related_name = "translator_books",
+        blank = True,
     )
     genre = models.ManyToManyField(
         verbose_name = _("genre(s)"),
         to = "product.Genre",
+        blank = True,
     )
     tag = models.ManyToManyField(
         verbose_name = _("tag(s)"),
         to = "product.Tag",
+        blank = True,
     )
     like = models.ManyToManyField(
         verbose_name = _("like(s)"),
         to = "user.User",
+        blank = True,
     )
 
     comments = GenericRelation("comment.Comment")
