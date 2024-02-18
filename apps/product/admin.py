@@ -209,9 +209,10 @@ class AuthorAdmin(admin.ModelAdmin):
         else:
             return _("there is no image")
 
+    short_biography.short_description = _("description")
     edit.short_description = _("view/edit")
     delete.short_description = _("delete")
-    display_image.short_biography = _("biography")
+    display_image.short_description = _("preview")
 
 
 
