@@ -126,7 +126,7 @@ class TagAdmin(admin.ModelAdmin):
     delete.short_description = _("delete")
 
 
-class AuthorCommentApprovedInline(GenericStackedInline):
+class CommentApprovedInline(GenericStackedInline):
     model = Comment
     extra = 0
     fields = ["user", "text", "answer", "approve", "create_at"]
@@ -142,7 +142,7 @@ class AuthorCommentApprovedInline(GenericStackedInline):
         return False
 
 
-class AuthorCommentNotApprovedInline(GenericStackedInline):
+class CommentNotApprovedInline(GenericStackedInline):
     model = Comment
     extra = 0
     fields = ["user", "text", "answer", "approve", "create_at"]
@@ -171,8 +171,8 @@ class AuthorAdmin(admin.ModelAdmin):
     model = Author
     inlines = [
         BookInline,
-        AuthorCommentApprovedInline,
-        AuthorCommentNotApprovedInline,
+        CommentApprovedInline,
+        CommentNotApprovedInline,
     ]
     ordering = ["-id"]
     search_fields = ["full_name", "nationality"]
@@ -215,7 +215,3 @@ class AuthorAdmin(admin.ModelAdmin):
     display_image.short_description = _("preview")
 
 
-
-admin.site.register([
-    Book,
-])
