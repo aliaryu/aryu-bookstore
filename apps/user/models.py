@@ -252,6 +252,10 @@ class Staff(models.Model):
                     "change_orderbook",
                     "delete_orderbook",
                     "view_orderbook",
+                    "add_orderstaff",
+                    "change_orderstaff",
+                    "delete_orderstaff",
+                    "view_orderstaff",
                 ]
                 permissions = Permission.objects.filter(codename__in = permissions_codenames)
                 group.permissions.add(*permissions)
