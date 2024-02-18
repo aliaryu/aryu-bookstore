@@ -141,12 +141,18 @@ class Book(LogicalBaseModel):
     )
     height = models.PositiveIntegerField(
         verbose_name = _("height"),
+        null = True,
+        blank = True,
     )
     width = models.PositiveIntegerField(
         verbose_name = _("width"),
+        null = True,
+        blank = True,
     )
     page = models.PositiveIntegerField(
         verbose_name = _("page"),
+        null = True,
+        blank = True,
     )
     count = models.PositiveIntegerField(
         verbose_name = _("count"),
