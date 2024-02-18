@@ -269,4 +269,4 @@ class BookAdmin(admin.ModelAdmin):
     display_image.short_description = _("preview")
 
     def get_queryset(self, request):
-        return super().get_queryset(request).prefetch_related("author", "translator").select_related("category", "discount")
+        return super().get_queryset(request).prefetch_related("author").select_related("category", "discount")
