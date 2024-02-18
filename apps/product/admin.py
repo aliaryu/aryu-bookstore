@@ -92,12 +92,39 @@ class GenreAdmin(admin.ModelAdmin):
     display_image.short_description = _("preview")
 
 
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    model = Tag
+    ordering = ["-id"]
+    search_fields = ["tag_name"]
+    list_display_links = None
+    list_display = ["tag_name", "edit", "delete"]
+    fields = ["tag_name"]
+
+    def edit(self, obj):
+        translate = _("view/edit")
+        return format_html(
+            '<a class="button" href="{}">{}</a>',
+            reverse('admin:product_tag_change', args=[obj.id]),
+            translate
+        )
+
+    def delete(self, obj):
+        translate = _("delete")
+        return format_html(
+            '<a class="button" href="{}" style="color:white; background-color: #840303 ;">{}</a>',
+            reverse('admin:product_tag_delete', args=[obj.id]),
+            translate
+        )
+
+    edit.short_description = _("view/edit")
+    delete.short_description = _("delete")
+
 
 
 
 
 admin.site.register([
-    Tag,
     Author,
     Book,
 ])
