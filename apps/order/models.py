@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from apps.core.models import LogicalBaseModel, TimeStampBaseModel
 from django.core.exceptions import ValidationError
+from django.db.models import F
 from django.contrib.auth import get_user_model
 
 
@@ -51,6 +52,13 @@ class Order(LogicalBaseModel, TimeStampBaseModel):
 
     def __str__(self):
         return f"order number: [ {self.id} ]"
+    
+
+class OrderStaff(Order):
+    class Meta:
+        proxy = True
+        verbose_name = _("my order")
+        verbose_name_plural = _("my orders")
 
 
 class OrderBook(LogicalBaseModel):
@@ -74,9 +82,8 @@ class OrderBook(LogicalBaseModel):
             raise ValidationError(_("The order quantity is more than the available stock."))
         
     def save(self, *args, **kwargs):
-        updated_count = self.book.count - self.count
-        self.book.count = updated_count
-        self.book.save()
+        self.book.count = F('count') - self.count
+        self.book.save(update_fields=['count'])
         super().save(*args, **kwargs)
 
     class Meta:
@@ -84,4 +91,4 @@ class OrderBook(LogicalBaseModel):
         verbose_name_plural = _("ordered books")
 
     def __str__(self):
-        return f"item id: [ {self.item.id} ] - order id: [ {self.order.id} ]"
+        return f"book id: [ {self.book.id} ] - order id: [ {self.order.id} ]"

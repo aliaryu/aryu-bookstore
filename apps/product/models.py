@@ -13,7 +13,9 @@ class Category(models.Model):
     cat_parent = models.ForeignKey(
         verbose_name = _("parent"),
         to = "self",
-        on_delete = models.CASCADE
+        on_delete = models.CASCADE,
+        null = True,
+        blank = True,
     )
     image = models.ImageField(
         verbose_name = _("image"),
@@ -78,6 +80,12 @@ class Author(LogicalBaseModel):
     biography = models.TextField(
         verbose_name = _("biography"),
         blank = True,
+        null = True,
+    )
+    brief = models.TextField(
+        verbose_name = _("brief"),
+        blank = True,
+        null = True,
     )
     nationality = models.CharField(
         verbose_name = _("nationality"),
@@ -111,13 +119,17 @@ class Book(LogicalBaseModel):
     publisher = models.CharField(
         verbose_name = _("publisher"),
         max_length = 255,
+        null = True,
+        blank = True,
     )
     description = models.TextField(
         verbose_name = _("description"),
+        null = True,
         blank = True,
     )
     excerpt = models.TextField(
         verbose_name = _("excerpt"),
+        null = True,
         blank = True,
     )
     pub_date = models.DateField(
@@ -129,12 +141,18 @@ class Book(LogicalBaseModel):
     )
     height = models.PositiveIntegerField(
         verbose_name = _("height"),
+        null = True,
+        blank = True,
     )
     width = models.PositiveIntegerField(
         verbose_name = _("width"),
+        null = True,
+        blank = True,
     )
     page = models.PositiveIntegerField(
         verbose_name = _("page"),
+        null = True,
+        blank = True,
     )
     count = models.PositiveIntegerField(
         verbose_name = _("count"),
@@ -163,6 +181,7 @@ class Book(LogicalBaseModel):
         to = "product.Category",
         on_delete = models.SET_NULL,
         null = True,
+        blank = True,
     )
     author = models.ManyToManyField(
         verbose_name = _("author(s)"),
@@ -173,18 +192,22 @@ class Book(LogicalBaseModel):
         verbose_name = _("translator(s)"),
         to = "product.Author",
         related_name = "translator_books",
+        blank = True,
     )
     genre = models.ManyToManyField(
         verbose_name = _("genre(s)"),
         to = "product.Genre",
+        blank = True,
     )
     tag = models.ManyToManyField(
         verbose_name = _("tag(s)"),
         to = "product.Tag",
+        blank = True,
     )
     like = models.ManyToManyField(
         verbose_name = _("like(s)"),
         to = "user.User",
+        blank = True,
     )
 
     comments = GenericRelation("comment.Comment")
@@ -194,4 +217,4 @@ class Book(LogicalBaseModel):
         verbose_name_plural = _("books")
 
     def __str__(self):
-        return f"{self.book_name}"
+        return f"{self.book_name} - count: {self.count}"
