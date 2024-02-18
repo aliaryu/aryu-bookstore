@@ -52,6 +52,13 @@ class Order(LogicalBaseModel, TimeStampBaseModel):
 
     def __str__(self):
         return f"order number: [ {self.id} ]"
+    
+
+class OrderStaff(Order):
+    class Meta:
+        proxy = True
+        verbose_name = _("my order")
+        verbose_name_plural = _("my orders")
 
 
 class OrderBook(LogicalBaseModel):
@@ -84,4 +91,4 @@ class OrderBook(LogicalBaseModel):
         verbose_name_plural = _("ordered books")
 
     def __str__(self):
-        return f"item id: [ {self.item.id} ] - order id: [ {self.order.id} ]"
+        return f"book id: [ {self.book.id} ] - order id: [ {self.order.id} ]"

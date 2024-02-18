@@ -22,7 +22,7 @@ class Comment(LogicalBaseModel, TimeStampBaseModel):
         verbose_name = _("text"),
     )
     answer = models.TextField(
-        verbose_name = _("text"),
+        verbose_name = _("answer"),
         blank = True,
         null = True,
     )

@@ -144,7 +144,7 @@ class Address(models.Model):
         verbose_name_plural = _("addresses")
 
     def __str__(self):
-        return f"{self.id} - {self.postal_code}"
+        return f"user: [ {self.user.username} ] - postal code: [ {self.postal_code} ]"
 
 
 class Role(LogicalBaseModel):
@@ -252,6 +252,10 @@ class Staff(models.Model):
                     "change_orderbook",
                     "delete_orderbook",
                     "view_orderbook",
+                    "add_orderstaff",
+                    "change_orderstaff",
+                    "delete_orderstaff",
+                    "view_orderstaff",
                 ]
                 permissions = Permission.objects.filter(codename__in = permissions_codenames)
                 group.permissions.add(*permissions)
