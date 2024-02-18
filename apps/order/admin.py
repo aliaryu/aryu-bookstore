@@ -171,3 +171,35 @@ class OrderStaffAdmin(admin.ModelAdmin):
                 obj.staff = None
         obj.save()
         super().save_model(request, obj, form, change)
+
+
+@admin.register(OrderBook)
+class OrderBookAdmin(admin.ModelAdmin):
+    model = OrderBook
+    ordering = ["-id"]
+    list_display_links = None
+    list_display = ["book", "order", "get_order_datetime", "count", "edit", "delete"]
+    fields = ["book", "order", "count", "is_delete"]
+
+    def get_order_datetime(self, obj):
+        return obj.order.create_at
+
+    def edit(self, obj):
+        translate = _("view/edit")
+        return format_html(
+            '<a class="button" href="{}">{}</a>',
+            reverse('admin:order_orderbook_change', args=[obj.id]),
+            translate
+        )
+
+    def delete(self, obj):
+        translate = _("delete")
+        return format_html(
+            '<a class="button" href="{}" style="color:white; background-color: #840303 ;">{}</a>',
+            reverse('admin:order_orderbook_delete', args=[obj.id]),
+            translate
+        )
+    
+    get_order_datetime.short_description = _("date time")
+    edit.short_description = _("view/edit")
+    delete.short_description = _("delete")
