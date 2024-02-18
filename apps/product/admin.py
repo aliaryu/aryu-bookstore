@@ -126,11 +126,46 @@ class TagAdmin(admin.ModelAdmin):
     delete.short_description = _("delete")
 
 
+class AuthorCommentApprovedInline(GenericStackedInline):
+    model = Comment
+    extra = 0
+    fields = ["user", "text", "answer", "approve", "create_at"]
+    readonly_fields = ["create_at"]
+    verbose_name = _("comment")
+    verbose_name_plural = _("approved comment")
+    classes = ('collapse',)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(approve=True)
+    
+    def has_add_permission(self, request, obj=None):
+        return False
+
+
+class AuthorCommentNotApprovedInline(GenericStackedInline):
+    model = Comment
+    extra = 0
+    fields = ["user", "text", "answer", "approve", "create_at"]
+    readonly_fields = ["create_at"]
+    verbose_name = _("comment")
+    verbose_name_plural = _("not approved comment")
+    classes = ('collapse',)
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).filter(approve=False)
+    
+    def has_add_permission(self, request, obj=None):
+        return False
 
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     model = Author
+    inlines = [
+        AuthorCommentApprovedInline,
+        AuthorCommentNotApprovedInline,
+        
+    ]
     ordering = ["-id"]
     search_fields = ["full_name", "nationality"]
     list_display_links = None
