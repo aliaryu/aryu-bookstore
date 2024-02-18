@@ -1,4 +1,7 @@
+from typing import Any
 from django.contrib import admin
+from django.db.models.query import QuerySet
+from django.http import HttpRequest
 from django.utils.translation import gettext_lazy as _
 from django.utils.html import format_html
 from django.urls import reverse
@@ -9,6 +12,8 @@ from .models import (
     Author,
     Book
 )
+from apps.comment.models import Comment
+from django.contrib.contenttypes.admin import GenericStackedInline
 
 
 @admin.register(Category)
@@ -123,8 +128,50 @@ class TagAdmin(admin.ModelAdmin):
 
 
 
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    model = Author
+    ordering = ["-id"]
+    search_fields = ["full_name", "nationality"]
+    list_display_links = None
+    list_display = ["full_name", "nationality", "short_biography", "edit", "delete"]
+    fields = ["full_name", "nationality", "biography", "brief", "display_image", "image"]
+    readonly_fields = ["display_image"]
+
+    def edit(self, obj):
+        translate = _("view/edit")
+        return format_html(
+            '<a class="button" href="{}">{}</a>',
+            reverse('admin:product_author_change', args=[obj.id]),
+            translate
+        )
+    
+    def short_biography(self, obj):
+        if len(obj.biography) > 50:
+            return obj.biography[:50] + " ..."
+        else:
+            return obj.biography
+
+    def delete(self, obj):
+        translate = _("delete")
+        return format_html(
+            '<a class="button" href="{}" style="color:white; background-color: #840303 ;">{}</a>',
+            reverse('admin:product_author_delete', args=[obj.id]),
+            translate
+        )
+    
+    def display_image(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" height="100" style="background-color: #121212;"/>'.format(obj.image.url))
+        else:
+            return _("there is no image")
+
+    edit.short_description = _("view/edit")
+    delete.short_description = _("delete")
+    display_image.short_biography = _("biography")
+
+
 
 admin.site.register([
-    Author,
     Book,
 ])
