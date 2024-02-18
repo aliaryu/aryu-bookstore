@@ -217,4 +217,4 @@ class Book(LogicalBaseModel):
         verbose_name_plural = _("books")
 
     def __str__(self):
-        return f"{self.book_name}"
+        return f"{self.book_name} - count: {self.count}"

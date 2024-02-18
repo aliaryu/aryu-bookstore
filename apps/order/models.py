@@ -84,4 +84,4 @@ class OrderBook(LogicalBaseModel):
         verbose_name_plural = _("ordered books")
 
     def __str__(self):
-        return f"item id: [ {self.item.id} ] - order id: [ {self.order.id} ]"
+        return f"book id: [ {self.book.id} ] - order id: [ {self.order.id} ]"
