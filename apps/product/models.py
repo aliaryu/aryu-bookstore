@@ -13,7 +13,9 @@ class Category(models.Model):
     cat_parent = models.ForeignKey(
         verbose_name = _("parent"),
         to = "self",
-        on_delete = models.CASCADE
+        on_delete = models.CASCADE,
+        null = True,
+        blank = True,
     )
     image = models.ImageField(
         verbose_name = _("image"),
