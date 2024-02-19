@@ -2,6 +2,7 @@ from django.test import TestCase
 from apps.order.models import Order, OrderBook
 from apps.product.models import Book
 from apps.user.models import Address, Staff, Role
+from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
 
 
@@ -72,3 +73,64 @@ class OrderTestCase(TestCase):
         )
         expected_str = f"order number: [ {order.id} ]"
         self.assertEqual(str(order), expected_str)
+
+
+class OrderBookTestCase(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username = "testuser",
+            password = "testpassword"
+        )
+        self.address = Address.objects.create(
+            user = self.user,
+            province = "TEH",
+            postal_code = "1234567890",
+            address_path = "Iran - Ilam"
+        )
+        self.book = Book.objects.create(
+            book_name = "Test Book",
+            publisher = "Test Publisher",
+            description = "Test Description",
+            excerpt = "Test Excerpt",
+            pub_date = "1399-01-01",
+            language = "Test Language",
+            height = 200,
+            width = 150,
+            page = 300,
+            count = 10,
+            price = 200000.00,
+        )
+        self.order = Order.objects.create(
+            user = self.user,
+            address = self.address,
+            in_process = True,
+            is_complete = False
+        )
+
+    def test_order_book_creation(self):
+        order_book = OrderBook.objects.create(
+            order = self.order,
+            book = self.book,
+            count = 1
+        )
+        self.assertEqual(order_book.order, self.order)
+        self.assertEqual(order_book.book, self.book)
+        self.assertEqual(order_book.count, 1)
+
+    def test_order_book_clean_method(self):
+        with self.assertRaises(Exception):
+            order_book = OrderBook.objects.create(
+                order = self.order,
+                book = self.book,
+                count = 15
+            )
+            order_book.full_clean()
+
+    def test_order_book_save_method(self):
+        order_book = OrderBook.objects.create(
+            order = self.order,
+            book = self.book,
+            count = 3
+        )
+        book_count = Book.objects.get(id = self.book.id).count
+        self.assertEqual(book_count, 7)
