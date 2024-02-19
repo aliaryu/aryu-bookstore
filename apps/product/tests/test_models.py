@@ -110,7 +110,7 @@ class AuthorModelTests(TestCase):
         with self.assertRaises(ValueError):
             self.author.image.url
 
-    def test_author_image_upload(self):
+    def test_image_field(self):
         test_image = SimpleUploadedFile("test_author_image.jpg", b"file_content", content_type="image/jpeg")
         self.author.image = test_image
         self.author.save()
@@ -125,3 +125,54 @@ class AuthorModelTests(TestCase):
             content_object = self.author
         )
         self.assertIn(comment, self.author.comments.all())
+
+
+class BookTestCase(TestCase):
+    def setUp(self):
+        self.book = Book(
+            book_name = "Book Name",
+            publisher = "Publisher",
+            description = "Description",
+            excerpt = "Excerpt",
+            pub_date = "1399-01-01",
+            language = "Language",
+            height = 200,
+            width = 150,
+            page = 300,
+            count = 10,
+            price = 200000.00,
+        )
+        test_image = SimpleUploadedFile("test_book_image.jpg", b"file_content", content_type="image/jpeg")
+        self.book.image = test_image
+        self.book.save()
+
+    def tearDown(self):
+        os.remove(self.book.image.path)
+
+    def test_book_creation(self):
+        self.assertEqual(self.book.book_name, "Book Name")
+        self.assertEqual(self.book.publisher, "Publisher")
+        self.assertEqual(self.book.description, "Description")
+        self.assertEqual(self.book.excerpt, "Excerpt")
+        self.assertEqual(self.book.pub_date, "1399-01-01")
+        self.assertEqual(self.book.language, "Language")
+        self.assertEqual(self.book.height, 200)
+        self.assertEqual(self.book.width, 150)
+        self.assertEqual(self.book.page, 300)
+        self.assertEqual(self.book.count, 10)
+        self.assertEqual(self.book.price, 200000.00)
+    
+    def test_image_field(self):
+        self.assertIn("book_image/test_book_image", self.book.image.url)
+
+    def test_str_representation(self):
+        self.assertEqual(str(self.book), "Book Name - count: 10")
+
+    def test_book_comments_relation(self):
+        user = User.objects.create()
+        comment = Comment.objects.create(
+            user = user,
+            text = 'Test Comment',
+            content_object = self.book
+        )
+        self.assertIn(comment, self.book.comments.all())
