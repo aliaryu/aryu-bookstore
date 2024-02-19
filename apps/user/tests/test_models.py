@@ -56,7 +56,7 @@ class AddressModelTests(TestCase):
         self.assertEqual(self.address.address_path, 'test path')
 
     def test_address_str_method(self):
-        expected_str = f"{self.address.id} - {self.address.postal_code}"
+        expected_str = f"user: [ {self.user.username} ] - postal code: [ {self.address.postal_code} ]"
         self.assertEqual(str(self.address), expected_str)
 
 
