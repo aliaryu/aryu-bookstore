@@ -69,3 +69,21 @@ class GenreModelTests(TestCase):
         self.genre.save()
         self.assertIn("genre_image/test_image", self.genre.image.url)
         os.remove(self.genre.image.path)
+
+
+class TagModelTests(TestCase):
+    def setUp(self):
+        self.tag = Tag.objects.create(
+            tag_name = 'Test Tag'
+        )
+
+    def test_create_tag(self):
+        self.assertEqual(self.tag.tag_name, 'Test Tag')
+
+    def test_str_representation(self):
+        self.assertEqual(str(self.tag), 'Test Tag')
+
+    def test_unique_tag_name(self):
+        with self.assertRaises(Exception):
+            Tag.objects.create(tag_name='Test Tag')
+    
