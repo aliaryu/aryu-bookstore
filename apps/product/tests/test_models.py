@@ -7,7 +7,12 @@ from apps.product.models import (
     Author,
     Book
 )
+from apps.comment.models import Comment
+from django.contrib.auth import get_user_model
 import os
+
+
+User = get_user_model()
 
 
 class CategoryModelTests(TestCase):
@@ -86,4 +91,37 @@ class TagModelTests(TestCase):
     def test_unique_tag_name(self):
         with self.assertRaises(Exception):
             Tag.objects.create(tag_name='Test Tag')
-    
+
+
+class AuthorModelTests(TestCase):
+    def setUp(self):
+        self.author = Author.objects.create(
+            full_name = 'Test Author',
+            biography = 'This is a test biography',
+            brief = 'This is a test brief',
+            nationality = 'Test Nationality',
+        )
+
+    def test_create_author(self):
+        self.assertEqual(self.author.full_name, 'Test Author')
+        self.assertEqual(self.author.biography, 'This is a test biography')
+        self.assertEqual(self.author.brief, 'This is a test brief')
+        self.assertEqual(self.author.nationality, 'Test Nationality')
+        with self.assertRaises(ValueError):
+            self.author.image.url
+
+    def test_author_image_upload(self):
+        test_image = SimpleUploadedFile("test_author_image.jpg", b"file_content", content_type="image/jpeg")
+        self.author.image = test_image
+        self.author.save()
+        self.assertIn("author_image/test_author_image", self.author.image.url)
+        os.remove(self.author.image.path)
+
+    def test_author_comments_relation(self):
+        user = User.objects.create()
+        comment = Comment.objects.create(
+            user = user,
+            text = 'Test Comment',
+            content_object = self.author
+        )
+        self.assertIn(comment, self.author.comments.all())
