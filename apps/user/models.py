@@ -148,9 +148,15 @@ class Address(models.Model):
 
 
 class Role(LogicalBaseModel):
+    ROLES = [
+        ("M", "Manager"),
+        ("S", "Supervisor"),
+        ("O", "Operator"),
+    ]
     role_name = models.CharField(
         verbose_name = _("role"),
-        max_length = 255,
+        max_length = 1,
+        choices = ROLES,
         unique = True,
     )
     salary = models.DecimalField(
@@ -185,7 +191,7 @@ class Staff(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-        if self.role.role_name == "Manager":
+        if self.role.role_name == "M":
             group, created = Group.objects.get_or_create(name="Manager")
             if created:
                 permissions_codenames = [
@@ -208,7 +214,7 @@ class Staff(models.Model):
             self.user.groups.set([group])
             self.user.save()
 
-        elif self.role.role_name == "Supervisor":
+        elif self.role.role_name == "S":
             group, created = Group.objects.get_or_create(name="Supervisor")
             if created:
                 permissions_codenames = [
@@ -232,7 +238,7 @@ class Staff(models.Model):
             self.user.groups.set([group])
             self.user.save()
             
-        elif self.role.role_name == "Operator":
+        elif self.role.role_name == "O":
             group, created = Group.objects.get_or_create(name="Operator")
             if created:
                 permissions_codenames = [

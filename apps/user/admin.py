@@ -132,7 +132,7 @@ class RoleAdmin(admin.ModelAdmin):
     search_fields = ["role_name"]
     list_display_links = None
     list_display = ["role_name", "salary", "edit"]
-    fields = ["role_name", "salary", "is_delete"]
+    fields = ["role_name", "salary",]
 
     def edit(self, obj):
         translate = _("view/edit")
