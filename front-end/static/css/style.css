@@ -156,3 +156,8 @@
     background-size: cover;
     background-color: #464646;
 }
+
+.bg-dotted {
+    background-image: radial-gradient(rgba(250, 0, 221, 0.280) 1px, transparent 0);
+    background-size: 20px 20px;
+}
