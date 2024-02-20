@@ -172,3 +172,27 @@
     transition: all 1s linear;
     transform: scale(1.08)  rotate(-3deg);
 }
+
+.tags {
+    background-color: #e7e7e7;
+    color: black;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px 5px 5px 9px;
+    margin: 2px;
+    font-size: 14px;
+    transition: all 0.1s linear;
+}
+
+.tags:hover {
+    background-color: black;
+    color: white;
+}
+
+.tags:hover > i {
+    color: white;
+}
+
+.i-tr {
+    transition: all 0.1s linear;
+}
