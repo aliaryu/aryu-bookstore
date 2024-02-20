@@ -161,3 +161,9 @@
     background-image: radial-gradient(rgba(250, 0, 221, 0.280) 1px, transparent 0);
     background-size: 20px 20px;
 }
+
+.btn-hover-parent:hover .btn-hover {
+    color: white;
+    transition: all 0.1s linear;
+}
+
