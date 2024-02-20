@@ -169,5 +169,5 @@
 
 .img-hover:hover {
     transition: all 1s linear;
-    transform: scale(1.03)  rotate(-3deg);
+    transform: scale(1.08)  rotate(-3deg);
 }
