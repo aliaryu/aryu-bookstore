@@ -151,8 +151,9 @@
 }
 
 #background-footer {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../image/gif/rainy-cati.gif");
-    background-position: center 55%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("../image/gif/ponies-watching-to-stars.gif");
+    background-position: center -200%;
+    background-attachment: fixed;
     background-size: cover;
     background-color: #464646;
 }
