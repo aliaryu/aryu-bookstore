@@ -213,6 +213,6 @@
     }
 }
 
-.form-control::placeholder {
-    color: #ffffff;
+.place-holder-grey::placeholder {
+    color: #666666;
 }
