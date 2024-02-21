@@ -151,8 +151,68 @@
 }
 
 #background-footer {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../image/gif/rainy-cati.gif");
-    background-position: center 55%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("../image/gif/ponies-watching-to-stars.gif");
+    background-position: center -200%;
+    background-attachment: fixed;
     background-size: cover;
     background-color: #464646;
+}
+
+.bg-dotted {
+    background-image: radial-gradient(rgba(250, 0, 221, 0.280) 1px, transparent 0);
+    background-size: 20px 20px;
+}
+
+.btn-hover-parent:hover .btn-hover {
+    color: white;
+    transition: all 0.1s linear;
+}
+
+.img-hover:hover {
+    transition: all 1s linear;
+    transform: scale(1.08)  rotate(-3deg);
+}
+
+.tags {
+    background-color: #e7e7e7;
+    color: black;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px 5px 5px 9px;
+    margin: 2px;
+    font-size: 14px;
+    transition: all 0.1s linear;
+}
+
+.tags:hover {
+    background-color: black;
+    color: white;
+}
+
+.tags:hover > i {
+    color: white;
+}
+
+.i-tr {
+    transition: all 0.1s linear;
+}
+
+.reply {
+    text-indent: 85px;
+}
+
+@media (max-width: 576px) {
+    .reply {
+        text-indent: 0px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+    .reply {
+        text-indent: 45px;
+    }
+}
+
+.form-control::placeholder {
+    color: #666666;
 }
