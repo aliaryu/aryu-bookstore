@@ -212,3 +212,7 @@
         text-indent: 45px;
     }
 }
+
+.form-control::placeholder {
+    color: #666666;
+}
