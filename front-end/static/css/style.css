@@ -196,3 +196,19 @@
 .i-tr {
     transition: all 0.1s linear;
 }
+
+.reply {
+    text-indent: 85px;
+}
+
+@media (max-width: 576px) {
+    .reply {
+        text-indent: 10px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+    .reply {
+        text-indent: 45px;
+    }
+}
