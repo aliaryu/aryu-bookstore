@@ -203,7 +203,7 @@
 
 @media (max-width: 576px) {
     .reply {
-        text-indent: 10px;
+        text-indent: 0px;
     }
 }
 
