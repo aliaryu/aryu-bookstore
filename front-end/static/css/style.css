@@ -131,7 +131,7 @@
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0, 0, 0, 0.123) 50%, rgba(255,255,255,0.16848746334471287) 100%);
 }
 
-* {
+.scrollbar {
     scrollbar-width: thin;
     scrollbar-color: #424242 #dadada;
 }
