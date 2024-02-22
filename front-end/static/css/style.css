@@ -202,3 +202,8 @@
 .place-holder-grey::placeholder {
     color: #666666;
 }
+
+#map-responsive iframe {
+    width: 100%;
+    height: 100%;
+}
