@@ -151,7 +151,7 @@
 
 .btn-hover-parent:hover .btn-hover {
     color: white;
-    transition: all 0.1s linear;
+    transition: all 0.15s ease-in-out;
 }
 
 .img-hover:hover {
