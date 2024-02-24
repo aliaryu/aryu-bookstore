@@ -207,3 +207,13 @@
     width: 100%;
     height: 100%;
 }
+
+.active-paginate {
+    background-color: #222;
+    color: white !important;
+    border: #222 1px solid;
+}
+
+.active-paginate:hover {
+    color: #222 !important;
+}
