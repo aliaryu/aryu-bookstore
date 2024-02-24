@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <link rel="icon" type="image/x-icon" href="static/image/logo.png">
+    <title>Aryu Bookstore</title>
+
+</head>
+<body>
+
+    <!-- HEADER SITE, NAVS -->
+    <div>
+        <header id="header">
+
+            <!-- NAV USER, SOCIAL MEDIAS -->
+            <nav class="navbar navbar-expand-lg p-0">
+                <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
+                    <div class="mb-1 mb-lg-0">
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="#">ورود <i class="bi bi-box-arrow-in-left text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="#">ثبت نام <i class="bi bi-person-add text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="#">سبد خرید <i class="bi bi-cart text-white"></i> </a>
+                    </div>
+                
+                    <div class="my-1">
+                        <form class="input-group ms-lg-5" dir="ltr" action="" method="get">
+                            <input type="text" class="form-control bg-transparent text-white fw-bold text-end font-17" placeholder="جست و جو ..." dir="rtl">
+                            <button class="btn btn-outline-white border-white border-start-0 font-17" type="submit"><i class="bi bi-search text-white"></i></button>
+                        </form>
+                    </div>
+                
+                    <div>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0" href="#"> <i class="bi bi-telephone text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0" href="#"> <i class="bi bi-envelope-at text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0" href="https://discord.gg/T9ExvTpGhQ"> <i class="bi bi-discord text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0" href="#"> <i class="bi bi-github text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0" href="#"> <i class="bi bi-instagram text-white"></i> </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- NAV WEBSITE -->
+            <nav class="navbar navbar-expand-lg bg-white-glass">
+                <div class="container">
+
+                  <a class="navbar-brand d-flex f-sayeh font-30 pt-3 text-white" href="#">کتاب فروشی آریو <i id="logo"></i></a>
+
+                  <button class="navbar-toggler border-0 delete-outline" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list fs-3 text-white"></i>
+                  </button>
+                  
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 pe-0 d-flex justify-content-center align-items-center">
+                      <li class="nav-item">
+                        <a class="nav-link active navbar-brand text-white" aria-current="true" href="#">صفحه اصلی</a>
+                      </li>
+                      <li class="nav-item">
+                        <button type="button" class="nav-link active navbar-brand text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">دسته بندی ها</button>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active navbar-brand text-white" aria-disabled="true" href="#">درباره ما</a>
+                      </li>
+                    </ul>
+
+                  </div>
+
+                </div>
+            </nav>
+
+            <!-- SLOGAN -->
+            <div class="container p-5 p-lg-5">
+                <div class="text-center">
+                    <h1 class="display-4 f-sayeh f-bold text-white">کتاب فروشی آریو</h1>
+                    <p class="mt-4 mb-0 f-sayeh f-bold font-25 text-white">کتاب ، تنها چیزی که شما نیاز دارید <span class="f-sayeh text-white">:)</span></p>
+                </div>
+            </div>
+
+            <!-- MODAL CATEGORIES -->
+            <div class="modal fade bg-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content bg-modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <ul class="pe-0">
+
+                                <li class="list-group-item font-20">
+                                    ادبیات <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
+                                    <ul class="list-group list-unstyled">
+                                        <li class="font-20">رمان</li>
+                                        <li class="font-20">نمایش نامه</li>
+                                        <li class="font-20">داستان کوتاه</li>
+                                    </ul>
+                                </li>
+
+                                <li class="list-group-item font-20">
+                                    روانشاسی <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
+                                    <ul class="list-group list-unstyled">
+                                        <li class="font-20">عمومی</li>
+                                        <li class="font-20">کودکان</li>
+                                        <li class="font-20">
+                                            اجتماعی <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
+                                            <ul class="list-group list-unstyled">
+                                                <li class="font-20">فرهنگی</li>
+                                                <li class="font-20">جغرافیایی</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="list-group-item font-20">تاریخی</li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </header>
+    </div>
+  
+    <!-- IMAGE/DETAIL -->
+    <section class="container-fluid py-3 bg-even">
+        <div class="container">
+            
+            <section class="py-0">
+                <div class="container">
+                  <div class="row gx-5 jus">
+
+                    <!-- IMAGE -->
+                    <aside class="col-lg-6 px-0 my-3 d-flex align-items-center justify-content-center bg-dotted">
+                      <div class="d-flex justify-content-center">
+                          <div class="position-relative">
+                            <img style="height: auto; max-height: 500px; margin: auto; filter: blur(0.5px); transition: all .2s linear;" 
+                            class="rounded-4  fit img-shadow img-fluid img-hover" src="static/image/author/batman.jpg" width="250"/>
+                          </div>
+                          
+                      </div>
+                    </aside>
+
+                    <!-- DETAIL -->
+                    <main class="col-lg-6 px-0 my-3 d-flex align-items-center justify-content-center">
+                      <div class="ps-lg-3">
+
+                        <!-- FULLNAME -->
+                        <h4 class="title text-dark f-bold font-25">
+                            <i class="bi bi-person feat-img"></i>&nbsp;
+                            بروس وین ، بتمن گاتهام
+                        </h4>
+
+                        <div class="my-3">
+                            <span class="f-bold">
+                                <i class="bi bi-globe2 font-17"></i>
+                              ملیت:
+                              <span class="text-muted">آمریکا</span>
+                            </span>
+                        </div>
+
+                        <div class="my-3">
+                            <span class="f-bold">
+                                <i class="bi bi-book font-17"></i>&nbsp;
+                                کتاب ها:
+                                <ul class="m-0">
+                                    <li><a class="text-decoration-none text-success" href="#">بتمن برمیخیزد</a></li>
+                                    <li><a class="text-decoration-none text-success" href="#">بتمن و جوکر</a></li>
+                                </ul>
+                            </span>
+                        </div>
+
+                      </div>
+                    </main>
+
+                  </div>
+                </div>
+            </section>
+
+        </div>
+    </section>
+
+    <!-- BIOGRAPHY & BRIEF -->
+    <div class="container-fluid my-3">
+        <div class="container p-0">
+            <div class="row g-0 row-cols-1 row-cols-xl-2">
+
+                <div class="col d-flex">
+                    <div class="border rounded p-3 position-relative ms-xl-2 mb-xl-0 mb-2" >
+                        <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">بیوگرافی نویسنده:</span>
+                        <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+                    </div>
+                </div>
+
+                <div class="col d-flex">
+                    <div class="border rounded p-3 position-relative me-xl-2 mt-xl-0 mt-2" >
+                        <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">سخنی از نویسنده:</span>
+                        <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- COMMENTS -->
+    <div class="container-fluid my-3">
+        <div class="container p-0">
+            <div class="border rounded position-relative p-2">
+                <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">نظرات:</span>
+                <div class="row justify-content-center">
+
+                    <!-- CM -->
+                    <div class="col-12 col-lg-8 p-3">
+                        <div class="d-flex align-items-center">
+                            <img src="static/image/default/user.png" alt="user-image" class="rounded-circle img-thumbnail ms-2" width="85px" height="85px;">
+                            <div class="row">
+                                <span class="text-success">علی آریو:</span>
+                                <span class="text-secondary" style="font-size: 14px;">1402-11-5 00:00</span>
+                            </div>
+                        </div>
+
+                        <!-- TEXT -->
+                        <p class="m-0 pe-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+
+                        <!-- REPLY -->
+                        <p class="m-0 pe-2 reply">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"
+                            style="transform: scaleY(-1);">
+                            <path d="M8.021 11.9 3.453 8.62a.72.72 0 0 1 0-1.238L8.021 4.1a.716.716 0 0 1 1.079.619V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
+                            <path d="M5.232 4.293a.5.5 0 0 1-.106.7L1.114 7.945l-.042.028a.147.147 0 0 0 0 .252l.042.028 4.012 2.954a.5.5 0 1 1-.593.805L.539 9.073a1.147 1.147 0 0 1 0-1.946l3.994-2.94a.5.5 0 0 1 .699.106"/>
+                            
+                            </svg>
+                            <span>کتاب فروشی آریو:</span>
+                            ممنون بابت دیدگاهتون 💖
+                        </p>
+                    </div>
+
+                    <!-- CM -->
+                    <div class="col-12 col-lg-8 p-3">
+                        <div class="d-flex align-items-center">
+                            <img src="static/image/default/user.png" alt="user-image" class="rounded-circle img-thumbnail ms-2" width="85px" height="85px;">
+                            <div class="row">
+                                <span class="text-success">خوره کتاب:</span>
+                                <span class="text-secondary" style="font-size: 14px;">1402-11-5 00:00</span>
+                            </div>
+                        </div>
+
+                        <!-- TEXT -->
+                        <p class="m-0 pe-2">نویسنده خوبی هستن ، مخصوصا کتاب فلان بیسارشون.</p>
+                    </div>
+                    
+                    <!-- CM -->
+                    <div class="col-12 col-lg-8 p-3">
+                        <div class="d-flex align-items-center">
+                            <img src="static/image/default/user.png" alt="user-image" class="rounded-circle img-thumbnail ms-2" width="85px" height="85px;">
+                            <div class="row">
+                                <span class="text-success">نی نی کوچولو:</span>
+                                <span class="text-secondary" style="font-size: 14px;">1402-11-5 00:00</span>
+                            </div>
+                        </div>
+
+                        <!-- TEXT -->
+                        <p class="m-0 pe-2">خیلی بد بود ازتون ناراحت ام 🙁</p>
+
+                        <!-- REPLY -->
+                        <p class="m-0 pe-2 reply">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"
+                            style="transform: scaleY(-1);">
+                            <path d="M8.021 11.9 3.453 8.62a.72.72 0 0 1 0-1.238L8.021 4.1a.716.716 0 0 1 1.079.619V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
+                            <path d="M5.232 4.293a.5.5 0 0 1-.106.7L1.114 7.945l-.042.028a.147.147 0 0 0 0 .252l.042.028 4.012 2.954a.5.5 0 1 1-.593.805L.539 9.073a1.147 1.147 0 0 1 0-1.946l3.994-2.94a.5.5 0 0 1 .699.106"/>
+                            
+                            </svg>
+                            <span class="">کتاب فروشی آریو:</span>
+                            خیلی متاسفیم 💔
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORM COMMENT -->
+    <div class="container-fluid my-3">
+        <div class="container p-0">
+            <div class="border rounded position-relative p-2">
+                <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">ارسال نظر:</span>
+
+                <div class="row justify-content-center">
+                    
+                    <form class="col-12 col-lg-8 py-2 px-3" action="" method="post">
+                        <textarea class="form-control bg-transparent text-black f-bold place-holder-grey" placeholder="نظر شما  ..." rows="5"></textarea>
+                        <button type="submit" class="col form-control bg-transparent text-black f-bold mt-2"> ارسال <i class="bi bi-send-check text"></i> </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="container-fluid text-white mb-5 p-0 bg-opacity-half position-relative" id="background-footer">
+        <div class="container justify-content-center py-5">
+
+            <div class="row">
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5 class="text-white f-bold font-25">ستون یک :</h5>
+                    <ul class="nav flex-column p-0">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره یک</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره دو</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره سه</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره چهار</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5 class="text-white f-bold font-25">ستون دو :</h5>
+                    <ul class="nav flex-column p-0">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره یک</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره دو</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره سه</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره چهار</a></li>
+                    </ul>
+                </div>
+
+                <!-- NEWSLETTER DIVE -->
+                <div class="col d-flex justify-content-center align-items-center">
+                    <div class="w-100">
+                        <h2 class="font-25 text-white f-bold">عضویت در خبرنامه</h2>
+                        <p class="font-17 text-white f-bold">از آخرین رویداد ها و کد های تخفیف با خبر شوید.</p>
+                        <form class="d-flex flex-column flex-sm-row gap-2">
+                            <input type="email" class="form-control bg-transparent text-white font-17 fw-bold" placeholder="ایمیل شما">
+                            <button type="submit" class="d-flex justify-content-center align-items-center btn btn-outline-light bg-transparent text-white font-17 fw-bold">
+                                عضویت 
+                                <i class="bi bi-bookmark font-15 mx-1 text-white"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="d-flex  flex-row justify-content-between align-items-center pt-4 mt-4 border-top">
+                <p class="font-17 m-0 text-white">© زمستان 1402 ، ساخته شده توسط:
+                    <a class="font-17 text-white " href="https://github.com/aliaryu/">aliaryu@</a>
+                </p>
+                <span class="d-flex align-items-center">
+                    <i class="bi bi-stars font-25 text-white feat-img"></i>
+                    <img src="static/image/logo.png" alt="logo" width="30px" height="30px"
+                    style="filter: brightness(0) invert(1) drop-shadow(3px 3px 2px #222);">
+                </span>
+            </div>
+
+            <button class="font-17 btn btn-light px-2 py-1 position-absolute  feat-img" style="bottom: -19px;" id="scroll-to-top">
+                <i class="bi bi-caret-up-fill"></i>
+            </button>
+
+        </div>
+    </footer>
+
+</body>
+
+    <script src="static/js/scroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</html>
