@@ -51,9 +51,8 @@
     background-color: #464646;
 }
 
-#logo {
+.logo {
     background-image: url("../image/logo.png");
-    filter: brightness(0) invert(1);
     background-position: center center;
     background-size: cover;
     display: inline-block;
@@ -65,6 +64,10 @@
     top: -10px;
 
     animation: rotate 4s forwards infinite 2s;
+}
+
+.invert-color {
+    filter: brightness(0) invert(1);
 }
 
 @keyframes rotate {
@@ -216,4 +219,13 @@
 
 .active-paginate:hover {
     color: #222 !important;
+}
+
+#background-login {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../image/gif/nightstars-pingclouds.gif");
+    background-position: center top;
+    /* background-attachment: fixed; */
+    background-size: cover;
+    background-color: #464646;
+    margin: 1px;
 }
