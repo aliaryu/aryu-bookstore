@@ -56,6 +56,46 @@
                             </div>
                         </div>
 
+                        <!-- TAB2 -->
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                            <div class="div-otp-login">
+                                
+                                <!-- USERNAME FORM -->
+                                <form action="" method="post" class="mx-1 my-2 fade show">
+                                    <div class="row g-2">
+                                        <input type="text" class="form-control bg-transparent fw-bold place-holder-grey" placeholder="نام کاربری">
+
+                                        <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
+                                            ارسال کد به ایمیل
+                                            <i class="bi bi-envelope mx-1"></i>
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <!-- OTP FORM -->
+                                <form action="" method="post" class="mx-1 my-2 fade show">
+                                    <div class="row g-2">
+                                        <div class="otp-field" dir="ltr">
+                                            <input type="number" />
+                                            <input type="number" disabled />
+                                            <input type="number" disabled />
+                                            <input type="number" disabled />
+                                            <input type="number" disabled />
+                                        </div>
+                                        <button type="submit" class="confirm d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
+                                            ورود 
+                                            <i class="bi bi-box-arrow-in-left mx-1 font-17 d-flex"></i>
+                                        </button>
+                                        <p class="text-center my-2">
+                                            زمان باقی مانده تا انقضای کد: 
+                                            <span id="timer">- -</span> 
+                                            <i class="bi bi-stopwatch"></i>
+                                        </p>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                        </div>
 
                     </div>
 
