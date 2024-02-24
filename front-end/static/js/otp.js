@@ -66,3 +66,27 @@ inputs.forEach((input, index1) => {
   });
 });
 
+// TIMER, REFRESH PAGE
+function killOTP() {
+  var remainingTime = 120;
+
+  function updateTimer() {
+      remainingTime --;
+
+      var minutes = Math.floor(remainingTime / 60);
+      var seconds = remainingTime % 60;
+      var minutesStr = minutes < 10 ? "0" + minutes : minutes;
+      var secondsStr = seconds < 10 ? "0" + seconds : seconds;
+
+      document.getElementById("timer").textContent = minutesStr + ":" + secondsStr;
+
+      if (remainingTime <= 0) {
+          location.reload();
+      }
+  }
+
+  var timerInterval = setInterval(updateTimer, 1000);
+  updateTimer();
+}
+
+// killOTP();
