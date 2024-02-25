@@ -7,8 +7,6 @@ from .managers import (
     UserRelatedModelBaseManager
 )
 from .validators import (
-    phone_format_validator,
-    phone_numeric_validator,
     birth_date_validator,
     image_extension_validator,
     square_image_validator,
@@ -23,15 +21,6 @@ class User(AbstractUser):
         verbose_name = _("email"),
         max_length = 255,
         unique = True,
-    )
-    phone = models.CharField(
-        verbose_name = _("phone"),
-        max_length = 11,
-        unique = True,
-        validators = [
-            phone_format_validator,
-            phone_numeric_validator,
-        ]
     )
     birth_date = models.DateField(
         verbose_name = _("birth date"),
