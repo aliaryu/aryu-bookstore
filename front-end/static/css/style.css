@@ -51,9 +51,8 @@
     background-color: #464646;
 }
 
-#logo {
+.logo {
     background-image: url("../image/logo.png");
-    filter: brightness(0) invert(1);
     background-position: center center;
     background-size: cover;
     display: inline-block;
@@ -65,6 +64,10 @@
     top: -10px;
 
     animation: rotate 4s forwards infinite 2s;
+}
+
+.invert-color {
+    filter: brightness(0) invert(1);
 }
 
 @keyframes rotate {
@@ -216,4 +219,37 @@
 
 .active-paginate:hover {
     color: #222 !important;
+}
+
+.div-user-login, .div-otp-login {
+    height: 300px;
+}
+
+.otp-field {
+    flex-direction: row;
+    column-gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.otp-field input {
+    height: 45px;
+    width: 42px;
+    border-radius: 6px;
+    outline: none;
+    font-size: 1.125rem;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+.otp-field input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.otp-field input::-webkit-inner-spin-button,
+.otp-field input::-webkit-outer-spin-button {
+    display: none;
+}
+.otp-field input[type=number] {
+    appearance: textfield;
 }
