@@ -279,3 +279,8 @@
 .parent-user-image:hover .hidden-icon {
     opacity: 1;
 }
+
+select:valid {
+    font-weight: bold;
+    color: black;
+}
