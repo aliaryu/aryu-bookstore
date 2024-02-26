@@ -264,3 +264,18 @@
     color: white !important;
 }
 
+#profile-user-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../image/gif/nightstars-pingclouds.gif");
+    background-position: center center;
+    background-size: cover;
+    background-color: #464646;
+}
+
+.hidden-icon {
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.parent-user-image:hover .hidden-icon {
+    opacity: 1;
+}
