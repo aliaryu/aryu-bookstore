@@ -253,3 +253,14 @@
 .otp-field input[type=number] {
     appearance: textfield;
 }
+
+.tab-profile .nav-link.active {
+    background-color: #222;
+    color: white !important;
+}
+
+.tab-profile .nav-link.active i {
+    transition: all 0.15 ease-in-out;
+    color: white !important;
+}
+
