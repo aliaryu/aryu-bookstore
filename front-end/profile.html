@@ -210,9 +210,9 @@
                     <button class="d-flex align-items-center nav-link text-black active" id="v-piluser-tab" data-bs-toggle="pill" data-bs-target="#v-pills-user" type="button" role="tab" aria-controls="v-pills-user" aria-selected="true"> <i class="bi bi-person-fill font-17 ms-1"></i> اطلاعات کاربری</button>
                     <button class="d-flex align-items-center nav-link text-black" id="v-pills-address-tab" data-bs-toggle="pill" data-bs-target="#v-pills-address" type="button" role="tab" aria-controls="v-pills-address" aria-selected="false"> <i class="bi bi-geo-alt-fill font-17 ms-1"></i> آدرس ها</button>
                     <button class="d-flex align-items-center nav-link text-black" id="v-pills-password-tab" data-bs-toggle="pill" data-bs-target="#v-pills-password" type="button" role="tab" aria-controls="v-pills-password" aria-selected="false"> <i class="bi bi-shield-lock-fill ms-1"></i> تغییر رمز</button>
+                    <button class="d-flex align-items-center nav-link text-black" id="v-pills-order-tab" data-bs-toggle="pill" data-bs-target="#v-pills-order" type="button" role="tab" aria-controls="v-pills-order" aria-selected="false"> <i class="bi bi-bag-fill ms-1"></i> سفارش ها</button>
                     <button class="d-flex align-items-center nav-link text-black" id="v-pills-like-tab" data-bs-toggle="pill" data-bs-target="#v-pills-like" type="button" role="tab" aria-controls="v-pills-like" aria-selected="false"> <i class="bi bi-suit-heart-fill ms-1"></i> پسندیده ها</button>
                     <button class="d-flex align-items-center nav-link text-black" id="v-pills-save-tab" data-bs-toggle="pill" data-bs-target="#v-pills-save" type="button" role="tab" aria-controls="v-pills-save" aria-selected="false"> <i class="bi bi-bookmark-fill ms-1"></i> ذخیره ها</button>
-                    <button class="d-flex align-items-center nav-link text-black" id="v-pills-order-tab" data-bs-toggle="pill" data-bs-target="#v-pills-order" type="button" role="tab" aria-controls="v-pills-order" aria-selected="false"> <i class="bi bi-bag-fill ms-1"></i> سفارش ها</button>
                 </div>
 
                 <div class="col tab-content px-1 pb-0 py-2 px-sm-3 py-sm-0" id="v-pills-tabContent">
@@ -322,6 +322,71 @@
                         </form>
                     </div>
 
+                    <!-- ORDERS -->
+                    <div class="tab-pane fade" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab" tabindex="0">
+                        <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
+                            <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">سفارش ها:</span>
+                        </span>
+
+                        <!-- <div class="row p-2 g-2 mt-1 border rounded-2"> ... </div> -->
+
+                        <!-- TABLE ORDERS -->
+                        <div class="table-responsive">
+                            <table class="table table scrolling-wrapper">
+                            
+                                <!-- HEAD TABLE -->
+                                <thead>
+                                    <tr>
+                                        <th scope="col"><i class="bi bi-slack font-15"></i> شماره</th>
+                                        <th scope="col"><i class="bi bi-calendar-week-fill font-15"></i> تاریخ</th>
+                                        <th scope="col"><i class="bi bi-database-fill"></i> قیمت کل</th>
+                                        <th scope="col"><i class="bi bi-hourglass-split"></i> وضعیت</th>
+                                        <th scope="col"><i class="bi bi-eye-fill"></i> جزئیات</th>
+                                    </tr>
+                                </thead>
+    
+                                <!-- BODY TABLE -->
+                                <tbody>
+    
+                                    <tr class="font-14">
+                                        <td>251</td>
+                                        <td>2-7-1402 , 19:25</td>
+                                        <td>430,000ت</td>
+                                        <td class="text-checking">در حال بررسی</td>
+                                        <td><span class="btn bg-secondary f-bold font-14 py-0 text-light">مشاهده</span></td>
+                                    </tr>
+
+                                    <tr class="font-14">
+                                        <td>257</td>
+                                        <td>27-3-1402 , 13:20</td>
+                                        <td>1,250,000ت</td>
+                                        <td class="text-inprogress">در حال انجام</td>
+                                        <td><span class="btn bg-secondary f-bold font-14 py-0 text-light">مشاهده</span></td>
+                                    </tr>
+
+                                    <tr class="font-14">
+                                        <td>392</td>
+                                        <td>18-5-1403 , 00:00</td>
+                                        <td>550,000ت</td>
+                                        <td class="text-completed">تکمیل شده</td>
+                                        <td><span class="btn bg-secondary f-bold font-14 py-0 text-light">مشاهده</span></td>
+                                    </tr>
+
+                                    <tr class="font-14">
+                                        <td>4785</td>
+                                        <td>1-1-1404 , 9:10</td>
+                                        <td>1,400,000ت</td>
+                                        <td class="text-canceled">تایید نشده</td>
+                                        <td><span class="btn bg-secondary f-bold font-14 py-0 text-light">مشاهده</span></td>
+                                    </tr>
+                                  
+                                </tbody>
+    
+                            </table>
+                        </div>
+
+                    </div>
+
                     <!-- LIKES -->
                     <div class="tab-pane fade" id="v-pills-like" role="tabpanel" aria-labelledby="v-pills-like-tab" tabindex="0">
                         <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
@@ -401,8 +466,7 @@
                         </div>
 
                     </div>
-
-                    <div class="tab-pane fade" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab" tabindex="0">...</div>
+    
                 </div>
 
             </div>
