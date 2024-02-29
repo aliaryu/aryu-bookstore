@@ -40,6 +40,14 @@
     font-size: 17px;
 }
 
+.font-15 {
+    font-size: 15px;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
 .bg-white-glass {
     background-color: rgba(255, 255, 255, 0.116);
 }
@@ -252,4 +260,57 @@
 }
 .otp-field input[type=number] {
     appearance: textfield;
+}
+
+.tab-profile .nav-link.active {
+    background-color: #222;
+    color: white !important;
+}
+
+.tab-profile .nav-link.active i {
+    transition: all 0.15 ease-in-out;
+    color: white !important;
+}
+
+#profile-user-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../image/gif/nightstars-pingclouds.gif");
+    background-position: center center;
+    background-size: cover;
+    background-color: #464646;
+}
+
+.hidden-icon {
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.parent-user-image:hover .hidden-icon {
+    opacity: 1;
+}
+
+select:valid {
+    font-weight: bold;
+    color: black;
+}
+
+.avoid-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-checking {
+    color: rgb(206, 0, 206) !important;
+}
+
+.text-inprogress {
+    color: rgb(0, 165, 187) !important;
+}
+
+.text-completed {
+    color: rgb(0, 139, 53) !important;
+}
+
+.text-canceled {
+    color: rgb(190, 0, 0) !important;
 }
