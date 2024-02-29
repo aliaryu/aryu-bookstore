@@ -298,3 +298,19 @@ select:valid {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.text-checking {
+    color: rgb(206, 0, 206) !important;
+}
+
+.text-inprogress {
+    color: rgb(0, 165, 187) !important;
+}
+
+.text-completed {
+    color: rgb(0, 139, 53) !important;
+}
+
+.text-canceled {
+    color: rgb(190, 0, 0) !important;
+}
