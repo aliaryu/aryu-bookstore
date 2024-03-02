@@ -314,3 +314,29 @@ select:valid {
 .text-canceled {
     color: rgb(190, 0, 0) !important;
 }
+
+.num::-webkit-inner-spin-button,
+.num::-webkit-outer-spin-button {
+    display: none;
+}
+.num[type=number] {
+    appearance: textfield;
+}
+
+.rainbow-background {
+    background: linear-gradient(to right, #c44272, #a81490, #d10050, #640436, #aa2757, #a54576, #c01145);
+    background-size: 1500% 100%;
+    animation: rainbow-animation 15s linear infinite;
+}
+
+@keyframes rainbow-animation {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
