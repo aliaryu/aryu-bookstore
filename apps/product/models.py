@@ -218,7 +218,7 @@ class Book(LogicalBaseModel):
         blank = True,
     )
 
-    # comments = GenericRelation("comment.Comment")
+    comments = GenericRelation("comment.Comment")
 
     class Meta:
         verbose_name = _("book")
