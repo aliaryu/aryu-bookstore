@@ -71,7 +71,7 @@ class User(AbstractUser):
     def __str__(self):
         return f"{self.username}"
 
-    REQUIRED_FIELDS = ["email", "phone"]
+    REQUIRED_FIELDS = ["email",]
 
 
 class Address(models.Model):
