@@ -142,6 +142,15 @@
     background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0.090) 50%, rgb(255, 255, 255) 100%);
 }
 
+.bg-dotted {
+    background-image: radial-gradient(rgba(250, 0, 221, 0.280) 1px, transparent 0);
+    background-size: 20px 20px;
+}
+
+.bg-circle-shadow {
+    background: radial-gradient(circle, rgb(255, 255, 255) 50%, rgba(0, 0, 0, 0.18) 100%);
+}
+
 .scrollbar {
     scrollbar-width: thin;
     scrollbar-color: #424242 #dadada;
@@ -153,11 +162,6 @@
     background-attachment: fixed;
     background-size: cover;
     background-color: #464646;
-}
-
-.bg-dotted {
-    background-image: radial-gradient(rgba(250, 0, 221, 0.280) 1px, transparent 0);
-    background-size: 20px 20px;
 }
 
 .btn-hover-parent:hover .btn-hover {
