@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <link rel="icon" type="image/x-icon" href="static/image/logo.png">
+    <title>Aryu Bookstore</title>
+
+</head>
+<body class="bg-circle-shadow">
+
+    <!-- HEADER SITE, NAVS -->
+    <div>
+        <header id="header">
+
+            <!-- NAV USER, SOCIAL MEDIAS -->
+            <nav class="navbar navbar-expand-lg p-0">
+                <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
+                    <div class="mb-1 mb-lg-0">
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="#">ورود <i class="bi bi-box-arrow-in-left text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="#">ثبت نام <i class="bi bi-person-add text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="#">سبد خرید <i class="bi bi-cart text-white"></i> </a>
+                    </div>
+                
+                    <div class="my-1">
+                        <form class="input-group ms-lg-5" dir="ltr" action="" method="get">
+                            <input type="text" class="form-control bg-transparent text-white fw-bold text-end font-17" placeholder="جست و جو ..." dir="rtl">
+                            <button class="btn btn-outline-white border-white border-start-0 font-17" type="submit"><i class="bi bi-search text-white"></i></button>
+                        </form>
+                    </div>
+                
+                    <div>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0" href="#"> <i class="bi bi-telephone text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0" href="#"> <i class="bi bi-envelope-at text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0" href="https://discord.gg/T9ExvTpGhQ"> <i class="bi bi-discord text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0" href="#"> <i class="bi bi-github text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0" href="#"> <i class="bi bi-instagram text-white"></i> </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- NAV WEBSITE -->
+            <nav class="navbar navbar-expand-lg bg-white-glass">
+                <div class="container">
+
+                  <a class="navbar-brand d-flex f-sayeh font-30 pt-3 text-white" href="#">کتاب فروشی آریو <i class="logo invert-color"></i></a>
+
+                  <button class="navbar-toggler border-0 delete-outline" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list fs-3 text-white"></i>
+                  </button>
+                  
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 pe-0 d-flex justify-content-center align-items-center">
+                      <li class="nav-item">
+                        <a class="nav-link active navbar-brand text-white" aria-current="true" href="#">صفحه اصلی</a>
+                      </li>
+                      <li class="nav-item">
+                        <button type="button" class="nav-link active navbar-brand text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">دسته بندی ها</button>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active navbar-brand text-white" aria-disabled="true" href="#">درباره ما</a>
+                      </li>
+                    </ul>
+
+                  </div>
+
+                </div>
+            </nav>
+
+            <!-- SLOGAN -->
+            <div class="container p-5 p-lg-5">
+                <div class="text-center">
+                    <h1 class="display-4 f-sayeh f-bold text-white">کتاب فروشی آریو</h1>
+                    <p class="mt-4 mb-0 f-sayeh f-bold font-25 text-white">کتاب ، تنها چیزی که شما نیاز دارید <span class="f-sayeh text-white">:)</span></p>
+                </div>
+            </div>
+
+            <!-- MODAL CATEGORIES -->
+            <div class="modal fade bg-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content bg-modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <ul class="pe-0">
+
+                                <li class="list-group-item font-20">
+                                    <a href="#" class="text-decoration-none text-black">
+                                        همه کتاب ها
+                                    </a>
+                                </li>
+                                
+                                <li class="list-group-item font-20">
+                                    <a href="#" class="text-decoration-none text-black">
+                                        تخفیف دار ها
+                                    </a>
+                                </li>
+
+                                <li class="list-group-item font-20">
+                                    <a href="#" class="text-decoration-none text-black">
+                                        ادبیات <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
+                                    </a>
+                                    <ul class="list-group list-unstyled">
+                                        <li class="font-20">
+                                            <a href="#" class="text-decoration-none text-black">
+                                                رمان
+                                            </a>
+                                        </li>
+                                        <li class="font-20">
+                                            <a href="#" class="text-decoration-none text-black">
+                                                نمایش نامه
+                                            </a>
+                                        </li>
+                                        <li class="font-20">
+                                            <a href="#" class="text-decoration-none text-black">
+                                                داستان کوتاه
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="list-group-item font-20">
+                                    <a href="#" class="text-decoration-none text-black">
+                                        روانشناسی <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
+                                    </a>
+                                    <ul class="list-group list-unstyled">
+                                        <li class="font-20">
+                                            <a href="#" class="text-decoration-none text-black">
+                                                عمومی
+                                            </a>
+                                        </li>
+                                        <li class="font-20">
+                                            <a href="#" class="text-decoration-none text-black">
+                                                کودکان
+                                            </a>
+                                        </li>
+                                        <li class="font-20">
+                                            <a href="#" class="text-decoration-none text-black">
+                                                اجتماعی <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
+                                            </a>
+                                            <ul class="list-group list-unstyled">
+                                                <li class="font-20">
+                                                    <a href="#" class="text-decoration-none text-black">
+                                                        فرهنگی
+                                                    </a>
+                                                </li>
+                                                <li class="font-20">
+                                                    <a href="#" class="text-decoration-none text-black">
+                                                        جغرافیایی
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="list-group-item font-20">
+                                    <a href="#" class="text-decoration-none text-black">
+                                        تاریخی
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </header>
+    </div>
+    
+    <!-- SECTION ABOUT -->
+    <section class="container-fluid my-5 p-0">
+        <div class="container px-0">
+
+            <h1 class="f-sayeh mb-4 fw-bold me-4">کتاب فروشی آریو</h1>
+
+            <div class="d-flex flex-wrap">
+
+                <!-- DESCRIPTION -->
+                <div class="py-2 ps-2 ps-md-5" style="margin-right: 150px;">
+                    <span class="f-bold font-15">
+                        <i class="bi bi-info-circle font-17"></i>
+                        توضیحات:
+                        <span class="text-muted">
+                            پروژه وبسایت فروشگاهی تستی و تمرینی است که با تکنولوژی های زیر توسعه داده شده:
+                        </span>
+                        <ul>
+                            <li>html, css</li>
+                            <li>bootstrap 5</li>
+                            <li>java script</li>
+                            <li>python language</li>
+                            <li>django framework</li>
+                            <li>django rest framework</li>
+                            <li>redis database</li>
+                            <li>celery, celery beat</li>
+                            <li>git, github</li>
+                        </ul>
+                    </span>
+                </div>
+    
+                <!-- BIO -->
+                <div class="d-flex rounded-2 p-2 mx-1 position-relative mb-2">
+    
+                    <!-- IMAGE -->
+                    <div class="position-relative" style="max-width: 127px;">
+                        <a href="#"><img class="img-shadow rounded-2 img-fluid" style="cursor: zoom-in;"
+                            src="static/image/default/ali havasi (aliaryu).jpg" alt="aliaryu"></a>
+                    </div>
+    
+                    <!-- INFORMATION & LINKS -->
+                    <div class="me-2">
+    
+                        <div>
+                            <h6 class="text-black f-bold font-15 mb-0">
+                                <i class="bi bi-file-earmark-code" style="font-size: 18px;"></i>
+                                توسعه دهنده:
+                                علی هواسی
+                            </h6>
+                        </div>
+    
+                        <div>
+                            <span class="f-bold font-15">
+                                <i class="bi bi-chat-dots font-17"></i>
+                                اطلاعات تماس:
+    
+                                <ul class=" list-unstyled m-0 pe-4">
+                                    <li>
+                                        <i class="bi bi-envelope-at-fill"></i>
+                                        ایمیل:
+                                        <a class="text-decoration-none" href="mailto:aliaryu76@gmail.com">aliaryu76@gmail</a>
+                                    </li>
+    
+                                    <li>
+                                        <i class="bi bi-tablet-fill"></i>
+                                        تلفن:
+                                        <a class="text-decoration-none" href="tel:+989182409113" dir="ltr">+98 918 240 9113</a>
+                                    </li>
+    
+                                    <li>
+                                        <i class="bi bi-github"></i>
+                                        گیت هاب:
+                                        <a class="text-decoration-none" href="https://github.com/aliaryu" dir="ltr">aliaryu</a>
+                                    </li>
+    
+                                    <li>
+                                        <i class="bi bi-linkedin"></i>
+                                        لینکدین:
+                                        <a class="text-decoration-none" href="https://www.linkedin.com/in/aliaryu/" dir="ltr">aliaryu</a>
+                                    </li>
+    
+                                    <li>
+                                        <i class="bi bi-telegram"></i>
+                                        تلگرام:
+                                        <a class="text-decoration-none" href="https://t.me/aryuam" dir="ltr">aryuam</a>
+                                    </li>
+                                </ul>
+                            </span>
+                        </div>
+    
+                    </div>
+    
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="container-fluid text-white mb-5 p-0 bg-opacity-half position-relative" id="background-footer">
+        <div class="container justify-content-center py-5">
+
+            <div class="row">
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5 class="text-white f-bold font-25">ستون یک :</h5>
+                    <ul class="nav flex-column p-0">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره یک</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره دو</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره سه</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره چهار</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5 class="text-white f-bold font-25">ستون دو :</h5>
+                    <ul class="nav flex-column p-0">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره یک</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره دو</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره سه</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white"><i class="bi bi-link-45deg text-white"></i> شماره چهار</a></li>
+                    </ul>
+                </div>
+
+                <!-- NEWSLETTER DIVE -->
+                <div class="col d-flex justify-content-center align-items-center">
+                    <div class="w-100">
+                        <h2 class="font-25 text-white f-bold">عضویت در خبرنامه</h2>
+                        <p class="font-17 text-white f-bold">از آخرین رویداد ها و کد های تخفیف با خبر شوید.</p>
+                        <form class="d-flex flex-column flex-sm-row gap-2">
+                            <input type="email" class="form-control bg-transparent text-white font-17 fw-bold" placeholder="ایمیل شما">
+                            <button type="submit" class="d-flex justify-content-center align-items-center btn btn-outline-light bg-transparent text-white font-17 fw-bold">
+                                عضویت 
+                                <i class="bi bi-bookmark font-15 mx-1 text-white"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="d-flex  flex-row justify-content-between align-items-center pt-4 mt-4 border-top">
+                <p class="font-17 m-0 text-white">© زمستان 1402 ، ساخته شده توسط:
+                    <a class="font-17 text-white " href="https://github.com/aliaryu/">aliaryu@</a>
+                </p>
+                <span class="d-flex align-items-center">
+                    <i class="bi bi-stars font-25 text-white feat-img"></i>
+                    <img src="static/image/logo.png" alt="logo" width="30px" height="30px"
+                    style="filter: brightness(0) invert(1) drop-shadow(3px 3px 2px #222);">
+                </span>
+            </div>
+
+            <button class="font-17 btn btn-light px-2 py-1 position-absolute  feat-img" style="bottom: -19px;" id="scroll-to-top">
+                <i class="bi bi-caret-up-fill"></i>
+            </button>
+
+        </div>
+    </footer>
+
+</body>
+
+    <script src="static/js/scroll.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</html>
