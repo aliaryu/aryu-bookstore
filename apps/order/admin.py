@@ -24,10 +24,10 @@ class OrderAdmin(admin.ModelAdmin):
     ordering = ["-id"]
     search_fields = ["id", "user__username", "user__email"]
     list_display_links = None
-    list_display = ["__str__", "user", "staff", "create_at", "in_process", "is_complete", "edit", "delete"]
+    list_display = ["__str__", "user", "staff", "create_at", "status", "edit", "delete"]
     fieldsets = [
         [_("customer information"), {"fields": ["user", "get_user_fullname", "get_user_phone", "address", "full_address"]}],
-        [_("order information"), {"fields": ["staff", "create_at", "update_at", "in_process", "is_complete", "get_total_cost"]}]
+        [_("order information"), {"fields": ["staff", "create_at", "update_at", "status", "get_total_cost"]}]
     ]
     readonly_fields = ["user", "staff", "get_user_fullname", "get_user_phone", "full_address", "create_at", "update_at", "get_total_cost"]
 
@@ -78,21 +78,22 @@ class OrderAdmin(admin.ModelAdmin):
         if request.user.is_superuser:
             return super().get_queryset(request).select_related("user", "staff__user", "address")
         elif request.user.is_staff:
-            return super().get_queryset(request).filter(in_process=False, is_complete=False).select_related("user", "staff__user", "address")
+            return super().get_queryset(request).filter(status="PEN").select_related("user", "staff__user", "address")
         
     def save_model(self, request, obj, form, change):
-        if obj.in_process:
-            if request.user.is_superuser:
-                pass
-            elif request.user.is_staff:
-                obj.staff = request.user.staff
-        else:
-            if request.user.is_superuser:
-                pass
-            elif request.user.is_staff:
+        if obj.status == "PEN":
+            if request.user.is_staff:
                 obj.staff = None
+        elif obj.status == "PRO":
+            if request.user.is_staff:
+                obj.staff = request.user.staff
+        elif obj.status == "COM":
+            if request.user.is_staff:
+                obj.staff = request.user.staff
+        elif obj.status == "DEL":
+            if request.user.is_staff:
+                obj.staff = request.user.staff
         obj.save()
-        super().save_model(request, obj, form, change)
 
 
 @admin.register(OrderStaff)
@@ -102,10 +103,10 @@ class OrderStaffAdmin(admin.ModelAdmin):
     ordering = ["-id"]
     search_fields = ["id", "user__username", "user__email"]
     list_display_links = None
-    list_display = ["__str__", "user", "staff", "create_at", "in_process", "is_complete", "edit", "delete"]
+    list_display = ["__str__", "user", "staff", "create_at", "status", "edit", "delete"]
     fieldsets = [
         [_("customer information"), {"fields": ["user", "get_user_fullname", "get_user_phone", "address", "full_address"]}],
-        [_("order information"), {"fields": ["staff", "create_at", "update_at", "in_process", "is_complete", "get_total_cost"]}]
+        [_("order information"), {"fields": ["staff", "create_at", "update_at", "status", "get_total_cost"]}]
     ]
     readonly_fields = ["user", "staff", "get_user_fullname", "get_user_phone", "full_address", "create_at", "update_at", "get_total_cost"]
 
@@ -159,18 +160,19 @@ class OrderStaffAdmin(admin.ModelAdmin):
             return super().get_queryset(request).filter(staff=request.user.staff).select_related("user", "staff__user", "address")
         
     def save_model(self, request, obj, form, change):
-        if obj.in_process:
-            if request.user.is_superuser:
-                pass
-            elif request.user.is_staff:
-                obj.staff = request.user.staff
-        else:
-            if request.user.is_superuser:
-                pass
-            elif request.user.is_staff:
+        if obj.status == "PEN":
+            if request.user.is_staff:
                 obj.staff = None
+        elif obj.status == "PRO":
+            if request.user.is_staff:
+                obj.staff = request.user.staff
+        elif obj.status == "COM":
+            if request.user.is_staff:
+                obj.staff = request.user.staff
+        elif obj.status == "DEL":
+            if request.user.is_staff:
+                obj.staff = request.user.staff
         obj.save()
-        super().save_model(request, obj, form, change)
 
 
 @admin.register(OrderBook)
