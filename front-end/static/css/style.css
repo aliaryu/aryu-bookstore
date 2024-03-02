@@ -314,3 +314,11 @@ select:valid {
 .text-canceled {
     color: rgb(190, 0, 0) !important;
 }
+
+.num::-webkit-inner-spin-button,
+.num::-webkit-outer-spin-button {
+    display: none;
+}
+.num[type=number] {
+    appearance: textfield;
+}
