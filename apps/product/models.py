@@ -187,6 +187,7 @@ class Book(LogicalBaseModel):
         verbose_name = _("author(s)"),
         to = "product.Author",
         related_name = "author_books",
+        blank = True,
     )
     translator = models.ManyToManyField(
         verbose_name = _("translator(s)"),
@@ -204,20 +205,20 @@ class Book(LogicalBaseModel):
         to = "product.Tag",
         blank = True,
     )
-    like = models.ManyToManyField(
+    likes = models.ManyToManyField(
         verbose_name = _("like(s)"),
         to = "user.User",
         related_name = "user_likes",
         blank = True,
     )
-    save = models.ManyToManyField(
+    saves = models.ManyToManyField(
         verbose_name = _("save(s)"),
         to = "user.User",
         related_name = "user_saves",
         blank = True,
     )
 
-    comments = GenericRelation("comment.Comment")
+    # comments = GenericRelation("comment.Comment")
 
     class Meta:
         verbose_name = _("book")
