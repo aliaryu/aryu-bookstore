@@ -207,6 +207,13 @@ class Book(LogicalBaseModel):
     like = models.ManyToManyField(
         verbose_name = _("like(s)"),
         to = "user.User",
+        related_name = "user_likes",
+        blank = True,
+    )
+    save = models.ManyToManyField(
+        verbose_name = _("save(s)"),
+        to = "user.User",
+        related_name = "user_saves",
         blank = True,
     )
 
