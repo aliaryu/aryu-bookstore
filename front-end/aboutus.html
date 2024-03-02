@@ -14,7 +14,7 @@
     <title>Aryu Bookstore</title>
 
 </head>
-<body>
+<body class="bg-circle-shadow">
 
     <!-- HEADER SITE, NAVS -->
     <div>
@@ -50,27 +50,27 @@
             <nav class="navbar navbar-expand-lg bg-white-glass">
                 <div class="container">
 
-                    <a class="navbar-brand d-flex f-sayeh font-30 pt-3 text-white" href="#">کتاب فروشی آریو <i class="logo invert-color"></i></a>
+                  <a class="navbar-brand d-flex f-sayeh font-30 pt-3 text-white" href="#">کتاب فروشی آریو <i class="logo invert-color"></i></a>
 
-                    <button class="navbar-toggler border-0 delete-outline" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <button class="navbar-toggler border-0 delete-outline" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-list fs-3 text-white"></i>
-                    </button>
-                    
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  </button>
+                  
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 pe-0 d-flex justify-content-center align-items-center">
-                        <li class="nav-item">
+                      <li class="nav-item">
                         <a class="nav-link active navbar-brand text-white" aria-current="true" href="#">صفحه اصلی</a>
-                        </li>
-                        <li class="nav-item">
+                      </li>
+                      <li class="nav-item">
                         <button type="button" class="nav-link active navbar-brand text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">دسته بندی ها</button>
-                        </li>
-                        <li class="nav-item">
+                      </li>
+                      <li class="nav-item">
                         <a class="nav-link active navbar-brand text-white" aria-disabled="true" href="#">درباره ما</a>
-                        </li>
+                      </li>
                     </ul>
 
-                    </div>
+                  </div>
 
                 </div>
             </nav>
@@ -180,185 +180,104 @@
 
         </header>
     </div>
-  
-    <!-- IMAGE/DETAIL -->
-    <section class="container-fluid py-3 bg-even">
-        <div class="container">
-            
-            <section class="py-0">
-                <div class="container">
-                  <div class="row gx-5 jus">
+    
+    <!-- SECTION ABOUT -->
+    <section class="container-fluid my-5 p-0">
+        <div class="container px-0">
 
+            <h1 class="f-sayeh mb-4 fw-bold me-4">کتاب فروشی آریو</h1>
+
+            <div class="d-flex flex-wrap">
+
+                <!-- DESCRIPTION -->
+                <div class="py-2 ps-2 ps-md-5" style="margin-right: 150px;">
+                    <span class="f-bold font-15">
+                        <i class="bi bi-info-circle font-17"></i>
+                        توضیحات:
+                        <span class="text-muted">
+                            پروژه وبسایت فروشگاهی تستی و تمرینی است که با تکنولوژی های زیر توسعه داده شده:
+                        </span>
+                        <ul>
+                            <li>html, css</li>
+                            <li>bootstrap 5</li>
+                            <li>java script</li>
+                            <li>python language</li>
+                            <li>django framework</li>
+                            <li>django rest framework</li>
+                            <li>redis database</li>
+                            <li>celery, celery beat</li>
+                            <li>git, github</li>
+                        </ul>
+                    </span>
+                </div>
+    
+                <!-- BIO -->
+                <div class="d-flex rounded-2 p-2 mx-1 position-relative mb-2">
+    
                     <!-- IMAGE -->
-                    <aside class="col-lg-6 px-0 my-3 d-flex align-items-center justify-content-center bg-dotted">
-                      <div class="d-flex justify-content-center">
-                          <div class="position-relative">
-                            <img style="height: auto; max-height: 500px; margin: auto; filter: blur(0.5px); transition: all .2s linear;" 
-                            class="rounded-4  fit img-shadow img-fluid img-hover" src="static/image/author/batman.jpg" width="250"/>
-                          </div>
-                          
-                      </div>
-                    </aside>
-
-                    <!-- DETAIL -->
-                    <main class="col-lg-6 px-0 my-3 d-flex align-items-center justify-content-center">
-                      <div class="ps-lg-3">
-
-                        <!-- FULLNAME -->
-                        <h4 class="title text-dark f-bold font-25">
-                            <i class="bi bi-person feat-img"></i>&nbsp;
-                            بروس وین ، بتمن گاتهام
-                        </h4>
-
-                        <div class="my-3">
-                            <span class="f-bold">
-                                <i class="bi bi-globe2 font-17"></i>
-                              ملیت:
-                              <span class="text-muted">آمریکا</span>
-                            </span>
+                    <div class="position-relative" style="max-width: 127px;">
+                        <a href="#"><img class="img-shadow rounded-2 img-fluid" style="cursor: zoom-in;"
+                            src="static/image/default/ali havasi (aliaryu).jpg" alt="aliaryu"></a>
+                    </div>
+    
+                    <!-- INFORMATION & LINKS -->
+                    <div class="me-2">
+    
+                        <div>
+                            <h6 class="text-black f-bold font-15 mb-0">
+                                <i class="bi bi-file-earmark-code" style="font-size: 18px;"></i>
+                                توسعه دهنده:
+                                علی هواسی
+                            </h6>
                         </div>
-
-                        <div class="my-3">
-                            <span class="f-bold">
-                                <i class="bi bi-book font-17"></i>&nbsp;
-                                کتاب ها:
-                                <ul class="m-0">
-                                    <li><a class="text-decoration-none text-success" href="#">بتمن برمیخیزد</a></li>
-                                    <li><a class="text-decoration-none text-success" href="#">بتمن و جوکر</a></li>
+    
+                        <div>
+                            <span class="f-bold font-15">
+                                <i class="bi bi-chat-dots font-17"></i>
+                                اطلاعات تماس:
+    
+                                <ul class=" list-unstyled m-0 pe-4">
+                                    <li>
+                                        <i class="bi bi-envelope-at-fill"></i>
+                                        ایمیل:
+                                        <a class="text-decoration-none" href="mailto:aliaryu76@gmail.com">aliaryu76@gmail</a>
+                                    </li>
+    
+                                    <li>
+                                        <i class="bi bi-tablet-fill"></i>
+                                        تلفن:
+                                        <a class="text-decoration-none" href="tel:+989182409113" dir="ltr">+98 918 240 9113</a>
+                                    </li>
+    
+                                    <li>
+                                        <i class="bi bi-github"></i>
+                                        گیت هاب:
+                                        <a class="text-decoration-none" href="https://github.com/aliaryu" dir="ltr">aliaryu</a>
+                                    </li>
+    
+                                    <li>
+                                        <i class="bi bi-linkedin"></i>
+                                        لینکدین:
+                                        <a class="text-decoration-none" href="https://www.linkedin.com/in/aliaryu/" dir="ltr">aliaryu</a>
+                                    </li>
+    
+                                    <li>
+                                        <i class="bi bi-telegram"></i>
+                                        تلگرام:
+                                        <a class="text-decoration-none" href="https://t.me/aryuam" dir="ltr">aryuam</a>
+                                    </li>
                                 </ul>
                             </span>
                         </div>
-
-                      </div>
-                    </main>
-
-                  </div>
+    
+                    </div>
+    
                 </div>
-            </section>
+
+            </div>
 
         </div>
     </section>
-
-    <!-- BIOGRAPHY & BRIEF -->
-    <div class="container-fluid my-3">
-        <div class="container p-0">
-            <div class="row g-0 row-cols-1 row-cols-xl-2">
-
-                <div class="col d-flex">
-                    <div class="border rounded p-3 position-relative ms-xl-2 mb-xl-0 mb-2" >
-                        <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">بیوگرافی نویسنده:</span>
-                        <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                    </div>
-                </div>
-
-                <div class="col d-flex">
-                    <div class="border rounded p-3 position-relative me-xl-2 mt-xl-0 mt-2" >
-                        <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">سخنی از نویسنده:</span>
-                        <p class="mb-0">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- COMMENTS -->
-    <div class="container-fluid my-3">
-        <div class="container p-0">
-            <div class="border rounded position-relative p-2">
-                <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">نظرات:</span>
-                <div class="row justify-content-center">
-
-                    <!-- CM -->
-                    <div class="col-12 col-lg-8 p-3">
-                        <div class="d-flex align-items-center">
-                            <img src="static/image/default/user.png" alt="user-image" class="rounded-circle img-thumbnail ms-2" width="85px" height="85px;">
-                            <div class="row">
-                                <span class="text-success">علی آریو:</span>
-                                <span class="text-secondary" style="font-size: 14px;">1402-11-5 00:00</span>
-                            </div>
-                        </div>
-
-                        <!-- TEXT -->
-                        <p class="m-0 pe-2">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-
-                        <!-- REPLY -->
-                        <p class="m-0 pe-2 reply">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"
-                            style="transform: scaleY(-1);">
-                            <path d="M8.021 11.9 3.453 8.62a.72.72 0 0 1 0-1.238L8.021 4.1a.716.716 0 0 1 1.079.619V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
-                            <path d="M5.232 4.293a.5.5 0 0 1-.106.7L1.114 7.945l-.042.028a.147.147 0 0 0 0 .252l.042.028 4.012 2.954a.5.5 0 1 1-.593.805L.539 9.073a1.147 1.147 0 0 1 0-1.946l3.994-2.94a.5.5 0 0 1 .699.106"/>
-                            
-                            </svg>
-                            <span>کتاب فروشی آریو:</span>
-                            ممنون بابت دیدگاهتون 💖
-                        </p>
-                    </div>
-
-                    <!-- CM -->
-                    <div class="col-12 col-lg-8 p-3">
-                        <div class="d-flex align-items-center">
-                            <img src="static/image/default/user.png" alt="user-image" class="rounded-circle img-thumbnail ms-2" width="85px" height="85px;">
-                            <div class="row">
-                                <span class="text-success">خوره کتاب:</span>
-                                <span class="text-secondary" style="font-size: 14px;">1402-11-5 00:00</span>
-                            </div>
-                        </div>
-
-                        <!-- TEXT -->
-                        <p class="m-0 pe-2">نویسنده خوبی هستن ، مخصوصا کتاب فلان بیسارشون.</p>
-                    </div>
-                    
-                    <!-- CM -->
-                    <div class="col-12 col-lg-8 p-3">
-                        <div class="d-flex align-items-center">
-                            <img src="static/image/default/user.png" alt="user-image" class="rounded-circle img-thumbnail ms-2" width="85px" height="85px;">
-                            <div class="row">
-                                <span class="text-success">نی نی کوچولو:</span>
-                                <span class="text-secondary" style="font-size: 14px;">1402-11-5 00:00</span>
-                            </div>
-                        </div>
-
-                        <!-- TEXT -->
-                        <p class="m-0 pe-2">خیلی بد بود ازتون ناراحت ام 🙁</p>
-
-                        <!-- REPLY -->
-                        <p class="m-0 pe-2 reply">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"
-                            style="transform: scaleY(-1);">
-                            <path d="M8.021 11.9 3.453 8.62a.72.72 0 0 1 0-1.238L8.021 4.1a.716.716 0 0 1 1.079.619V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
-                            <path d="M5.232 4.293a.5.5 0 0 1-.106.7L1.114 7.945l-.042.028a.147.147 0 0 0 0 .252l.042.028 4.012 2.954a.5.5 0 1 1-.593.805L.539 9.073a1.147 1.147 0 0 1 0-1.946l3.994-2.94a.5.5 0 0 1 .699.106"/>
-                            
-                            </svg>
-                            <span class="">کتاب فروشی آریو:</span>
-                            خیلی متاسفیم 💔
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FORM COMMENT -->
-    <div class="container-fluid my-3">
-        <div class="container p-0">
-            <div class="border rounded position-relative p-2">
-                <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">ارسال نظر:</span>
-
-                <div class="row justify-content-center">
-                    
-                    <form class="col-12 col-lg-8 py-2 px-3" action="" method="post">
-                        <textarea class="form-control bg-transparent text-black f-bold place-holder-grey" placeholder="نظر شما  ..." rows="5"></textarea>
-                        <button type="submit" class="col form-control bg-transparent text-black f-bold mt-2"> ارسال <i class="bi bi-send-check text"></i> </button>
-
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <!-- FOOTER -->
     <footer class="container-fluid text-white mb-5 p-0 bg-opacity-half position-relative" id="background-footer">

@@ -28,11 +28,11 @@ class UserAdmin(UserAdmin):
     model = User
     inlines = [AddressInline, StaffInline]
     ordering = ["username"]
-    search_fields = ["username", "email", "last_name", "phone", "staff__role__role_name"]
+    search_fields = ["username", "email", "last_name", "staff__role__role_name"]
     list_display_links = None
     list_display = ["username", "email", "first_name", "last_name", "is_staff", "role", "edit", "delete"]
     fieldsets = [
-        [_("unique information"), {"fields": ["username", "email", "phone"]}],
+        [_("unique information"), {"fields": ["username", "email"]}],
         [_("personal information"), {"fields": ["first_name", "last_name", "birth_date"]}],
         [_("image"), {"fields": ["image", "display_image"]}],
         [_("related dates"), {"fields": ["last_login", "date_joined"]}],
@@ -41,7 +41,7 @@ class UserAdmin(UserAdmin):
     ]
     readonly_fields = ["last_login", "date_joined", "display_image"]
     add_fieldsets = [
-        [_("unique information"), {"fields": ["username", "email", "phone"]}],
+        [_("unique information"), {"fields": ["username", "email",]}],
         [_("personal information"), {"fields": ["first_name", "last_name", "birth_date"]}],
         [_("image"), {"fields": ["image", "display_image"]}],
         [_("access level"), {"fields": ["is_superuser", "is_staff", "is_active"]}],
@@ -71,14 +71,13 @@ class UserAdmin(UserAdmin):
             reverse('admin:user_user_delete', args=[obj.id]),
             translate
         )
-    
+
     def display_image(self, obj):
         if obj.image:
             return format_html('<img src="{}" height="100" style="background-color: #121212;"/>'.format(obj.image.url))
         else:
             return _("there is no image")
 
-    
     role.short_description = _("role")
     edit.short_description = _("view/edit")
     delete.short_description = _("delete")

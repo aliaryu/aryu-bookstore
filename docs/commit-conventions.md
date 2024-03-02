@@ -31,6 +31,7 @@ commit. It serves as a brief summary of what the commit is accomplishing.
 - **chore:** Routine tasks, changes that are not related to project functionality.
 - **perf:** Indicates that the commit is focused on performance improvements.
 - **fix:** Bug fix or resolution of an issue.
+- **delete**: Remove a part or feature that is not needed.
 - **test:** including new or correcting previous tests.
 - **docs:** Adding or changes related to documentation.
 
@@ -43,6 +44,7 @@ git commit -m "refactor(api): improve error handling"
 git commit -m "chore(build): update dependencies for configs"
 git commit -m "perf(api): optimize database queries, faster response"
 git commit -m "fix(posts): resolve issue with comments"
+git commit -m "delete(api): remove test api database"
 git commit -m "test(user): add unit tests for login functionality"
 git commit -m "docs(readme): update installation instructions"
 ```
