@@ -1,0 +1,346 @@
+@font-face {
+    font-family: "calibri";
+    src: url("../font/Calibri.ttf");
+}
+
+@font-face {
+    font-family: "sayeh";
+    src: url("../font/Sayeh.ttf");
+}
+
+* {
+    font-size: 100%;
+    font-family: calibri;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.300);
+}
+
+.f-sayeh {
+    font-family: "sayeh";
+}
+
+.f-bold {
+    font-weight: bold;
+}
+
+.font-30 {
+    font-size: 30px;
+}
+
+.font-25 {
+    font-size: 25px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.font-17 {
+    font-size: 17px;
+}
+
+.font-15 {
+    font-size: 15px;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+.bg-white-glass {
+    background-color: rgba(255, 255, 255, 0.116);
+}
+
+#header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.220), rgba(0, 0, 0, 0.220)), url("../image/gif/augustin-cart-gif-lofi-final.gif");
+    background-position: center 75%;
+    background-size: cover;
+    background-color: #464646;
+}
+
+.logo {
+    background-image: url("../image/logo.png");
+    background-position: center center;
+    background-size: cover;
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    position: relative;
+    top: -10px;
+
+    animation: rotate 4s forwards infinite 2s;
+}
+
+.invert-color {
+    filter: brightness(0) invert(1);
+}
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(25deg)
+    }
+    40% {
+        transform: rotate(-5deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    }
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.bg-modal {
+    background-color: rgba(0, 0, 0, 0.300);
+}
+
+.bg-modal-content {
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.930) 0%, rgba(255, 170, 247, 0.800) 100%);
+    border: none;
+}
+
+.top-2px {
+    position: relative;
+    top: 1.5px;
+}
+
+.form-control::placeholder {
+    color: #ffffff;
+}
+
+.scrolling-wrapper {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+}
+
+.card {
+    display: inline-block;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.feat-img {
+    filter: drop-shadow(3px 3px 2px #222);
+}
+
+.img-shadow {
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.692);
+}
+
+.bg-even {
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(0, 0, 0, 0.090) 50%, rgb(255, 255, 255) 100%);
+}
+
+.bg-dotted {
+    background-image: radial-gradient(rgba(250, 0, 221, 0.280) 1px, transparent 0);
+    background-size: 20px 20px;
+}
+
+.bg-circle-shadow {
+    background: radial-gradient(circle, rgb(255, 255, 255) 50%, rgba(0, 0, 0, 0.18) 100%);
+}
+
+.scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #424242 #dadada;
+}
+
+#background-footer {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url("../image/gif/ponies-watching-to-stars.gif");
+    background-position: center -200%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+}
+
+.btn-hover-parent:hover .btn-hover {
+    color: white;
+    transition: all 0.15s ease-in-out;
+}
+
+.img-hover:hover {
+    transition: all 1s linear;
+    transform: scale(1.08)  rotate(-3deg);
+}
+
+.tags {
+    background-color: #e7e7e7;
+    color: black;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 5px 5px 5px 9px;
+    margin: 2px;
+    font-size: 14px;
+    transition: all 0.1s linear;
+}
+
+.tags:hover {
+    background-color: black;
+    color: white;
+}
+
+.tags:hover > i {
+    color: white;
+}
+
+.i-tr {
+    transition: all 0.1s linear;
+}
+
+.reply {
+    text-indent: 85px;
+}
+
+@media (max-width: 576px) {
+    .reply {
+        text-indent: 0px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+    .reply {
+        text-indent: 45px;
+    }
+}
+
+.place-holder-grey::placeholder {
+    color: #666666;
+}
+
+#map-responsive iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.active-paginate {
+    background-color: #222;
+    color: white !important;
+    border: #222 1px solid;
+}
+
+.active-paginate:hover {
+    color: #222 !important;
+}
+
+.div-user-login, .div-otp-login {
+    height: 300px;
+}
+
+.otp-field {
+    flex-direction: row;
+    column-gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.otp-field input {
+    height: 45px;
+    width: 42px;
+    border-radius: 6px;
+    outline: none;
+    font-size: 1.125rem;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+.otp-field input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.otp-field input::-webkit-inner-spin-button,
+.otp-field input::-webkit-outer-spin-button {
+    display: none;
+}
+.otp-field input[type=number] {
+    appearance: textfield;
+}
+
+.tab-profile .nav-link.active {
+    background-color: #222;
+    color: white !important;
+}
+
+.tab-profile .nav-link.active i {
+    transition: all 0.15 ease-in-out;
+    color: white !important;
+}
+
+#profile-user-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../image/gif/nightstars-pingclouds.gif");
+    background-position: center center;
+    background-size: cover;
+    background-color: #464646;
+}
+
+.hidden-icon {
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.parent-user-image:hover .hidden-icon {
+    opacity: 1;
+}
+
+select:valid {
+    font-weight: bold;
+    color: black;
+}
+
+.avoid-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-checking {
+    color: rgb(206, 0, 206) !important;
+}
+
+.text-inprogress {
+    color: rgb(0, 165, 187) !important;
+}
+
+.text-completed {
+    color: rgb(0, 139, 53) !important;
+}
+
+.text-canceled {
+    color: rgb(190, 0, 0) !important;
+}
+
+.num::-webkit-inner-spin-button,
+.num::-webkit-outer-spin-button {
+    display: none;
+}
+.num[type=number] {
+    appearance: textfield;
+}
+
+.rainbow-background {
+    background: linear-gradient(to right, #c44272, #a81490, #d10050, #640436, #aa2757, #a54576, #c01145);
+    background-size: 1500% 100%;
+    animation: rainbow-animation 15s linear infinite;
+}
+
+@keyframes rainbow-animation {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
