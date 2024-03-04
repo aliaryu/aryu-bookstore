@@ -8,6 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("__debug__/", include("debug_toolbar.urls")),
 
-    path("", include("apps.home.url"))
+    path("", include("apps.home.urls"))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
