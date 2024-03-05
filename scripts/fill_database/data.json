@@ -78,6 +78,28 @@
             "user_id": 3,
             "role_id": 3
         }
+    ],
+    "discount": [
+        {
+            "percent": 20,
+            "maximum": 70000,
+            "count": 10
+        },
+        {
+            "percent": 35,
+            "maximum": 50000,
+            "count": 10
+        },
+        {
+            "cash": 50000,
+            "maximum": 50000,
+            "count": 10
+        },
+        {
+            "cash": 30000,
+            "maximum": 30000,
+            "count": 10
+        }
     ]
     
 }
