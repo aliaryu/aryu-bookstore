@@ -16,7 +16,12 @@ from apps.user.models import (
     Role,
     Staff
 )
+from apps.product.models import (
+    Category,
+    
+)
 from apps.discount.models import Discount
+
 
 from django.core.files import File
 from django.utils import timezone
@@ -63,7 +68,11 @@ def create_discount():
             dis.expire_date = current_datetime + one_year_delta
             dis.save()
 
-
+def create_category():
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
+        category_data = json.load(file)["category"]
+        for category in category_data:
+            Category.objects.create(** category)
 
 
 
@@ -73,4 +82,5 @@ if __name__ == '__main__':
     # create_address()
     # create_role()
     # create_staff()
-    create_discount()
+    # create_discount()
+    create_category()
