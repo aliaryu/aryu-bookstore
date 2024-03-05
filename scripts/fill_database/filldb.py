@@ -18,6 +18,7 @@ from apps.user.models import (
 )
 from apps.product.models import (
     Category,
+    Genre,
     
 )
 from apps.discount.models import Discount
@@ -74,6 +75,12 @@ def create_category():
         for category in category_data:
             Category.objects.create(** category)
 
+def create_genre():
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
+        genre_data = json.load(file)["genre"]
+        for genre in genre_data:
+            Genre.objects.create(** genre)
+
 
 
 
@@ -83,4 +90,5 @@ if __name__ == '__main__':
     # create_role()
     # create_staff()
     # create_discount()
-    create_category()
+    # create_category()
+    create_genre()
