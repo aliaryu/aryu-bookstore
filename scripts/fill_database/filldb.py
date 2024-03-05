@@ -39,9 +39,16 @@ def create_address():
         for address in address_data:
             Address.objects.create(** address)
 
+def create_role():
+    with open(FOLDER + "/data.json") as file:
+        role_data = json.load(file)["role"]
+        for role in role_data:
+            Role.objects.create(** role)
+
 
 
 
 if __name__ == '__main__':
     # create_user()
-    create_address()
+    # create_address()
+    # create_role()
