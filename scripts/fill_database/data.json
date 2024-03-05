@@ -100,6 +100,40 @@
             "maximum": 30000,
             "count": 10
         }
+    ],
+    "category": [
+        {
+            "cat_name": "ادبیات"
+        },
+        {
+            "cat_name": "رمان",
+            "cat_parent_id": 1
+        },
+        {
+            "cat_name": "داستان کوتاه",
+            "cat_parent_id": 1
+        },
+        {
+            "cat_name": "فلسفه"
+        },
+        {
+            "cat_name": "تاریخی"
+        },
+        {
+            "cat_name": "تاریخ جهان",
+            "cat_parent_id": 5
+        },
+        {
+            "cat_name": "تاریخ ایران",
+            "cat_parent_id": 5
+        },
+        {
+            "cat_name": "علمی"
+        },
+        {
+            "cat_name": "روانشناسی",
+            "cat_parent_id": 4
+        }
     ]
     
 }
