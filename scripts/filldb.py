@@ -33,9 +33,15 @@ def create_user():
             with open(image_path, 'rb') as img_file:
                 user.image.save(Path(img_file.name).name, File(img_file))
 
+def create_address():
+    with open(FOLDER + "/data.json") as file:
+        address_data = json.load(file)["address"]
+        for address in address_data:
+            Address.objects.create(** address)
 
 
 
 
 if __name__ == '__main__':
     create_user()
+    create_address()
