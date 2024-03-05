@@ -51,4 +51,4 @@ def create_role():
 if __name__ == '__main__':
     # create_user()
     # create_address()
-    # create_role()
+    create_role()
