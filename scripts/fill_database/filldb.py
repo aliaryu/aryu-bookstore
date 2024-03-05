@@ -16,8 +16,10 @@ from apps.user.models import (
     Role,
     Staff
 )
+from apps.discount.models import Discount
 
 from django.core.files import File
+from django.utils import timezone
 import json
 
 
@@ -51,6 +53,16 @@ def create_staff():
         for staff in staff_data:
             Staff.objects.create(** staff)
 
+def create_discount():
+    with open(FOLDER + "/data.json") as file:
+        discount_data = json.load(file)["discount"]
+        for discount in discount_data:
+            dis = Discount(** discount)
+            current_datetime = timezone.now()
+            one_year_delta = timezone.timedelta(days=365)
+            dis.expire_date = current_datetime + one_year_delta
+            dis.save()
+
 
 
 
@@ -60,4 +72,5 @@ if __name__ == '__main__':
     # create_user()
     # create_address()
     # create_role()
-    create_staff()
+    # create_staff()
+    create_discount()
