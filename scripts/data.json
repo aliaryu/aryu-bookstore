@@ -54,5 +54,20 @@
             "postal_code": 1234567890,
             "address_path": "babolsar, st. darya"
         }
+    ],
+    "role": [
+        {
+            "role_name": "M",
+            "salary": 30000000.00
+        },
+        {
+            "role_name": "S",
+            "salary": 25000000.00
+        },
+        {
+            "role_name": "O",
+            "salary": 20000000.00
+        }
     ]
+    
 }
