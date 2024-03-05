@@ -134,6 +134,32 @@
             "cat_name": "روانشناسی",
             "cat_parent_id": 4
         }
+    ],
+    "genre": [
+        {
+            "genre_name": "رمان"
+        },
+        {
+            "genre_name": "داستان"
+        },
+        {
+            "genre_name": "عاشقانه"
+        },
+        {
+            "genre_name": "ماجراجویی"
+        },
+        {
+            "genre_name": "نمایشنامه"
+        },
+        {
+            "genre_name": "شعر"
+        },
+        {
+            "genre_name": "علمی"
+        },
+        {
+            "genre_name": "تاریخ"
+        }
     ]
     
 }
