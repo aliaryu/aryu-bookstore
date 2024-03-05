@@ -34,5 +34,25 @@
             "password": "123456789abcd",
             "image": "/image/user/user-default-3.jpg"
         }
+    ],
+    "address": [
+        {
+            "user_id": 1,
+            "province": "ILA",
+            "postal_code": 1234567890,
+            "address_path": "zaminshahri, st. mobarezan"
+        },
+        {
+            "user_id": 2,
+            "province": "TEH",
+            "postal_code": 1234567890,
+            "address_path": "azadi, st. ben sina"
+        },
+        {
+            "user_id": 3,
+            "province": "MAZ",
+            "postal_code": 1234567890,
+            "address_path": "babolsar, st. darya"
+        }
     ]
 }
