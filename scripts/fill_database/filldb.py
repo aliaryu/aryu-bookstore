@@ -45,10 +45,19 @@ def create_role():
         for role in role_data:
             Role.objects.create(** role)
 
+def create_staff():
+    with open(FOLDER + "/data.json") as file:
+        staff_data = json.load(file)["staff"]
+        for staff in staff_data:
+            Staff.objects.create(** staff)
+
+
+
 
 
 
 if __name__ == '__main__':
     # create_user()
     # create_address()
-    create_role()
+    # create_role()
+    create_staff()
