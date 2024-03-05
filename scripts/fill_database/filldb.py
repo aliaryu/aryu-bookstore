@@ -19,7 +19,7 @@ from apps.user.models import (
 from apps.product.models import (
     Category,
     Genre,
-    
+    Tag,
 )
 from apps.discount.models import Discount
 
@@ -81,6 +81,12 @@ def create_genre():
         for genre in genre_data:
             Genre.objects.create(** genre)
 
+def create_tag():
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
+        tag_data = json.load(file)["tag"]
+        for tag in tag_data:
+            Tag.objects.create(** tag)
+
 
 
 
@@ -91,4 +97,5 @@ if __name__ == '__main__':
     # create_staff()
     # create_discount()
     # create_category()
-    create_genre()
+    # create_genre()
+    create_tag()
