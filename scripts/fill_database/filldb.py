@@ -20,6 +20,7 @@ from apps.product.models import (
     Category,
     Genre,
     Tag,
+    Author,
 )
 from apps.discount.models import Discount
 
@@ -87,6 +88,14 @@ def create_tag():
         for tag in tag_data:
             Tag.objects.create(** tag)
 
+def create_author():
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
+        authors_data = json.load(file)["author"]
+        for author_data in authors_data:
+            image_path = FOLDER + author_data.pop("image")
+            author = Author.objects.create(** author_data)
+            with open(image_path, 'rb') as img_file:
+                author.image.save(Path(img_file.name).name, File(img_file))
 
 
 
@@ -98,4 +107,5 @@ if __name__ == '__main__':
     # create_discount()
     # create_category()
     # create_genre()
-    create_tag()
+    # create_tag()
+    create_author()
