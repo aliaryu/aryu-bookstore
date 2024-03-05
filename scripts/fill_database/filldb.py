@@ -1,7 +1,7 @@
 from pathlib import Path
 import sys, os, django
 
-BASE_DIR = Path(__file__).resolve().parent.parent 
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 sys.path.append(str(BASE_DIR))
 
 os.environ.setdefault(
@@ -43,5 +43,5 @@ def create_address():
 
 
 if __name__ == '__main__':
-    create_user()
+    # create_user()
     create_address()
