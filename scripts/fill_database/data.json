@@ -302,7 +302,7 @@
             "book_name": "800 کالری",
             "publisher": "انتشارات خوشمزه",
 
-            "pub_date": "5-7-2008",
+            "pub_date": "2008-1-1",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -326,7 +326,7 @@
             "book_name": "باغ های ماه",
             "publisher": "انتشارات شهر شب",
 
-            "pub_date": "11-6-2008",
+            "pub_date": "2005-1-2",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -334,7 +334,7 @@
             "count": 10,
             "price": 85000.00,
             "discount_id": 2,
-            "category_id": 4,
+            "category_id": 1,
 
             "author": [3],
             "translator": [7],
@@ -350,7 +350,7 @@
             "book_name": "فروشگاه رویا فروشی دالرگوت",
             "publisher": "انتشارات شهر شب",
 
-            "pub_date": "11-6-2008",
+            "pub_date": "2018-4-7",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -358,7 +358,7 @@
             "count": 10,
             "price": 85000.00,
 
-            "category_id": 6,
+            "category_id": 2,
 
             "author": [4],
             "translator": [8],
@@ -374,7 +374,7 @@
             "book_name": "صورت زرد",
             "publisher": "انتشارات قدرتمند",
 
-            "pub_date": "9-5-2020",
+            "pub_date": "2011-10-6",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -382,7 +382,7 @@
             "count": 10,
             "price": 120000.00,
             "discount_id": 3,
-            "category_id": 6,
+            "category_id": 3,
 
             "author": [10],
             "translator": [9],
@@ -398,7 +398,7 @@
             "book_name": "غذای بصرفه",
             "publisher": "انتشارات خوشمزه",
 
-            "pub_date": "9-5-2020",
+            "pub_date": "2002-11-11",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -406,7 +406,7 @@
             "count": 10,
             "price": 60000.00,
 
-            "category_id": 7,
+            "category_id": 4,
 
             "author": [9],
             "translator": [8],
@@ -422,7 +422,7 @@
             "book_name": "عروس",
             "publisher": "انتشارات خوش خوان",
 
-            "pub_date": "9-5-2017",
+            "pub_date": "2016-1-26",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -430,7 +430,7 @@
             "count": 10,
             "price": 110000.00,
             "discount_id": 4,
-            "category_id": 7,
+            "category_id": 5,
 
             "author": [8],
             "translator": [7],
@@ -446,7 +446,7 @@
             "book_name": "زندگی نامه الکس اندورهیل",
             "publisher": "انتشارات  خانواده",
 
-            "pub_date": "9-5-2017",
+            "pub_date": "2012-8-18",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -470,7 +470,7 @@
             "book_name": "پرنسس تاج و تخت",
             "publisher": "انتشارات جنگجویان",
 
-            "pub_date": "9-5-2017",
+            "pub_date": "2020-3-13",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -478,7 +478,7 @@
             "count": 10,
             "price": 85000.00,
             "discount_id": 2,
-            "category_id": 5,
+            "category_id": 7,
 
             "author": [6, 4],
             "translator": [5],
@@ -494,7 +494,7 @@
             "book_name": "اولگا در خواب میمیرد",
             "publisher": "انتشارات رویاپردازان",
 
-            "pub_date": "1-6-2019",
+            "pub_date": "2004-6-7",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -502,7 +502,7 @@
             "count": 10,
             "price": 85000.00,
             "discount_id": 2,
-            "category_id": 5,
+            "category_id": 8,
 
             "author": [1],
             "translator": [2],
@@ -518,7 +518,7 @@
             "book_name": "راز های اطلس",
             "publisher": "انتشارات شادی",
 
-            "pub_date": "6-4-2009",
+            "pub_date": "2019-5-14",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -526,7 +526,7 @@
             "count": 10,
             "price": 130000.00,
             "discount_id": 2,
-            "category_id": 5,
+            "category_id": 9,
 
             "author": [2],
             "translator": [3],
@@ -542,7 +542,7 @@
             "book_name": "بچه ی صحرا",
             "publisher": "انتشارات شهر شب",
 
-            "pub_date": "6-2-2019",
+            "pub_date": "2022-3-6",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -550,7 +550,7 @@
             "count": 10,
             "price": 140000.00,
             "discount_id": 2,
-            "category_id": 5,
+            "category_id": 10,
 
             "author": [3],
             "translator": [4],
@@ -566,7 +566,7 @@
             "book_name": "شعله آتشین",
             "publisher": "انتشارات کیمیاگر",
 
-            "pub_date": "2-1-2019",
+            "pub_date": "2024-4-4",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -574,7 +574,7 @@
             "count": 10,
             "price": 55000.00,
 
-            "category_id": 6,
+            "category_id": 1,
 
             "author": [4],
             "translator": [5],
@@ -590,7 +590,7 @@
             "book_name": "آستروپیا",
             "publisher": "انتشارات شهر شب",
 
-            "pub_date": "6-2-2019",
+            "pub_date": "2018-4-9",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -598,7 +598,7 @@
             "count": 10,
             "price": 150000.00,
             "discount_id": 3,
-            "category_id": 10,
+            "category_id": 2,
 
             "author": [4],
             "translator": [5],
@@ -614,7 +614,7 @@
             "book_name": "زنان خوش شانس",
             "publisher": "انتشارات کیمیاگر",
 
-            "pub_date": "5-3-2017",
+            "pub_date": "2017-5-1",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -622,7 +622,7 @@
             "count": 10,
             "price": 145000.00,
             "discount_id": 4,
-            "category_id": 1,
+            "category_id": 3,
 
             "author": [1],
             "translator": [10],
@@ -638,7 +638,7 @@
             "book_name": "هری پاتر",
             "publisher": "انتشارات داستان نویسان",
 
-            "pub_date": "5-3-2017",
+            "pub_date": "2008-1-18",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -646,7 +646,7 @@
             "count": 10,
             "price": 145000.00,
             "discount_id": 4,
-            "category_id": 1,
+            "category_id": 4,
 
             "author": [10],
             "translator": [9],
@@ -662,7 +662,7 @@
             "book_name": "خداحافظ عزیزم",
             "publisher": "انتشارات هیجانیشو",
 
-            "pub_date": "1-1-2024",
+            "pub_date": "2024-1-1",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -686,7 +686,7 @@
             "book_name": "بازی تاج و تخت",
             "publisher": "انتشارات هیجانیشو",
 
-            "pub_date": "1-1-2024",
+            "pub_date": "2008-4-2",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -710,7 +710,7 @@
             "book_name": "خدا ملکه ها را نگهدار",
             "publisher": "انتشارات پایتخت",
 
-            "pub_date": "1-1-2024",
+            "pub_date": "2021-5-8",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -734,7 +734,7 @@
             "book_name": "هرگز مردان را نشناختم",
             "publisher": "انتشارات هیجانیشو",
 
-            "pub_date": "1-1-2024",
+            "pub_date": "2003-12-3",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -742,7 +742,7 @@
             "count": 10,
             "price": 90000.00,
             "discount_id": 4,
-            "category_id": 7,
+            "category_id": 8,
 
             "author": [1],
             "translator": [8],
@@ -758,7 +758,7 @@
             "book_name": "ارباب حلقه ها: دو برج",
             "publisher": "انتشارات هیجانیشو",
 
-            "pub_date": "1-1-2024",
+            "pub_date": "2016-7-18",
             "language": "فارسی",
             "height": 25,
             "width": 15,
@@ -766,7 +766,7 @@
             "count": 10,
             "price": 90000.00,
             "discount_id": 1,
-            "category_id": 2,
+            "category_id": 9,
 
             "author": [5],
             "translator": [8],
