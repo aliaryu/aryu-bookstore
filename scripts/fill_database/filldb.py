@@ -24,6 +24,7 @@ from apps.product.models import (
     Book
 )
 from apps.discount.models import Discount
+from apps.comment.models import Comment
 
 
 from django.core.files import File
@@ -115,16 +116,22 @@ def create_book():
             book.genre.set(Genre.objects.filter(id__in=genres))
             book.tag.set(Tag.objects.filter(id__in=tags))
 
+def create_comment():
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
+        comment_data = json.load(file)["comment"]
+        for comment in comment_data:
+            comment = Comment.objects.create(** comment)
 
 
 if __name__ == '__main__':
-    # create_user()
-    # create_address()
-    # create_role()
-    # create_staff()
-    # create_discount()
-    # create_category()
-    # create_genre()
-    # create_tag()
-    # create_author()
+    create_user()
+    create_address()
+    create_role()
+    create_staff()
+    create_discount()
+    create_category()
+    create_genre()
+    create_tag()
+    create_author()
     create_book()
+    create_comment()

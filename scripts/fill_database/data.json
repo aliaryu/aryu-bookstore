@@ -816,7 +816,7 @@
     "comment": [
         {
             "user_id": 1,
-            "content_type": 14,
+            "content_type_id": 14,
             "object_id": 20,
             "approve": true,
             "text": "چه کتاب خوبی ، ممنون که موجودش کردین.",
@@ -824,7 +824,7 @@
         },
         {
             "user_id": 2,
-            "content_type": 14,
+            "content_type_id": 14,
             "object_id": 20,
             "approve": true,
             "text": "عاشق این کتاب و نویسندش ام",
@@ -832,7 +832,7 @@
         },
         {
             "user_id": 4,
-            "content_type": 14,
+            "content_type_id": 14,
             "object_id": 20,
             "approve": true,
             "text": "خوشم نیومد 🙁",
@@ -840,7 +840,7 @@
         },
         {
             "user_id": 2,
-            "content_type": 14,
+            "content_type_id": 14,
             "object_id": 19,
             "approve": true,
             "text": "چه کتاب خوبی ، ممنون که موجودش کردین.",
@@ -848,7 +848,7 @@
         },
         {
             "user_id": 3,
-            "content_type": 14,
+            "content_type_id": 14,
             "object_id": 19,
             "approve": true,
             "text": "عاشق این کتاب و نویسندش ام",
@@ -856,7 +856,7 @@
         },
         {
             "user_id": 5,
-            "content_type": 14,
+            "content_type_id": 14,
             "object_id": 19,
             "approve": true,
             "text": "خوشم نیومد 🙁",
@@ -864,7 +864,7 @@
         },
         {
             "user_id": 3,
-            "content_type": 14,
+            "content_type_id": 14,
             "object_id": 17,
             "approve": true,
             "text": "چه کتاب خوبی ، ممنون که موجودش کردین.",
@@ -872,7 +872,7 @@
         },
         {
             "user_id": 4,
-            "content_type": 14,
+            "content_type_id": 14,
             "object_id": 17,
             "approve": true,
             "text": "عاشق این کتاب و نویسندش ام",
@@ -880,7 +880,7 @@
         },
         {
             "user_id": 5,
-            "content_type": 14,
+            "content_type_id": 14,
             "object_id": 17,
             "approve": true,
             "text": "خوشم نیومد 🙁",
@@ -888,7 +888,7 @@
         },
         {
             "user_id": 1,
-            "content_type": 10,
+            "content_type_id": 10,
             "object_id": 1,
             "approve": true,
             "text": "کتاب های فوق العاده ایی دارن ایشون",
@@ -896,7 +896,7 @@
         },
         {
             "user_id": 4,
-            "content_type": 10,
+            "content_type_id": 10,
             "object_id": 1,
             "approve": true,
             "text": "چه زیباعه ",
@@ -904,7 +904,7 @@
         },
         {
             "user_id": 1,
-            "content_type": 10,
+            "content_type_id": 10,
             "object_id": 2,
             "approve": true,
             "text": "کتاب های فوق العاده ایی دارن ایشون",
@@ -912,7 +912,7 @@
         },
         {
             "user_id": 4,
-            "content_type": 10,
+            "content_type_id": 10,
             "object_id": 2,
             "approve": true,
             "text": "چه سیبیلی ",
