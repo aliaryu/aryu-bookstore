@@ -3,8 +3,8 @@
         {
             "username": "admin",
             "email": "admin@admin.com",
-            "first_name": "ali",
-            "last_name": "aryu",
+            "first_name": "علی",
+            "last_name": "آریو",
             "birth_date": "2024-01-01",
             "is_superuser": true,
             "is_staff": true,
@@ -33,6 +33,28 @@
             "is_active": true,
             "password": "123456789abcd",
             "image": "/image/user/user-default-3.jpg"
+        },
+        {
+            "username": "porya",
+            "email": "porya@porya.com",
+            "first_name": "پوریا",
+            "last_name": "نژاد انسان",
+            "birth_date": "2024-01-03",
+            "is_superuser": false,
+            "is_active": true,
+            "password": "123456789abcd",
+            "image": "/image/user/user-default-4.jpg"
+        },
+        {
+            "username": "asal",
+            "email": "asal@asal.com",
+            "first_name": "عسل",
+            "last_name": "شیطون",
+            "birth_date": "2024-01-03",
+            "is_superuser": false,
+            "is_active": true,
+            "password": "123456789abcd",
+            "image": "/image/user/user-default-5.jpg"
         }
     ],
     "address": [
@@ -40,19 +62,31 @@
             "user_id": 1,
             "province": "ILA",
             "postal_code": 1234567890,
-            "address_path": "zaminshahri, st. mobarezan"
+            "address_path": "زمین شهری - خیابان مبارزان"
         },
         {
             "user_id": 2,
             "province": "TEH",
             "postal_code": 1234567890,
-            "address_path": "azadi, st. ben sina"
+            "address_path": "تهران - آزادی - خیابان آفریقا"
         },
         {
             "user_id": 3,
             "province": "MAZ",
             "postal_code": 1234567890,
-            "address_path": "babolsar, st. darya"
+            "address_path": "بابلسر - خیابان فرشته"
+        },
+        {
+            "user_id": 4,
+            "province": "GIL",
+            "postal_code": 1234567890,
+            "address_path": "انزلی - دریا کنار"
+        },
+        {
+            "user_id": 5,
+            "province": "KHU",
+            "postal_code": 1234567890,
+            "address_path": "اهواز - خیابان سمبوسه"
         }
     ],
     "role": [
@@ -777,6 +811,11 @@
 
             "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده .",
             "excerpt": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد."
+        }
+    ],
+    "comment": [
+        {
+
         }
     ]
     
