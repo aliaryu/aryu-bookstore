@@ -46,9 +46,9 @@
             "image": "/image/user/user-default-4.jpg"
         },
         {
-            "username": "asal",
-            "email": "asal@asal.com",
-            "first_name": "عسل",
+            "username": "hasti",
+            "email": "hasti@hasti.com",
+            "first_name": "هستی",
             "last_name": "شیطون",
             "birth_date": "2024-01-03",
             "is_superuser": false,
@@ -815,8 +815,108 @@
     ],
     "comment": [
         {
-
+            "user_id": 1,
+            "content_type": 14,
+            "object_id": 20,
+            "approve": true,
+            "text": "چه کتاب خوبی ، ممنون که موجودش کردین.",
+            "answer": "امید وارم از خرید و خوندنش لذت ببرین 📖"
+        },
+        {
+            "user_id": 2,
+            "content_type": 14,
+            "object_id": 20,
+            "approve": true,
+            "text": "عاشق این کتاب و نویسندش ام",
+            "answer": "ممنون از دیدگاهتون 💖"
+        },
+        {
+            "user_id": 4,
+            "content_type": 14,
+            "object_id": 20,
+            "approve": true,
+            "text": "خوشم نیومد 🙁",
+            "answer": "متاسفیم 💔"
+        },
+        {
+            "user_id": 2,
+            "content_type": 14,
+            "object_id": 19,
+            "approve": true,
+            "text": "چه کتاب خوبی ، ممنون که موجودش کردین.",
+            "answer": "امید وارم از خرید و خوندنش لذت ببرین 📖"
+        },
+        {
+            "user_id": 3,
+            "content_type": 14,
+            "object_id": 19,
+            "approve": true,
+            "text": "عاشق این کتاب و نویسندش ام",
+            "answer": "ممنون از دیدگاهتون 💖"
+        },
+        {
+            "user_id": 5,
+            "content_type": 14,
+            "object_id": 19,
+            "approve": true,
+            "text": "خوشم نیومد 🙁",
+            "answer": "متاسفیم 💔"
+        },
+        {
+            "user_id": 3,
+            "content_type": 14,
+            "object_id": 17,
+            "approve": true,
+            "text": "چه کتاب خوبی ، ممنون که موجودش کردین.",
+            "answer": "امید وارم از خرید و خوندنش لذت ببرین 📖"
+        },
+        {
+            "user_id": 4,
+            "content_type": 14,
+            "object_id": 17,
+            "approve": true,
+            "text": "عاشق این کتاب و نویسندش ام",
+            "answer": "ممنون از دیدگاهتون 💖"
+        },
+        {
+            "user_id": 5,
+            "content_type": 14,
+            "object_id": 17,
+            "approve": true,
+            "text": "خوشم نیومد 🙁",
+            "answer": "متاسفیم 💔"
+        },
+        {
+            "user_id": 1,
+            "content_type": 10,
+            "object_id": 1,
+            "approve": true,
+            "text": "کتاب های فوق العاده ایی دارن ایشون",
+            "answer": "کاملا موافقیم 🌺"
+        },
+        {
+            "user_id": 4,
+            "content_type": 10,
+            "object_id": 1,
+            "approve": true,
+            "text": "چه زیباعه ",
+            "answer": "مثل خودتون 🐳"
+        },
+        {
+            "user_id": 1,
+            "content_type": 10,
+            "object_id": 2,
+            "approve": true,
+            "text": "کتاب های فوق العاده ایی دارن ایشون",
+            "answer": "کاملا موافقیم 🌺"
+        },
+        {
+            "user_id": 4,
+            "content_type": 10,
+            "object_id": 2,
+            "approve": true,
+            "text": "چه سیبیلی ",
+            "answer": "هاها 🐳"
         }
     ]
-    
 }
