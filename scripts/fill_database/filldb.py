@@ -21,6 +21,7 @@ from apps.product.models import (
     Genre,
     Tag,
     Author,
+    Book
 )
 from apps.discount.models import Discount
 
@@ -34,7 +35,7 @@ FOLDER = str(Path(__file__).resolve().parent)
 
 
 def create_user():
-    with open(FOLDER + "/data.json") as file:
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
         users_data = json.load(file)["user"]
         for user_data in users_data:
             image_path = FOLDER + user_data.pop("image")
@@ -43,25 +44,25 @@ def create_user():
                 user.image.save(Path(img_file.name).name, File(img_file))
 
 def create_address():
-    with open(FOLDER + "/data.json") as file:
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
         address_data = json.load(file)["address"]
         for address in address_data:
             Address.objects.create(** address)
 
 def create_role():
-    with open(FOLDER + "/data.json") as file:
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
         role_data = json.load(file)["role"]
         for role in role_data:
             Role.objects.create(** role)
 
 def create_staff():
-    with open(FOLDER + "/data.json") as file:
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
         staff_data = json.load(file)["staff"]
         for staff in staff_data:
             Staff.objects.create(** staff)
 
 def create_discount():
-    with open(FOLDER + "/data.json") as file:
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
         discount_data = json.load(file)["discount"]
         for discount in discount_data:
             dis = Discount(** discount)
@@ -97,6 +98,23 @@ def create_author():
             with open(image_path, 'rb') as img_file:
                 author.image.save(Path(img_file.name).name, File(img_file))
 
+def create_book():
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
+        books_data = json.load(file)["book"]
+        for book_data in books_data:
+            image_path = FOLDER + book_data.pop("image")
+            authors = book_data.pop("author")
+            translators = book_data.pop("translator")
+            genres = book_data.pop("genre")
+            tags = book_data.pop("tag")
+            book = Book.objects.create(** book_data)
+            with open(image_path, 'rb') as img_file:
+                book.image.save(Path(img_file.name).name, File(img_file))
+            book.author.set(Author.objects.filter(id__in=authors))
+            book.translator.set(Author.objects.filter(id__in=translators))
+            book.genre.set(Genre.objects.filter(id__in=genres))
+            book.tag.set(Tag.objects.filter(id__in=tags))
+
 
 
 if __name__ == '__main__':
@@ -108,4 +126,5 @@ if __name__ == '__main__':
     # create_category()
     # create_genre()
     # create_tag()
-    create_author()
+    # create_author()
+    create_book()
