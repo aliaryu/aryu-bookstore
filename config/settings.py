@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # EXTERNAL APPS
+    'django.contrib.humanize',
     "debug_toolbar",
 
     # INTERNAL APPS
