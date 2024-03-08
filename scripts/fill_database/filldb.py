@@ -9,7 +9,6 @@ os.environ.setdefault(
     "config.settings"
 ) ; django.setup()
 
-
 from apps.user.models import (
     User,
     Address,
@@ -25,7 +24,7 @@ from apps.product.models import (
 )
 from apps.discount.models import Discount
 from apps.comment.models import Comment
-
+from apps.order.models import Order, OrderBook
 
 from django.core.files import File
 from django.utils import timezone
@@ -120,12 +119,20 @@ def create_book():
             book.likes.set(User.objects.filter(id__in=likes))
             book.saves.set(User.objects.filter(id__in=saves))
 
-
 def create_comment():
     with open(FOLDER + "/data.json", encoding="utf-8") as file:
         comment_data = json.load(file)["comment"]
         for comment in comment_data:
             comment = Comment.objects.create(** comment)
+
+def create_order():
+    with open(FOLDER + "/data.json", encoding="utf-8") as file:
+        order_data = json.load(file)["order"]
+        for order in order_data:
+            books = order.pop("books")
+            order = Order.objects.create(** order)
+            for book in books:
+                OrderBook.objects.create(order=order, book_id=book, count=1)
 
 
 if __name__ == '__main__':
@@ -140,4 +147,5 @@ if __name__ == '__main__':
     create_author()
     create_book()
     create_comment()
+    create_order()
     print("Database Filled Successfully :D")
