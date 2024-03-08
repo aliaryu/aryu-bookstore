@@ -50,6 +50,7 @@ class Order(LogicalBaseModel, TimeStampBaseModel):
         verbose_name = _("book(s)"),
         to = "product.Book",
         through = "OrderBook",
+        blank = True
     )
 
     class Meta:
