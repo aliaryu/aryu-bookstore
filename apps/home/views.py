@@ -10,7 +10,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context["popular_books"] = Book.objects.annotate(likes_count=Count('likes')).order_by("-likes_count", "-id")[:10]
+        context["popular_books"] = Book.objects.select_related("discount").annotate(likes_count=Count('likes')).order_by("-likes_count", "-id")[:10]
 
         print(context["popular_books"])
 
