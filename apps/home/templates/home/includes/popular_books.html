@@ -9,7 +9,9 @@
 
                 <div class="card border-0 m-1 justify-content-center align-items-center" style="width: 150px;">
                     <div class="card h-100 m-0" style="width: 150px;">
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">20% تخفیف</div>
+                        {% if book.discount %}
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">{{ book.discount.show_discount }} تخفیف</div>
+                        {% endif %}
                         <img class="card-img-top img-shadow" src="{{ book.image.url }}" alt="..." height="220px">
                         <div class="card-body p-2">
                             <div class="text-center">
