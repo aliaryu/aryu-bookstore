@@ -6,9 +6,13 @@
             <div class="col d-flex">
                 <div class="p-3 position-relative ms-xl-2 mb-xl-0 mb-2 w-100 d-flex flex-wrap justify-content-center align-items-center" >
 
-                    {% for tag in tags %}
-                        <a href="list.html" class="f-bold f-15 text-decoration-none tags"><i class="bi bi-hash i-tr"></i>{{ tag.tag_name }}</a>
-                    {% endfor %}
+                    {% if tags %}
+                        {% for tag in tags %}
+                            <a href="list.html" class="f-bold f-15 text-decoration-none tags"><i class="bi bi-hash i-tr"></i>{{ tag.tag_name }}</a>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-center f-bold">تگ ایی وجود ندارد -_-</p>
+                    {% endif %}
 
                 </div>
             </div>

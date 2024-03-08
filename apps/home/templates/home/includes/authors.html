@@ -6,9 +6,13 @@
             <div class="col d-flex">
                 <div class="p-3 position-relative ms-xl-2 mb-xl-0 mb-2 w-100 d-flex flex-wrap justify-content-center align-items-center" >
 
-                    {% for author in authors %}
-                        <a href="author.html" class="f-bold f-15 text-decoration-none tags"><i class="bi bi-person i-tr"></i>{{ author.full_name }}</a>
-                    {% endfor %}
+                    {% if authors %}
+                        {% for author in authors %}
+                            <a href="author.html" class="f-bold f-15 text-decoration-none tags"><i class="bi bi-person i-tr"></i>{{ author.full_name }}</a>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-center f-bold">نویسنده ای وجود ندارد -_-</p>
+                    {% endif %}
 
                 </div>
             </div>
