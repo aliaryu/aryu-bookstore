@@ -108,14 +108,8 @@ def create_book():
             translators = book_data.pop("translator")
             genres = book_data.pop("genre")
             tags = book_data.pop("tag")
-            try:
-                likes = book_data.pop("like")
-            except:
-                pass
-            try:
-                saves = book_data.pop("save")
-            except:
-                pass
+            likes = book_data.pop("like")
+            saves = book_data.pop("save")
             book = Book.objects.create(** book_data)
             with open(image_path, 'rb') as img_file:
                 book.image.save(Path(img_file.name).name, File(img_file))
@@ -123,14 +117,9 @@ def create_book():
             book.translator.set(Author.objects.filter(id__in=translators))
             book.genre.set(Genre.objects.filter(id__in=genres))
             book.tag.set(Tag.objects.filter(id__in=tags))
-            try:
-                book.likes.set(User.objects.filter(id__in=likes))
-            except:
-                pass
-            try:
-                book.saves.set(User.objects.filter(id__in=saves))
-            except:
-                pass
+            book.likes.set(User.objects.filter(id__in=likes))
+            book.saves.set(User.objects.filter(id__in=saves))
+
 
 def create_comment():
     with open(FOLDER + "/data.json", encoding="utf-8") as file:
