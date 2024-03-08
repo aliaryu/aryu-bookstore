@@ -145,3 +145,4 @@ if __name__ == '__main__':
     create_author()
     create_book()
     create_comment()
+    print("Database Filled Successfully :D")
