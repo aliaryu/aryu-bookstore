@@ -56,3 +56,9 @@ class Discount(models.Model):
             return f"code: {self.code} - percent: {self.percent} %"
         else:
             return f"code: {self.code} - cash: {self.cash} $"
+
+    def show_discount(self):
+        if self.percent:
+            return f"{self.percent}%"
+        elif self.cash:
+            return f"{self.cash:,}ت"
