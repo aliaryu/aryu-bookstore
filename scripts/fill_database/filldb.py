@@ -110,6 +110,9 @@ def create_book():
             tags = book_data.pop("tag")
             try:
                 likes = book_data.pop("like")
+            except:
+                pass
+            try:
                 saves = book_data.pop("save")
             except:
                 pass
@@ -122,6 +125,9 @@ def create_book():
             book.tag.set(Tag.objects.filter(id__in=tags))
             try:
                 book.likes.set(User.objects.filter(id__in=likes))
+            except:
+                pass
+            try:
                 book.saves.set(User.objects.filter(id__in=saves))
             except:
                 pass
