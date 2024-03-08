@@ -1,0 +1,17 @@
+{% comment %} SECTION TAGS {% endcomment %}
+<section class="container-fluid my-5">
+    <div class="container p-0">
+        <div class="row">
+            <h2 class="font-30 f-sayeh f-bold mb-4"> &nbsp;&nbsp;آخرین تگ ها <i class="bi bi-bookmark-fill font-20"></i></h2>
+            <div class="col d-flex">
+                <div class="p-3 position-relative ms-xl-2 mb-xl-0 mb-2 w-100 d-flex flex-wrap justify-content-center align-items-center" >
+
+                    {% for tag in tags %}
+                        <a href="list.html" class="f-bold f-15 text-decoration-none tags"><i class="bi bi-hash i-tr"></i>{{ tag.tag_name }}</a>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
