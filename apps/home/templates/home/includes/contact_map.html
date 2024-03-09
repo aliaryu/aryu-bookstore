@@ -5,16 +5,25 @@
 
             <div class="col">
                 <h2 class="f-sayeh font-30 f-bold mb-4">راه های ارتباطی با ما:</h2>
-                <form action="" method="post">
+                <form id="contact-form" class="">
+                    {% csrf_token %}
                     <div class="d-flex mb-2">
-                        <input type="text" class="col form-control bg-transparent place-holder-grey f-bold ms-1" placeholder="نام و نام خانوادگی">
-                        <input type="email" class="col form-control bg-transparent place-holder-grey f-bold me-1" placeholder="ایمیل">
+                        <input name="full_name" required type="text" class="col form-control bg-transparent place-holder-grey f-bold ms-1" placeholder="نام و نام خانوادگی">
+                        <input name="email" required type="email" class="col form-control bg-transparent place-holder-grey f-bold me-1" placeholder="ایمیل">
                     </div>
 
-                    <textarea class="form-control bg-transparent place-holder-grey f-bold" placeholder="متن پیام ..." rows="5"></textarea>
+                    <textarea name="text" required class="form-control bg-transparent place-holder-grey f-bold" placeholder="متن پیام ..." rows="5"></textarea>
                     <button type="submit" class="col form-control bg-transparent f-bold mt-2"> ارسال <i class="bi bi-send-check"></i> </button>
-
                 </form>
+
+                <div id="contact-error" class="form-control border-danger mt-2 f-bold d-none">
+                    <span class="text-danger">خطا(ها):</span>
+                </div>
+
+                <div id="contact-success" class="form-control border-success mt-2 f-bold d-flex justify-content-center align-items-center d-none" style="height: 243px;">
+                    <span class="text-success">پیام شمارو دریافت کردیم 🐬</span>
+                </div>
+
                 <div class="d-flex justify-content-around mt-2">
                     <span class="font-15"><i class="bi bi-telephone font-15"></i> تفلن: 09182409113</span>
                     <span class="font-15"><i class="bi bi-envelope-at font-15"></i> ایمیل: aliaryu76@gmail.com</span>
@@ -28,3 +37,5 @@
         </div>
     </section>
 </div>
+
+
