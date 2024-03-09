@@ -20,6 +20,7 @@ INSTALLED_APPS = [
 
     # EXTERNAL APPS
     'django.contrib.humanize',
+    'rest_framework',
     "debug_toolbar",
 
     # INTERNAL APPS
