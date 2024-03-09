@@ -17,12 +17,6 @@ class Category(models.Model):
         null = True,
         blank = True,
     )
-    image = models.ImageField(
-        verbose_name = _("image"),
-        upload_to = "category_image/",
-        blank = True,
-        null = True,
-    )
 
     class Meta:
         verbose_name = _("category")
@@ -37,16 +31,6 @@ class Genre(models.Model):
         verbose_name = _("genre"),
         max_length = 255,
         unique = True,
-    )
-    description = models.TextField(
-        verbose_name = _("description"),
-        blank = True,
-    )
-    image = models.ImageField(
-        verbose_name = _("image"),
-        upload_to = "genre_image/",
-        blank = True,
-        null = True,
     )
 
     class Meta:
