@@ -26,7 +26,6 @@ class User(AbstractUser):
         verbose_name = _("birth date"),
         blank = True,
         null = True,
-        validators = [birth_date_validator]
     )
     is_active = models.BooleanField(
         verbose_name = _("active"),

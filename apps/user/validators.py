@@ -1,14 +1,8 @@
-from django.core.validators import RegexValidator
-from django.core.validators import MaxValueValidator, FileExtensionValidator
+from django.core.validators import FileExtensionValidator
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 from datetime import date
 
-
-birth_date_validator = MaxValueValidator(
-    limit_value = date.today(),
-    message = _("birth date cannot be in the future")
-)
 
 def square_image_validator(image):
     if image.width != image.height:
