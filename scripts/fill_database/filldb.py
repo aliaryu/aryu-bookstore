@@ -9,6 +9,8 @@ os.environ.setdefault(
     "config.settings"
 ) ; django.setup()
 
+from django.db.utils import OperationalError
+
 from apps.user.models import (
     User,
     Address,
@@ -136,16 +138,35 @@ def create_order():
 
 
 if __name__ == '__main__':
-    create_user()
-    create_address()
-    create_role()
-    create_staff()
-    create_discount()
-    create_category()
-    create_genre()
-    create_tag()
-    create_author()
-    create_book()
-    create_comment()
-    create_order()
-    print("Database Filled Successfully :D")
+    try:
+        if User.objects.exists():
+            print(
+                "\n",
+                "You are not allowed to fill the database, Because there",
+                "is already data in the database. This script is executed",
+                "only once before entering the data into the database.",
+                sep="\n"
+            )
+        else:
+            create_user()
+            create_address()
+            create_role()
+            create_staff()
+            create_discount()
+            create_category()
+            create_genre()
+            create_tag()
+            create_author()
+            create_book()
+            create_comment()
+            create_order()
+            print("\n" ,"Database Filled Successfully :D", sep="\n")
+    except OperationalError as error:
+        print(
+            "\n",
+            f'Unexpected Error! {error}',
+            'Maybe you forgot "makemigrations" & "migrate" ?',
+            sep="\n"
+        )
+    except Exception as error:
+        print(f'Unexpected Error! {error}')
