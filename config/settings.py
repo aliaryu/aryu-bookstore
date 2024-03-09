@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "apps.comment.apps.CommentConfig",
     "apps.order.apps.OrderConfig",
     "apps.home.apps.HomeConfig",
+    "apps.about.apps.AboutConfig",
 ]
 
 MIDDLEWARE = [
