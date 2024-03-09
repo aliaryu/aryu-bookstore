@@ -1,0 +1,104 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+
+    {% comment %} SECTION ABOUT {% endcomment %}
+    <section class="container-fluid my-5 p-0">
+        <div class="container px-0">
+
+            <h1 class="f-sayeh mb-4 fw-bold me-4">کتاب فروشی آریو</h1>
+
+            <div class="d-flex flex-wrap">
+
+                <!-- DESCRIPTION -->
+                <div class="py-2 ps-2 ps-md-4" style="margin-right: 150px;">
+                    <span class="f-bold font-15">
+                        <i class="bi bi-info-circle font-17"></i>
+                        توضیحات:
+                        <span class="text-muted">
+                            پروژه وبسایت فروشگاهی تستی و تمرینی است که با تکنولوژی های زیر توسعه داده شده:
+                        </span>
+                        <ul>
+                            <li>html, css</li>
+                            <li>bootstrap 5</li>
+                            <li>java script</li>
+                            <li>python language</li>
+                            <li>django framework</li>
+                            <li>django rest framework</li>
+                            <li>redis database</li>
+                            <li>celery, celery beat</li>
+                            <li>git, github</li>
+                        </ul>
+                    </span>
+                </div>
+
+                <!-- BIO -->
+                <div class="d-flex rounded-2 p-2 mx-1 position-relative mb-2">
+
+                    <!-- IMAGE -->
+                    <div class="position-relative" style="max-width: 127px;">
+                        <a href="#"><img class="img-shadow rounded-2 img-fluid" style="cursor: zoom-in;"
+                            src="{% static "image/default/ali havasi (aliaryu).jpg" %}" alt="aliaryu"></a>
+                    </div>
+
+                    <!-- INFORMATION & LINKS -->
+                    <div class="me-2">
+
+                        <div>
+                            <h6 class="text-black f-bold font-15 mb-0">
+                                <i class="bi bi-file-earmark-code" style="font-size: 18px;"></i>
+                                توسعه دهنده:
+                                علی هواسی
+                            </h6>
+                        </div>
+
+                        <div>
+                            <span class="f-bold font-15">
+                                <i class="bi bi-chat-dots font-17"></i>
+                                اطلاعات تماس:
+
+                                <ul class=" list-unstyled m-0 pe-4">
+                                    <li>
+                                        <i class="bi bi-envelope-at-fill"></i>
+                                        ایمیل:
+                                        <a class="text-decoration-none" href="mailto:aliaryu76@gmail.com">aliaryu76@gmail</a>
+                                    </li>
+
+                                    <li>
+                                        <i class="bi bi-tablet-fill"></i>
+                                        تلفن:
+                                        <a class="text-decoration-none" href="tel:+989182409113" dir="ltr">+98 918 240 9113</a>
+                                    </li>
+
+                                    <li>
+                                        <i class="bi bi-github"></i>
+                                        گیت هاب:
+                                        <a class="text-decoration-none" href="https://github.com/aliaryu" dir="ltr">aliaryu</a>
+                                    </li>
+
+                                    <li>
+                                        <i class="bi bi-linkedin"></i>
+                                        لینکدین:
+                                        <a class="text-decoration-none" href="https://www.linkedin.com/in/aliaryu/" dir="ltr">aliaryu</a>
+                                    </li>
+
+                                    <li>
+                                        <i class="bi bi-telegram"></i>
+                                        تلگرام:
+                                        <a class="text-decoration-none" href="https://t.me/aryuam" dir="ltr">aryuam</a>
+                                    </li>
+                                </ul>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+{% endblock content %}
