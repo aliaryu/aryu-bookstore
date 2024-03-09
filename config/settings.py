@@ -19,6 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # EXTERNAL APPS
+    'django.contrib.humanize',
+    'rest_framework',
     "debug_toolbar",
 
     # INTERNAL APPS
@@ -28,6 +30,7 @@ INSTALLED_APPS = [
     "apps.discount.apps.DiscountConfig",
     "apps.comment.apps.CommentConfig",
     "apps.order.apps.OrderConfig",
+    "apps.home.apps.HomeConfig",
 ]
 
 MIDDLEWARE = [
@@ -153,3 +156,6 @@ else:
 
 # AUTH CONFIG
 AUTH_USER_MODEL = "user.User"
+
+# AUTHENTICATION_BACKENDS
+# LOGIN_URL

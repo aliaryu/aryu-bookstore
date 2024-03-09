@@ -1,0 +1,21 @@
+{% comment %} SECTION AUTHORS {% endcomment %}
+<section class="container-fluid my-5">
+    <div class="container p-0">
+        <div class="row">
+            <h2 class="font-30 f-sayeh f-bold mb-4"> برخی از نویسندگان <i class="bi bi-pen-fill font-20"></i></h2>
+            <div class="col d-flex">
+                <div class="p-3 position-relative ms-xl-2 mb-xl-0 mb-2 w-100 d-flex flex-wrap justify-content-center align-items-center" >
+
+                    {% if authors %}
+                        {% for author in authors %}
+                            <a href="author.html" class="f-bold f-15 text-decoration-none tags"><i class="bi bi-person i-tr"></i>{{ author.full_name }}</a>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-center f-bold">نویسنده ای وجود ندارد -_-</p>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
