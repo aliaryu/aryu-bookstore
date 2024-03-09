@@ -16,5 +16,6 @@ class HomeView(TemplateView):
         context["authors"] = sorted(Author.objects.order_by("-id")[:50], key=lambda x: random.random())
         context["newest_books"] = sorted(Book.objects.select_related("discount").order_by("-id")[:10], key=lambda x: random.random())
         context["tags"] = sorted(Tag.objects.order_by("-id")[:50], key=lambda x: random.random())
+        context["top_selling"] = sorted(Book.objects.filter(id__in=OrderBook.objects.values('book').annotate(total_sales=Sum('count')).order_by('-total_sales')[:10].values_list('book', flat=True)).select_related("discount").order_by()[:10], key=lambda x: random.random())
 
         return context
