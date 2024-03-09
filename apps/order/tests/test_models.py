@@ -48,8 +48,6 @@ class OrderTestCase(TestCase):
             user = self.user,
             address = self.address,
             staff = self.staff,
-            in_process = True,
-            is_complete = False
         )
         orderbook = OrderBook.objects.create(
             order = order,
@@ -59,8 +57,7 @@ class OrderTestCase(TestCase):
         self.assertEqual(order.user, self.user)
         self.assertEqual(order.address, self.address)
         self.assertEqual(order.staff, self.staff)
-        self.assertTrue(order.in_process)
-        self.assertFalse(order.is_complete)
+        self.assertEqual(order.status, "PEN")
         self.assertIn(orderbook, order.orderbook_set.all())
 
     def test_order_str_representation(self):
@@ -68,8 +65,6 @@ class OrderTestCase(TestCase):
             user = self.user,
             address = self.address,
             staff =self.staff,
-            in_process = True,
-            is_complete = False
         )
         expected_str = f"order number: [ {order.id} ]"
         self.assertEqual(str(order), expected_str)
@@ -103,8 +98,6 @@ class OrderBookTestCase(TestCase):
         self.order = Order.objects.create(
             user = self.user,
             address = self.address,
-            in_process = True,
-            is_complete = False
         )
 
     def test_order_book_creation(self):

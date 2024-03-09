@@ -24,8 +24,7 @@ class CategoryModelTests(TestCase):
     def test_create_category(self):
         self.assertEqual(self.category.cat_name, 'Test Category')
         self.assertIsNone(self.category.cat_parent)
-        with self.assertRaises(ValueError):
-            self.category.image.url
+
 
     def test_str_representation(self):
         self.assertEqual(str(self.category), 'Test Category')
@@ -40,13 +39,6 @@ class CategoryModelTests(TestCase):
         self.category.save()
         self.assertEqual(self.category.cat_parent, parent_category)
 
-    def test_image_field(self):
-        test_image = SimpleUploadedFile("test_image.jpg", b"file_content", content_type = "image/jpeg")
-        self.category.image = test_image
-        self.category.save()
-        self.assertIn("category_image/test_image", self.category.image.url)
-        os.remove(self.category.image.path)
-
 
 class GenreModelTests(TestCase):
     def setUp(self):
@@ -58,8 +50,6 @@ class GenreModelTests(TestCase):
     def test_create_genre(self):
         self.assertEqual(self.genre.genre_name, 'Test Genre')
         self.assertEqual(self.genre.description, 'This is a test genre')
-        with self.assertRaises(ValueError):
-            self.genre.image.url
 
     def test_str_representation(self):
         self.assertEqual(str(self.genre), 'Test Genre')
@@ -67,13 +57,6 @@ class GenreModelTests(TestCase):
     def test_unique_genre_name(self):
         with self.assertRaises(Exception):
             Genre.objects.create(genre_name = 'Test Genre')
-
-    def test_image_field(self):
-        test_image = SimpleUploadedFile("test_image.jpg", b"file_content", content_type="image/jpeg")
-        self.genre.image = test_image
-        self.genre.save()
-        self.assertIn("genre_image/test_image", self.genre.image.url)
-        os.remove(self.genre.image.path)
 
 
 class TagModelTests(TestCase):

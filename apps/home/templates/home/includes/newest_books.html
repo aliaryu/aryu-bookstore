@@ -1,0 +1,41 @@
+{% comment %} SECTION NEWEST BOOKS {% endcomment %}
+{% load humanize %}
+<section class="container-fluid py-5 px-0 bg-dotted">
+    <h2 class="text-center font-30 f-sayeh f-bold mb-4">جدید ترین کتاب ها <i class="bi bi-lightning-charge-fill font-25"></i></h2>
+    <div class="container p-0">
+
+        <div class="scrolling-wrapper pb-2 scrollbar p-0 p-lg-1">
+
+            {% if newest_books %}
+                {% for book in newest_books %}
+
+                    <div class="card border-0 m-1 justify-content-center align-items-center" style="width: 150px;">
+                        <div class="card h-100 m-0" style="width: 150px;">
+                            {% if book.discount %}
+                                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">{{ book.discount.show_discount }} تخفیف</div>
+                            {% endif %}
+                            <img class="card-img-top img-shadow" src="{{ book.image.url }}" alt="{{ book.book_name }}" height="220px">
+                            <div class="card-body p-2">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder h6 mb-0 avoid-overflow">{{ book.book_name }}</h5>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center mt-1">
+                                    <span class="text-muted text-decoration-line-through ms-1 font-14">{{ book.price|floatformat:0|intcomma }}</span>
+                                    <span class="text-muted me-1 font-14">{{ book.calculate_price|floatformat:0|intcomma }} تومان</span>
+                                </div>
+                            </div>
+                            <div class="card-footer p-2 pt-0 m-1 mt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="form-control btn btn-outline-dark mt-auto f-bold border-secondary font-15" href="detail.html">جزئیات بیشتر</a></div>
+                            </div>
+                        </div>
+                    </div>
+                
+                {% endfor %}
+            {% else %}
+                <p class="text-center f-bold">کتابی وجود ندارد -_-</p>
+            {% endif %}
+
+        </div>
+
+    </div>
+</section>

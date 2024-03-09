@@ -1,4 +1,3 @@
-from typing import Iterable
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
@@ -7,13 +6,14 @@ from .managers import (
     UserRelatedModelBaseManager
 )
 from .validators import (
-    birth_date_validator,
     image_extension_validator,
     square_image_validator,
     postal_code_validator
 )
 from apps.core.models import LogicalBaseModel
 from django.contrib.auth.models import Group, Permission
+from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 
 class User(AbstractUser):
@@ -26,7 +26,6 @@ class User(AbstractUser):
         verbose_name = _("birth date"),
         blank = True,
         null = True,
-        validators = [birth_date_validator]
     )
     is_active = models.BooleanField(
         verbose_name = _("active"),
@@ -53,6 +52,11 @@ class User(AbstractUser):
 
     objects = CustomUserManager()
 
+    def clean(self):
+        super().clean()
+        if self.birth_date and self.birth_date > timezone.now().date():
+            raise ValidationError({'birth_date': _("birth date cannot be in future.")})
+
     def delete(self, using=None, keep_parents=False):
         self.is_delete = True
         self.save()
@@ -71,7 +75,7 @@ class User(AbstractUser):
     def __str__(self):
         return f"{self.username}"
 
-    REQUIRED_FIELDS = ["email", "phone"]
+    REQUIRED_FIELDS = ["email",]
 
 
 class Address(models.Model):

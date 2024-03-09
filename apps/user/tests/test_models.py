@@ -9,7 +9,6 @@ class UserModelTests(TestCase):
         self.user = self.User.objects.create_user(
             username = 'testuser',
             email = 'test@test.com',
-            phone = '09180000000',
             password = 'password1234'
         )
 
@@ -17,7 +16,6 @@ class UserModelTests(TestCase):
         self.user.full_clean()
         self.assertEqual(self.user.username, 'testuser')
         self.assertEqual(self.user.email, 'test@test.com')
-        self.assertEqual(self.user.phone, '09180000000',)
         self.assertTrue(self.user.check_password('password1234'))
         self.assertFalse(self.user.is_active)
         self.assertFalse(self.user.is_delete)
@@ -38,7 +36,6 @@ class AddressModelTests(TestCase):
         self.user = self.User.objects.create_user(
             username = 'testuser',
             email = 'test@test.com',
-            phone = '09180000000',
             password = 'password1234'
         )
         self.address = Address.objects.create(
@@ -84,7 +81,6 @@ class StaffModelTests(TestCase):
         self.user = self.User.objects.create_user(
             username = 'testuser',
             email = 'test@test.com',
-            phone = '09180000000',
             password = 'password1234'
         )
         self.role = Role.objects.create(

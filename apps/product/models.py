@@ -17,12 +17,6 @@ class Category(models.Model):
         null = True,
         blank = True,
     )
-    image = models.ImageField(
-        verbose_name = _("image"),
-        upload_to = "category_image/",
-        blank = True,
-        null = True,
-    )
 
     class Meta:
         verbose_name = _("category")
@@ -37,16 +31,6 @@ class Genre(models.Model):
         verbose_name = _("genre"),
         max_length = 255,
         unique = True,
-    )
-    description = models.TextField(
-        verbose_name = _("description"),
-        blank = True,
-    )
-    image = models.ImageField(
-        verbose_name = _("image"),
-        upload_to = "genre_image/",
-        blank = True,
-        null = True,
     )
 
     class Meta:
@@ -187,6 +171,7 @@ class Book(LogicalBaseModel):
         verbose_name = _("author(s)"),
         to = "product.Author",
         related_name = "author_books",
+        blank = True,
     )
     translator = models.ManyToManyField(
         verbose_name = _("translator(s)"),
@@ -204,9 +189,16 @@ class Book(LogicalBaseModel):
         to = "product.Tag",
         blank = True,
     )
-    like = models.ManyToManyField(
+    likes = models.ManyToManyField(
         verbose_name = _("like(s)"),
         to = "user.User",
+        related_name = "user_likes",
+        blank = True,
+    )
+    saves = models.ManyToManyField(
+        verbose_name = _("save(s)"),
+        to = "user.User",
+        related_name = "user_saves",
         blank = True,
     )
 
@@ -218,3 +210,15 @@ class Book(LogicalBaseModel):
 
     def __str__(self):
         return f"{self.book_name} - count: {self.count}"
+    
+    def calculate_price(self):
+        if self.discount:
+            if self.discount.percent:
+                discount = float(self.price) * (self.discount.percent / 100)
+                if discount > self.discount.maximum:
+                    discount = self.discount.maximum
+                return float(self.price) - discount
+            elif self.discount.cash:
+                if self.price <= self.discount.cash:
+                    return 0
+                return float(self.price) - self.discount.cash

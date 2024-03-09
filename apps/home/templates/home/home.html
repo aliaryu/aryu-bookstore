@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+    {% include "home/includes/features.html" %}
+    {% include "home/includes/popular_books.html" %}
+    {% include "home/includes/authors.html" %}
+    {% include "home/includes/newest_books.html" %}
+    {% include "home/includes/tags.html" %}
+    {% include "home/includes/top_selling.html" %}
+    {% include "home/includes/contact_map.html" %}
+    {% include "home/includes/discount_books.html" %}
+{% endblock content %}
+
+{% block javascript %}
+    <script src="{% static "js/scroll.js" %}"></script>
+{% endblock javascript %}

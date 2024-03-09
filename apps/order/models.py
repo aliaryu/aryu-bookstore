@@ -29,13 +29,19 @@ class Order(LogicalBaseModel, TimeStampBaseModel):
         null = True,
         blank = True,
     )
-    in_process = models.BooleanField(
-        verbose_name = _("in process"),
-        default = False,
-    )
-    is_complete = models.BooleanField(
-        verbose_name = _("is complete"),
-        default = False,
+
+    STATUS = [
+        ("PEN", _("pending")),
+        ("PRO", _("processing")),
+        ("COM", _("completed")),
+        ("DEL", _("deleted")),
+    ]
+
+    status = models.CharField(
+        verbose_name = _("status"),
+        max_length = 3,
+        choices = STATUS,
+        default = "PEN"
     )
 
     # Many-to-many Relation:
@@ -44,6 +50,7 @@ class Order(LogicalBaseModel, TimeStampBaseModel):
         verbose_name = _("book(s)"),
         to = "product.Book",
         through = "OrderBook",
+        blank = True
     )
 
     class Meta:
