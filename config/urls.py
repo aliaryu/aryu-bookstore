@@ -9,5 +9,6 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
 
     path("", include("apps.home.urls")),
+    path("about/", include("apps.about.urls")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
