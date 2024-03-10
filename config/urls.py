@@ -10,5 +10,6 @@ urlpatterns = [
 
     path("", include("apps.home.urls")),
     path("about/", include("apps.about.urls")),
+    path("user/", include("apps.user.urls")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
