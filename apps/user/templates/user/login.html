@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block class_body %}
+    class="bg-circle-shadow"
+{% endblock class_body %}
+
+{% block body %}
+
+    {% comment %} SECTION LOGIN {% endcomment %}
+    <div class="row justify-content-center align-items-center p-0 m-0">
+        <div class="row justify-content-center align-items-center p-0 m-0" style="height: 100vh; max-width: 800px;">
+            <div class="py-5">
+                <div class="py-5">
+
+                    <h3 class="f-sayeh font-30 f-bold mb-3 d-flex justify-content-center">کتاب فروشی آریو <i class="logo"></i></h1>
+
+                    <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                        <button class="nav-link text-black col active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">ورود با نام کاربری</button>
+                        <button class="nav-link text-black col" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">ورود با کد یکبار مصرف</button>
+                    </div>
+
+                    <div class="tab-content" id="nav-tabContent">
+
+                        {% comment %} AB1 {% endcomment %}
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                            <div class="div-user-login">
+                                
+                                {% comment %} USERNAME FORM {% endcomment %}
+                                <form action="" method="post" class="mx-1 my-2">
+                                    <div class="row g-2">
+                                        <input type="text" class="form-control bg-transparent fw-bold place-holder-grey" placeholder="نام کاربری">
+                                        <input type="password" class="form-control bg-transparent fw-bold place-holder-grey" placeholder="رمز عبور">
+                                        <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
+                                            ورود
+                                            <i class="bi bi-box-arrow-in-left mx-1 font-17 d-flex"></i>
+                                        </button>
+                                        <p class="text-center my-2">
+                                            اکانت ندارید؟
+                                            <a href="signup.html" class="text-black">
+                                                ثبت نام کنید
+                                                <i class="bi bi-person-add font-17"></i>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+
+                        <!-- TAB2 -->
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                            <div class="div-otp-login">
+                                
+                                <!-- USERNAME FORM -->
+                                <form action="" method="post" class="mx-1 my-2 fade show">
+                                    <div class="row g-2">
+                                        <input type="text" class="form-control bg-transparent fw-bold place-holder-grey" placeholder="نام کاربری">
+
+                                        <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
+                                            ارسال کد به ایمیل
+                                            <i class="bi bi-envelope mx-1"></i>
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <!-- OTP FORM -->
+                                <form action="" method="post" class="mx-1 my-2 fade show">
+                                    <div class="row g-2">
+                                        <div class="otp-field" dir="ltr">
+                                            <input type="number" />
+                                            <input type="number" disabled />
+                                            <input type="number" disabled />
+                                            <input type="number" disabled />
+                                            <input type="number" disabled />
+                                        </div>
+                                        <button type="submit" class="confirm d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
+                                            ورود 
+                                            <i class="bi bi-box-arrow-in-left mx-1 font-17 d-flex"></i>
+                                        </button>
+                                        <p class="text-center my-2">
+                                            زمان باقی مانده تا انقضای کد: 
+                                            <span id="timer">- -</span> 
+                                            <i class="bi bi-stopwatch"></i>
+                                        </p>
+                                    </div>
+                                </form>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+
+{% block javascript %}
+    <script src="js/otp.js"></script>
+{% endblock javascript %}
