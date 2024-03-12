@@ -6,7 +6,7 @@
         <nav class="navbar navbar-expand-lg p-0">
             <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
                 <div class="mb-1 mb-lg-0">
-                    <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="login.html">ورود <i class="bi bi-box-arrow-in-left text-white"></i> </a>
+                    <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="{% url "user:login" %}?next={{ request.path }}">ورود <i class="bi bi-box-arrow-in-left text-white"></i> </a>
                     <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="signup.html">ثبت نام <i class="bi bi-person-add text-white"></i> </a>
                     <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="cart.html">سبد خرید <i class="bi bi-cart text-white"></i> </a>
                 </div>
