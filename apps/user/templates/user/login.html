@@ -27,14 +27,20 @@
                             <div class="div-user-login">
                                 
                                 {% comment %} USERNAME FORM {% endcomment %}
-                                <form action="" method="post" class="mx-1 my-2">
+                                <form id="userpass-form" class="mx-1 my-2">
                                     <div class="row g-2">
-                                        <input type="text" class="form-control bg-transparent fw-bold place-holder-grey" placeholder="نام کاربری">
-                                        <input type="password" class="form-control bg-transparent fw-bold place-holder-grey" placeholder="رمز عبور">
+                                        <input name="next" type="hidden" value="{{ next }}">
+                                        <input name="username" required type="text" class="form-control bg-transparent fw-bold place-holder-grey" placeholder="نام کاربری">
+                                        <input name="password" required type="password" class="form-control bg-transparent fw-bold place-holder-grey" placeholder="رمز عبور">
                                         <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
                                             ورود
                                             <i class="bi bi-box-arrow-in-left mx-1 font-17 d-flex"></i>
                                         </button>
+
+                                        <div id="userpass-error" class="form-control border-danger mt-2 f-bold d-none">
+                                            <span class="text-danger">خطا(ها):</span>
+                                        </div>
+
                                         <p class="text-center my-2">
                                             اکانت ندارید؟
                                             <a href="signup.html" class="text-black">
@@ -44,6 +50,7 @@
                                         </p>
                                     </div>
                                 </form>
+                                
                                 
                             </div>
                         </div>
@@ -66,6 +73,7 @@
 
                                 <!-- OTP FORM -->
                                 <form action="" method="post" class="mx-1 my-2 fade show">
+                                    <input name="next" type="hidden" value="{{ next }}">
                                     <div class="row g-2">
                                         <div class="otp-field" dir="ltr">
                                             <input type="number" />
@@ -96,8 +104,12 @@
         </div>
     </div>
 
+
+    
+
 {% endblock body %}
 
 {% block javascript %}
     <script src="{% static "js/otp.js" %}"></script>
 {% endblock javascript %}
+
