@@ -9,7 +9,7 @@ from django.contrib.auth import login
 from django.utils.translation import gettext_lazy as _
 
 
-class UserPassLoginView(APIView):
+class UserPassAPILoginView(APIView):
     serializer_class = UserPassLoginSerializer
 
     def post(self, request):
@@ -23,3 +23,5 @@ class UserPassLoginView(APIView):
             return Response({"message": _("login successfull.")}, status=HTTP_200_OK)
         else:
             return Response({"message": _("invalid username or password.")}, status=HTTP_401_UNAUTHORIZED)
+
+
