@@ -17,3 +17,13 @@ class LoginView(UserPassesTestMixin, TemplateView):
 
     def handle_no_permission(self):
         return redirect('home:home')
+
+
+class SignUpView(UserPassesTestMixin, TemplateView):
+    template_name = "user/signup.html"
+
+    def test_func(self):
+        return not self.request.user.is_authenticated
+
+    def handle_no_permission(self):
+        return redirect('home:home')
