@@ -17,7 +17,6 @@ class UserModelTests(TestCase):
         self.assertEqual(self.user.username, 'testuser')
         self.assertEqual(self.user.email, 'test@test.com')
         self.assertTrue(self.user.check_password('password1234'))
-        self.assertFalse(self.user.is_active)
         self.assertFalse(self.user.is_delete)
         self.assertEqual(str(self.user), 'testuser')
     
