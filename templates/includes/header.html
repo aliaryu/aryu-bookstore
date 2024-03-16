@@ -22,7 +22,18 @@
                         </a>
                     {% endif %}
 
-                    <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="signup.html">ثبت نام <i class="bi bi-person-add text-white"></i> </a>
+                    {% if user.is_authenticated %}
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="signup.html">
+                            پروفایل
+                            <i class="bi bi-person-circle text-white" style="font-size: 18px;"></i>
+                        </a>
+                    {% else %}
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="{% url "user:signup" %}">
+                            ثبت نام
+                            <i class="bi bi-person-add text-white"></i>
+                        </a>
+                    {% endif %}
+
                     <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="cart.html">سبد خرید <i class="bi bi-cart text-white"></i> </a>
                 </div>
             
