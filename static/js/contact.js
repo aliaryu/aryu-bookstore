@@ -31,7 +31,6 @@ contact_form.addEventListener('submit', function(event) {
                             ul.appendChild(li);
                         }
                     } else if (key === "email") {
-                        console.log(data[key])
                         for (let index = 0; index < data[key].length; index++) {
                             const error = data[key][index];
                             const li = document.createElement('li');
