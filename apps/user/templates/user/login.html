@@ -29,6 +29,11 @@
                                 {% comment %} USER PASS FORM {% endcomment %}
                                 <form id="userpass-form" class="mx-1 my-2">
                                     <div class="row g-2">
+                                        {% if signup %}
+                                            <div  class="form-control border-success mt-2 f-bold">
+                                                <span class="text-success">ثبت نام شما با موفقیت انجام شد.</span>
+                                            </div>
+                                        {% endif %}
                                         <input name="next" type="hidden" value="{{ next }}">
                                         <input name="username" required type="text" class="form-control bg-transparent fw-bold place-holder-grey" placeholder="نام کاربری">
                                         <input name="password" required type="password" class="form-control bg-transparent fw-bold place-holder-grey" placeholder="رمز عبور">
