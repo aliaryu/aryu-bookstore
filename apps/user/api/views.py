@@ -7,13 +7,14 @@ from rest_framework.status import (
 from .serializers import UserPassLoginSerializer
 from django.contrib.auth import login
 from django.utils.translation import gettext_lazy as _
+from rest_framework.generics import CreateAPIView
+from .serializers import UserSignUpSerializer
 
 
 class UserPassLoginView(APIView):
     serializer_class = UserPassLoginSerializer
 
     def post(self, request):
-        print(request.data, "*" * 10)
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
@@ -23,3 +24,7 @@ class UserPassLoginView(APIView):
             return Response({"message": _("login successfull.")}, status=HTTP_200_OK)
         else:
             return Response({"message": _("invalid username or password.")}, status=HTTP_401_UNAUTHORIZED)
+
+
+class UserSignUpView(CreateAPIView):
+    serializer_class = UserSignUpSerializer
