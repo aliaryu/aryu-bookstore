@@ -20,7 +20,7 @@ class UserPassLoginView(APIView):
         user = serializer.validated_data['user']
         
         if user:
-            # login(request, user)
+            login(request, user)
             return Response({"message": _("login successfull.")}, status=HTTP_200_OK)
         else:
             return Response({"message": _("invalid username or password.")}, status=HTTP_401_UNAUTHORIZED)
