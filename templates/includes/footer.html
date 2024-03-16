@@ -1,4 +1,5 @@
 {% comment %} FOOTER {% endcomment %}
+{% load static %}
 <footer class="container-fluid text-white mb-5 p-0 bg-opacity-half position-relative" id="background-footer">
     <div class="container justify-content-center py-5">
 
@@ -47,7 +48,7 @@
             </p>
             <span class="d-flex align-items-center">
                 <i class="bi bi-stars font-25 text-white feat-img"></i>
-                <img src="static/image/logo.png" alt="logo" width="30px" height="30px"
+                <img src="{% static "image/logo.png" %}" alt="logo" width="30px" height="30px"
                 style="filter: brightness(0) invert(1) drop-shadow(3px 3px 2px #222);">
             </span>
         </div>

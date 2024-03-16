@@ -13,7 +13,8 @@ class OrderTestCase(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(
             username = "testuser",
-            password = "testpassword"
+            password = "testpassword",
+            email = "test@test.com"
         )
         self.address = Address.objects.create(
             user = self.user,
@@ -74,7 +75,8 @@ class OrderBookTestCase(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(
             username = "testuser",
-            password = "testpassword"
+            password = "testpassword",
+            email = "test@test.com"
         )
         self.address = Address.objects.create(
             user = self.user,

@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "apps.comment.apps.CommentConfig",
     "apps.order.apps.OrderConfig",
     "apps.home.apps.HomeConfig",
+    "apps.about.apps.AboutConfig",
 ]
 
 MIDDLEWARE = [
@@ -158,4 +159,6 @@ else:
 AUTH_USER_MODEL = "user.User"
 
 # AUTHENTICATION_BACKENDS
-# LOGIN_URL
+
+# LOGOUT URL
+LOGOUT_REDIRECT_URL = "/"

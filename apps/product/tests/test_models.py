@@ -44,12 +44,10 @@ class GenreModelTests(TestCase):
     def setUp(self):
         self.genre = Genre.objects.create(
             genre_name = 'Test Genre',
-            description = 'This is a test genre',
         )
 
     def test_create_genre(self):
         self.assertEqual(self.genre.genre_name, 'Test Genre')
-        self.assertEqual(self.genre.description, 'This is a test genre')
 
     def test_str_representation(self):
         self.assertEqual(str(self.genre), 'Test Genre')

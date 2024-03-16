@@ -12,7 +12,8 @@ class CommentTestCase(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(
             username = "testuser",
-            password = "testpassword"
+            password = "testpassword",
+            email = "test@test.com"
         )
         self.content_type = ContentType.objects.create(model = "test_model")
         self.object_id = 1

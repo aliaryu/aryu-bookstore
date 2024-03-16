@@ -31,7 +31,6 @@ contact_form.addEventListener('submit', function(event) {
                             ul.appendChild(li);
                         }
                     } else if (key === "email") {
-                        console.log(data[key])
                         for (let index = 0; index < data[key].length; index++) {
                             const error = data[key][index];
                             const li = document.createElement('li');
@@ -51,7 +50,15 @@ contact_form.addEventListener('submit', function(event) {
                 }
                 contact_error.appendChild(ul);
                 contact_error.classList.remove("d-none");
+            })
+            .catch(error => {
+                contact_error.innerHTML = '<span class="text-danger">خطا: خطایی در تجزیه و تحلیل پاسخ دریافتی رخ داده است. لطفاً بعداً امتحان کنید.</span>';
+                contact_error.classList.remove("d-none");
             });
         }
     })
+    .catch(error => {
+        contact_error.innerHTML = '<span class="text-danger">خطا: خطایی در ارسال رخ داده، آیا به اینترنت متصل هستید؟</span>';
+        contact_error.classList.remove("d-none");
+    });
 });
