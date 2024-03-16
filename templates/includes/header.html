@@ -6,8 +6,34 @@
         <nav class="navbar navbar-expand-lg p-0">
             <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between">
                 <div class="mb-1 mb-lg-0">
-                    <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="login.html">ورود <i class="bi bi-box-arrow-in-left text-white"></i> </a>
-                    <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="signup.html">ثبت نام <i class="bi bi-person-add text-white"></i> </a>
+
+                    {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url "user:logout" %}" method="post">
+                            {% csrf_token %}
+                            <button class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" type="submit">
+                                خروج
+                                <i class="bi bi-box-arrow-left text-white" style="font-size: 19px;"></i>
+                            </button>
+                        </form>
+                    {% else %}
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="{% url "user:login" %}?next={{ request.path }}">
+                            ورود
+                            <i class="bi bi-box-arrow-in-left text-white"></i>
+                        </a>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="signup.html">
+                            پروفایل
+                            <i class="bi bi-person-circle text-white" style="font-size: 18px;"></i>
+                        </a>
+                    {% else %}
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="{% url "user:signup" %}">
+                            ثبت نام
+                            <i class="bi bi-person-add text-white"></i>
+                        </a>
+                    {% endif %}
+
                     <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="cart.html">سبد خرید <i class="bi bi-cart text-white"></i> </a>
                 </div>
             

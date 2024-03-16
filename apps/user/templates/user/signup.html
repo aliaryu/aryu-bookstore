@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block class_body %}
+    class="bg-circle-shadow"
+{% endblock class_body %}
+
+
+{% block body %}
+
+    {% comment %} SECTION SIGNUP {% endcomment %}
+    <div class="row justify-content-center align-items-center p-0 m-0">
+        <div class="row justify-content-center align-items-center p-0 m-0" style="height: 100vh; max-width: 800px;">
+            <div class="py-5">
+                <div class="py-5">
+
+                    <h3 class="f-sayeh font-30 f-bold mb-3 d-flex justify-content-center">کتاب فروشی آریو <i class="logo"></i></h1>
+
+                    <form id="signup-form" class="row g-2">
+
+                        <div class="d-flex mx-0 px-0">
+                            <input name="first_name" type="text" class="form-control bg-transparent place-holder-grey fw-bold ms-1" placeholder="نام">
+                            <input name="last_name" type="text" class="form-control bg-transparent place-holder-grey fw-bold me-1" placeholder="نام خانوادگی">
+                        </div>
+
+                        <input name="username" type="text" class="form-control bg-transparent place-holder-grey fw-bold" placeholder="نام کاربری">
+
+                        <div class="d-flex mx-0 px-0">
+                            <input name="password" type="password" class="form-control bg-transparent place-holder-grey fw-bold ms-1" placeholder="رمز عبور">
+                            <input name="password_confirm" type="password" class="form-control bg-transparent place-holder-grey fw-bold me-1" placeholder="تکرار رمز عبور">
+                        </div>
+
+                        <input name="email" type="email" class="form-control bg-transparent place-holder-grey fw-bold" placeholder="ایمیل">
+
+                        <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
+                            ثبت نام 
+                            <i class="bi bi-person-add font-17 mx-1"></i>
+                        </button>
+
+                        <div id="signup-error" class="form-control border-danger mt-2 f-bold d-none">
+                            <span class="text-danger">خطا(ها):</span>
+                        </div>
+
+                        <p class="text-center">
+                            اکانت دارید؟
+                            <a href="{% url "user:login" %}" class="text-black">
+                                وارد شوید
+                                <i class="bi bi-box-arrow-in-left font-17"></i>
+                            </a>
+                        </p>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
+
+{% block javascript %}
+    <script src="{% static "js/signup.js" %}"></script>
+{% endblock javascript %}
