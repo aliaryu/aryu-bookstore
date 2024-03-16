@@ -10,6 +10,8 @@ class LoginView(UserPassesTestMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         if (next:=self.request.GET.get("next", None)):
             context["next"] = next
+        if (next:=self.request.GET.get("signup", None)):
+            context["signup"] = True
         return context
 
     def test_func(self):
