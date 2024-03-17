@@ -8,7 +8,7 @@ class BookDetailView(DetailView):
     template_name = "product/book.html"
     context_object_name = "book"
 
-    # NEEDS DEFFER & ONLY
+    # NEEDS DEFER & ONLY
     queryset = Book.objects.select_related(
         "category",
         "discount"
@@ -17,7 +17,18 @@ class BookDetailView(DetailView):
         "genre",
         "author",
         "translator",
-        Prefetch("comments", queryset=Comment.objects.filter(approve=True).select_related("user"))
+        Prefetch("comments", queryset=Comment.objects.filter(approve=True).select_related("user").defer(
+            "user__username",
+            "user__password",
+            "user__email",
+            "user__birth_date",
+            "user__is_superuser",
+            "user__is_staff",
+            "user__is_active",
+            "user__is_delete",
+            "user__last_login",
+            "user__date_joined",
+            ))
     )
 
     def get_context_data(self, **kwargs):
