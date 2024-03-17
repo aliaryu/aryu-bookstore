@@ -175,9 +175,9 @@
                     {% endif %}
                     
                     {% if user in book.saves.all %}
-                      <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-bookmark-x font-17 btn-hover"></i> لغو ذخیره </button>
+                      <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent" id="save-unsave"> <i class="bi bi-bookmark-x font-17 btn-hover"></i> لغو ذخیره </button>
                     {% else %}
-                      <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-bookmark font-17 btn-hover"></i> ذخیره </button>
+                      <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent" id="save-unsave"> <i class="bi bi-bookmark font-17 btn-hover"></i> ذخیره </button>
                     {% endif %}
 
                     <div id="btn-response" class="form-control border-danger mt-2 f-bold d-none"></div>
