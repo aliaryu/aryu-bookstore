@@ -17,6 +17,8 @@ class BookDetailView(DetailView):
         "genre",
         "author",
         "translator",
+        "likes",
+        "saves",
         Prefetch("comments", queryset=Comment.objects.filter(approve=True).select_related("user").defer(
             "user__username",
             "user__password",
