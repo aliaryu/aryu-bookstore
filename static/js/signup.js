@@ -1,5 +1,5 @@
-signup_error = document.getElementById('signup-error');
-signup_form = document.getElementById("signup-form");
+const signup_error = document.getElementById('signup-error');
+const signup_form = document.getElementById("signup-form");
 signup_form.addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = new FormData(this);

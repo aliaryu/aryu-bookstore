@@ -1,5 +1,5 @@
-userpass_error = document.getElementById('userpass-error');
-userpass_form = document.getElementById("userpass-form");
+const userpass_error = document.getElementById('userpass-error');
+const userpass_form = document.getElementById("userpass-form");
 userpass_form.addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = new FormData(this);
