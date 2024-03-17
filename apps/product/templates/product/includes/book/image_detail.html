@@ -163,8 +163,18 @@
                     
                     {% comment %} BUTTONS  {% endcomment %}
                     <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-bag font-17 btn-hover"></i> افزودن به سبد </button>
-                    <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-suit-heart font-17 btn-hover"></i> پسندیدن </button>
-                    <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-bookmark font-17 btn-hover"></i> ذخیره </button>
+
+                    {% if user in book.likes.all %}
+                      <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-arrow-through-heart font-17 btn-hover"></i> لغو پسندیدن </button>
+                    {% else %}
+                      <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-suit-heart font-17 btn-hover"></i> پسندیدن </button>
+                    {% endif %}
+                    
+                    {% if user in book.saves.all %}
+                      <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-bookmark-x font-17 btn-hover"></i> لغو ذخیره </button>
+                    {% else %}
+                      <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-bookmark font-17 btn-hover"></i> ذخیره </button>
+                    {% endif %}
 
                   </div>
                 </main>
