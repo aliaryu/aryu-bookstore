@@ -51,9 +51,15 @@
             {% if user.is_authenticated %}
                 <div class="row justify-content-center">
                     
-                    <form class="col-12 col-lg-8 py-2 px-3" action="" method="post">
-                        <textarea class="form-control bg-transparent text-black f-bold place-holder-grey" placeholder="نظر شما  ..." rows="5"></textarea>
+                    <form class="col-12 col-lg-8 py-2 px-3" id="comment-form">
+                        <textarea name="message" class="form-control bg-transparent text-black f-bold place-holder-grey" placeholder="نظر شما  ..." rows="5"></textarea>
                         <button type="submit" class="col form-control bg-transparent text-black f-bold mt-2"> ارسال <i class="bi bi-send-check text"></i> </button>
+                        <div id="comment-error" class="form-control border-danger mt-2 f-bold d-none">
+                            <span class="text-danger">خطا(ها):</span>
+                        </div>
+                        <div id="comment-success" class="form-control border-success mt-2 f-bold d-flex justify-content-center align-items-center d-none" style="height: 197px;">
+                            <span class="text-success">نظرتون ثبت شد 🌺 بعد از تایید نمایش داده میشه 🐳</span>
+                        </div>
                     </form>
 
                 </div>
