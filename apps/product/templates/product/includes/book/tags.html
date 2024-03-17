@@ -1,0 +1,15 @@
+{% comment %} TAGS {% endcomment %}
+{% if book.tag.all %}
+    <div class="container-fluid mt-0">
+        <div class="container p-0">
+            <div class="border rounded p-3 d-flex flex-wrap justify-content-center align-items-center position-relative">
+                <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">تگ ها:</span>
+                
+                {% for tag in book.tag.all %}
+                    <a href="{{ tag.get_absolute_url }}" class="f-bold f-15 text-decoration-none tags"><i class="bi bi-hash i-tr"></i>{{ tag.tag_name }}</a>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endif %}
