@@ -1,5 +1,7 @@
 from django.views.generic import DetailView
 from apps.product.models import Book
+from apps.comment.models import Comment
+from django.db.models import Prefetch
 
 
 class BookDetailView(DetailView):
@@ -15,7 +17,7 @@ class BookDetailView(DetailView):
         "genre",
         "author",
         "translator",
-        "comments__user"
+        Prefetch("comments", queryset=Comment.objects.filter(approve=True).select_related("user"))
     )
 
     def get_context_data(self, **kwargs):
