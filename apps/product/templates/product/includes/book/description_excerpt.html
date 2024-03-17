@@ -1,0 +1,28 @@
+{% comment %} DESCRIPTION & EXCERPT {% endcomment %}
+{% if book.description or book.excerpt %}
+    <div class="container-fluid my-3">
+        <div class="container p-0">
+            <div class="row g-0 row-cols-1 g-3">
+
+                {% if book.description %}
+                    <div {% if book.excerpt %} class="col-xl-6 d-flex" {% else %} class="col d-flex" {% endif %}>
+                        <div class="border rounded p-3 position-relative mb-xl-0" >
+                            <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">توضیحات کتاب:</span>
+                            <p class="mb-0">{{ book.description }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if book.excerpt %}
+                    <div {% if book.description %} class="col-xl-6 d-flex" {% else %} class="col d-flex" {% endif %}>
+                        <div class="border rounded p-3 position-relative mt-xl-0" >
+                            <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">مختصری از کتاب:</span>
+                            <p class="mb-0">{{ book.excerpt }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endif %}

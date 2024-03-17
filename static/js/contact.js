@@ -16,7 +16,6 @@ contact_form.addEventListener('submit', function(event) {
             contact_success.classList.remove("d-none");
         } else {
             response.json().then(data => {
-                contact_error.innerHTML = '';
                 contact_error.innerHTML = '<span class="text-danger">خطا(ها):</span>';
                 const ul = document.createElement('ul');
                 ul.classList.add("mb-0")
