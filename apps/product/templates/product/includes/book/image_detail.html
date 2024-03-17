@@ -1,0 +1,177 @@
+{% comment %} IMAGE/DETAIL {% endcomment %}
+{% load humanize %}
+<section class="container-fluid py-3 bg-even">
+    <div class="container">
+        
+        <section class="py-0">
+            <div class="container">
+              <div class="row gx-5 jus">
+
+                {% comment %} IMAGE/DISCOUNT {% endcomment %}
+                <aside class="col-lg-6 px-0 my-3 d-flex align-items-center justify-content-center bg-dotted">
+                  <div class="d-flex justify-content-center">
+                      <div class="position-relative">
+                        <img style="height: auto; max-height: 300px; margin: auto; filter: blur(0.5px); transition: all .2s linear;" 
+                        class="rounded-4 fit img-shadow img-fluid img-hover" src="{{ book.image.url }}" alt="{{ book.book_name }}" />
+                        {% if book.discount %}
+                          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">{{ book.discount.show_discount }} تخفیف</div>
+                        {% endif %}
+                      </div>
+                  </div>
+                </aside>
+
+                {% comment %} DETAIL {% endcomment %}
+                <main class="col-lg-6 px-0 my-3 d-flex align-items-center justify-content-center">
+                  <div class="ps-lg-3">
+
+                    {% comment %} TITLE {% endcomment %}
+                    <h4 class="title text-dark f-bold font-25">
+                        <i class="bi bi-book feat-img"></i>&nbsp;
+                        {{ book.book_name }}
+                    </h4>
+
+                    {% if book.category %}
+                      <div class="my-3">
+                        <span class="f-bold">
+                            <i class="bi bi-list font-17"></i>
+                          دسته بندی:
+                          <a class="text-decoration-none text-success" href="{{ book.category.get_absolute_url }}">{{ book.category }}</a>
+                        </span>
+                      </div>
+                    {% endif %}
+
+                    {% if book.genre.all %}
+                      <div class="my-3">
+                        <span class="f-bold">
+                            <i class="bi bi-grid font-15"></i>
+                          ژانر:
+                          {% for genre in book.genre.all %}
+                            <a class="text-decoration-none text-success" href="{{ genre.get_absolute_url }}">{{ genre.genre_name }}</a>
+                            {% if not forloop.last %}, {% endif %}
+                          {% endfor %}
+                        </span>
+                      </div>
+                    {% endif %}
+
+                    {% if book.author.all %}
+                      <div class="my-3">
+                        <span class="f-bold">
+                          <i class="bi bi-people font-17"></i>
+                          نویسندگان:
+                          {% for author in book.author.all %}
+                            <a class="text-decoration-none" href="{{ author.get_absolute_url }}">{{ author.full_name }}</a>
+                            {% if not forloop.last %}, {% endif %}
+                          {% endfor %}
+                        </span>
+                      </div>
+                    {% endif %}
+
+                    {% if book.translator.all %}
+                      <div class="my-3">
+                        <span class="f-bold">
+                            <i class="bi bi-translate font-17"></i>
+                          مترجم:
+                          {% for translator in book.translator.all %}
+                            <a class="text-decoration-none" href="{{ translator.get_absolute_url }}">{{ translator.full_name }}</a>
+                            {% if not forloop.last %}, {% endif %}
+                          {% endfor %}
+                        </span>
+                      </div>
+                    {% endif %}
+
+                    {% if book.language %}
+                      <div class="my-3">
+                        <span class="f-bold">
+                            <i class="bi bi-globe2 font-17"></i>
+                          زبان:
+                          <span class="text-muted">{{ book.language }}</span>
+                        </span>
+                      </div>
+                    {% endif %}
+                    
+                    {% if book.publisher %}
+                      <div class="my-3">
+                        <span class="f-bold">
+                            <i class="bi bi-printer font-17"></i>
+                          ناشر:
+                          <span class="text-muted">{{ book.publisher }}</span>
+                        </span>
+                      </div>
+                    {% endif %}
+
+                    {% if book.pub_date %}
+                      <div class="my-3">
+                        <span class="f-bold">
+                            <i class="bi bi-calendar font-15"></i>
+                          تاریخ انتشار:
+                          <span class="text-muted">{{ book.pub_date }}</span>
+                        </span>
+                      </div>
+                    {% endif %}
+
+                    {% if book.page %}
+                      <div class="my-3">
+                        <span class="f-bold">
+                            <i class="bi bi-file-earmark font-17"></i>
+                          تعداد صفحات:
+                          <span class="text-muted">{{ book.page }}</span>
+                        </span>
+                      </div>
+                    {% endif %}
+
+                    {% if book.width %}
+                      <div class="my-3">
+                        <span class="f-bold">
+                            <i class="bi bi-arrows font-17"></i>
+                          عرض:
+                          <span class="text-muted">{{book.width}}cm</span>
+                        </span>
+                      </div>
+                    {% endif %}
+
+                    {% if book.height %}
+                      <div class="my-3">
+                        <span class="f-bold">
+                            <i class="bi bi-arrows-vertical font-17"></i>
+                          ارتفاع:
+                          <span class="text-muted">{{ book.height }}cm</span>
+                        </span>
+                      </div>
+                    {% endif %}
+
+                    <div class="my-3">
+                        <span class="f-bold">
+                          <i class="bi bi-tag font-17"></i>
+                          قیمت:
+                          {% if book.discount %}
+                            <span class="text-muted text-decoration-line-through mx-2">{{ book.price|floatformat:0|intcomma:False }}</span>
+                            <span class="text-muted">{{ book.calculate_price|floatformat:0|intcomma:False }} تومان</span>
+                          {% else %}
+                            <span class="text-muted">{{ book.price|floatformat:0|intcomma:False }} تومان</span>
+                          {% endif %}
+                        </span>
+                    </div>
+
+                    <div class="d-flex flex-row my-3">
+                        <span class="text-muted f-bold">
+                            <i class="bi bi-suit-heart-fill text-danger"></i>
+                            {{ book.likes.all.count }} نفر این کتاب را پسندیده اند
+                        </span>
+                    </div>
+          
+                    <hr/>
+                    
+                    {% comment %} BUTTONS  {% endcomment %}
+                    <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-bag font-17 btn-hover"></i> افزودن به سبد </button>
+                    <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-suit-heart font-17 btn-hover"></i> پسندیدن </button>
+                    <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-bookmark font-17 btn-hover"></i> ذخیره </button>
+
+                  </div>
+                </main>
+
+              </div>
+            </div>
+        </section>
+
+    </div>
+</section>
