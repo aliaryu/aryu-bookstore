@@ -13,7 +13,6 @@ userpass_form.addEventListener('submit', function(event) {
         } else {
             response.json().then(data => {
                 console.log(data)
-                userpass_error.innerHTML = '';
                 userpass_error.innerHTML = '<span class="text-danger">خطا(ها):</span>';
                 const ul = document.createElement('ul');
                 ul.classList.add("mb-0");

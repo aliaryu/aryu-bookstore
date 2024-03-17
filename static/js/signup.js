@@ -12,7 +12,6 @@ signup_form.addEventListener('submit', function(event) {
             window.location.href = "/user/login/?signup=true"
         } else {
             response.json().then(data => {
-                signup_error.innerHTML = '';
                 signup_error.innerHTML = '<span class="text-danger">خطا(ها):</span>';
                 const ul = document.createElement('ul');
                 ul.classList.add("mb-0")
