@@ -28,3 +28,27 @@ class LikeUnlikeBookAPIView(APIView):
             
         except Book.DoesNotExist:
             return Response({"error": _("book not found.")}, status=status.HTTP_404_NOT_FOUND)
+        
+
+class SaveUnsaveBookAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, pk):
+        try:
+            book = Book.objects.get(pk=pk)
+            user = request.user
+
+            if user in book.saves.all():
+                book.saves.remove(user)
+                action = 'unsave'
+            else:
+                book.saves.add(user)
+                action = 'save'
+
+            if action == "unsave":
+                return Response({"unsave": True}, status=status.HTTP_200_OK)
+            elif action == "save":
+                return Response({"save": True}, status=status.HTTP_200_OK)
+            
+        except Book.DoesNotExist:
+            return Response({"error": _("book not found.")}, status=status.HTTP_404_NOT_FOUND)
