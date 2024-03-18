@@ -22,5 +22,5 @@ urlpatterns = [
 
     # AUTHOR
     path("author/<int:pk>/", AuthorDetailView.as_view(), name="author"),
-    path("author/<int:pk>/comment", CommentBookAPIView.as_view(), name="authorcomment"),
+    path("author/<int:pk>/comment", CommentAuthorAPIView.as_view(), name="authorcomment"),
 ]
