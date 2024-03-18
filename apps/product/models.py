@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from apps.core.models import LogicalBaseModel
 from django.contrib.contenttypes.fields import GenericRelation
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -90,6 +91,9 @@ class Author(LogicalBaseModel):
 
     def __str__(self):
         return f"{self.full_name}"
+    
+    def get_absolute_url(self):
+        return reverse("product:author", kwargs={"pk": self.pk})
 
 
 class Book(LogicalBaseModel):
@@ -222,3 +226,6 @@ class Book(LogicalBaseModel):
                 if self.price <= self.discount.cash:
                     return 0
                 return float(self.price) - self.discount.cash
+            
+    def get_absolute_url(self):
+        return reverse("product:book", kwargs={"pk": self.pk})

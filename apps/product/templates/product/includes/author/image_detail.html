@@ -1,0 +1,63 @@
+{% comment %} IMAGE/DETAIL {% endcomment %}
+<section class="container-fluid py-3 bg-even">
+    <div class="container">
+        
+        <section class="py-0">
+            <div class="container">
+                <div class="row gx-5 jus">
+
+                {% comment %} IMAGE {% endcomment %}
+                <aside class="col-lg-6 px-0 my-3 d-flex align-items-center justify-content-center bg-dotted">
+                    <div class="d-flex justify-content-center">
+                        <div class="position-relative">
+                        <img style="height: auto; max-height: 500px; margin: auto; filter: blur(0.5px); transition: all .2s linear;" 
+                        class="rounded-4  fit img-shadow img-fluid img-hover" src="{{ author.image.url }}" alt="{{ author.full_name }}" width="250"/>
+                        </div>
+                    </div>
+                </aside>
+
+                {% comment %} DETAIL {% endcomment %}
+                <main class="col-lg-6 px-0 my-3 d-flex align-items-center justify-content-center">
+                    <div class="ps-lg-3">
+
+                    {% comment %} FULLNAME {% endcomment %}
+                    <h4 class="title text-dark f-bold font-25">
+                        <i class="bi bi-person feat-img"></i>&nbsp;
+                        {{ author.full_name }}
+                    </h4>
+
+                    <div class="my-3">
+                        <span class="f-bold">
+                            <i class="bi bi-globe2 font-17"></i>
+                            ملیت:
+                            <span class="text-muted">{{ author.nationality }}</span>
+                        </span>
+                    </div>
+
+                    <div class="my-3">
+                        <span class="f-bold">
+                            <i class="bi bi-book font-17"></i>&nbsp;
+                            کتاب ها:
+                            <ul class="m-0">
+                                {% for book in author.author_books.all %}
+                                    <li><a class="text-decoration-none text-success" href="{{ book.get_absolute_url }}">{{ book.book_name }}</a></li>
+                                {% endfor %}
+                                {% for book in author.translator_books.all %}
+                                    <li><a class="text-decoration-none text-success" href="{{ book.get_absolute_url }}">{{ book.book_name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </span>
+                    </div>
+
+                    <input type="hidden" value="{{ author.id }}" id="author-id">
+                    {% csrf_token %}
+
+                    </div>
+                </main>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+</section>

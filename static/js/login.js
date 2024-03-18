@@ -1,5 +1,5 @@
-userpass_error = document.getElementById('userpass-error');
-userpass_form = document.getElementById("userpass-form");
+const userpass_error = document.getElementById('userpass-error');
+const userpass_form = document.getElementById("userpass-form");
 userpass_form.addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = new FormData(this);
@@ -13,7 +13,6 @@ userpass_form.addEventListener('submit', function(event) {
         } else {
             response.json().then(data => {
                 console.log(data)
-                userpass_error.innerHTML = '';
                 userpass_error.innerHTML = '<span class="text-danger">خطا(ها):</span>';
                 const ul = document.createElement('ul');
                 ul.classList.add("mb-0");

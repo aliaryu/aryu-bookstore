@@ -1,5 +1,5 @@
-signup_error = document.getElementById('signup-error');
-signup_form = document.getElementById("signup-form");
+const signup_error = document.getElementById('signup-error');
+const signup_form = document.getElementById("signup-form");
 signup_form.addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = new FormData(this);
@@ -12,7 +12,6 @@ signup_form.addEventListener('submit', function(event) {
             window.location.href = "/user/login/?signup=true"
         } else {
             response.json().then(data => {
-                signup_error.innerHTML = '';
                 signup_error.innerHTML = '<span class="text-danger">خطا(ها):</span>';
                 const ul = document.createElement('ul');
                 ul.classList.add("mb-0")
