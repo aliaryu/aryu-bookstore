@@ -14,6 +14,7 @@ from apps.core.models import LogicalBaseModel
 from django.contrib.auth.models import Group, Permission
 from django.core.exceptions import ValidationError
 from django.utils import timezone
+import os, random
 
 
 class User(AbstractUser):
@@ -56,6 +57,15 @@ class User(AbstractUser):
         super().clean()
         if self.birth_date and self.birth_date > timezone.now().date():
             raise ValidationError({'birth_date': _("birth date cannot be in future.")})
+
+    def save(self, *args, **kwargs):
+        if not self.image:
+            image_folder = r"media\user-default"
+            image_files = [img for img in os.listdir(image_folder) if os.path.isfile(os.path.join(image_folder, img))]
+            if image_files:
+                random_image = random.choice(image_files)
+                self.image = os.path.join("user-default", random_image)
+        super().save(*args, **kwargs)
 
     def delete(self, using=None, keep_parents=False):
         self.is_delete = True
