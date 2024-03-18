@@ -39,4 +39,4 @@ class AuthorDetailView(DetailView):
     context_object_name = "author"
 
     # NEEDS DEFER & ONLY
-    queryset = Book.objects.all()
+    queryset = Author.objects.all()
