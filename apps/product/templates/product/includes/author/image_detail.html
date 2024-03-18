@@ -42,6 +42,9 @@
                                 {% for book in author.author_books.all %}
                                     <li><a class="text-decoration-none text-success" href="{{ book.get_absolute_url }}">{{ book.book_name }}</a></li>
                                 {% endfor %}
+                                {% for book in author.translator_books.all %}
+                                    <li><a class="text-decoration-none text-success" href="{{ book.get_absolute_url }}">{{ book.book_name }}</a></li>
+                                {% endfor %}
                             </ul>
                         </span>
                     </div>
