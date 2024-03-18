@@ -39,4 +39,18 @@ class AuthorDetailView(DetailView):
     context_object_name = "author"
 
     # NEEDS DEFER & ONLY
-    queryset = Author.objects.all()
+    queryset = Author.objects.prefetch_related(
+        "author_books",
+        Prefetch("comments", queryset=Comment.objects.filter(approve=True).select_related("user").defer(
+            "user__username",
+            "user__password",
+            "user__email",
+            "user__birth_date",
+            "user__is_superuser",
+            "user__is_staff",
+            "user__is_active",
+            "user__is_delete",
+            "user__last_login",
+            "user__date_joined",
+            ))
+    )
