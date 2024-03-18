@@ -91,6 +91,9 @@ class Author(LogicalBaseModel):
 
     def __str__(self):
         return f"{self.full_name}"
+    
+    def get_absolute_url(self):
+        return reverse("product:author", kwargs={"pk": self.pk})
 
 
 class Book(LogicalBaseModel):

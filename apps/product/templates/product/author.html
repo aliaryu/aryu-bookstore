@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+    {% include "product/includes/author/image_detail.html" %}
+    {% include "product/includes/author/biography_brief.html" %}
+    {% include "product/includes/author/comments.html" %}
+{% endblock content %}
+
+{% block javascript %}
+    <script src="{% static "js/scroll.js" %}"></script>
+    <script src="{% static "js/author_comment.js" %}"></script>
+{% endblock javascript %}

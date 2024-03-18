@@ -1,10 +1,12 @@
+const author_id = document.getElementById('author-id').value;
+const csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
 const comment_success = document.getElementById('comment-success');
 const comment_error = document.getElementById('comment-error');
 const comment_form = document.getElementById('comment-form');
 comment_form.addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = new FormData(this);
-    fetch(`/product/book/${book_id}/comment`, {
+    fetch(`/product/author/${author_id}/comment`, {
         method: 'POST',
         headers: {
             'X-CSRFToken': csrf_token

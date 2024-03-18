@@ -1,0 +1,75 @@
+{% comment %} COMMENTS {% endcomment %}
+<div class="container-fluid my-3">
+    <div class="container p-0">
+        <div class="border rounded position-relative p-2">
+            <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">نظرات:</span>
+            {% if author.comments.all %}
+                <div class="row justify-content-center">
+                    {% for cm in author.comments.all %}
+                        {% comment %} CM {% endcomment %}
+                        <div class="col-12 col-lg-8 p-3">
+                            <div class="d-flex align-items-center">
+                                <img src="{{ cm.user.image.url }}" alt="user-image" class="rounded-circle img-thumbnail ms-2" width="85px" height="85px;">
+                                <div class="row">
+                                    <span class="text-success">{{ cm.user.get_full_name }}:</span>
+                                    <span class="text-secondary" style="font-size: 14px;">{{ cm.create_at }}</span>
+                                </div>
+                            </div>
+
+                            {% comment %} TEXT {% endcomment %}
+                            <p class="m-0 pe-2">{{ cm.text }}</p>
+
+                            {% if cm.answer %}
+                                {% comment %} REPLY {% endcomment %}
+                                <p class="m-0 pe-2 reply">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"
+                                    style="transform: scaleY(-1);">
+                                    <path d="M8.021 11.9 3.453 8.62a.72.72 0 0 1 0-1.238L8.021 4.1a.716.716 0 0 1 1.079.619V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
+                                    <path d="M5.232 4.293a.5.5 0 0 1-.106.7L1.114 7.945l-.042.028a.147.147 0 0 0 0 .252l.042.028 4.012 2.954a.5.5 0 1 1-.593.805L.539 9.073a1.147 1.147 0 0 1 0-1.946l3.994-2.94a.5.5 0 0 1 .699.106"/>
+                                    
+                                    </svg>
+                                    <span>کتاب فروشی آریو:</span>
+                                    {{ cm.answer }}
+                                </p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-center m-0">هنوز نظری ثبت نشده</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% comment %} FORM COMMENT {% endcomment %}
+<div class="container-fluid my-3">
+    <div class="container p-0">
+        <div class="border rounded position-relative p-2">
+            <span class="position-absolute" style="top:-13px; right: 13px; background-color: white;">ارسال نظر:</span>
+
+            {% if user.is_authenticated %}
+                <div class="row justify-content-center">
+                    
+                    <form class="col-12 col-lg-8 py-2 px-3" id="comment-form">
+                        <textarea name="message" class="form-control bg-transparent text-black f-bold place-holder-grey" placeholder="نظر شما  ..." rows="5"></textarea>
+                        <button type="submit" class="col form-control bg-transparent text-black f-bold mt-2"> ارسال <i class="bi bi-send-check text"></i> </button>
+                        <div id="comment-error" class="form-control border-danger mt-2 f-bold d-none">
+                            <span class="text-danger">خطا(ها):</span>
+                        </div>
+                        <div id="comment-success" class="form-control border-success f-bold d-flex justify-content-center align-items-center d-none" style="height: 197px;">
+                            <span class="text-success">نظرتون ثبت شد 🌺 بعد از تایید نمایش داده میشه 🐳</span>
+                        </div>
+                    </form>
+
+                </div>
+            {% else %}
+                <p class="text-center m-0">
+                    برای ثبت نظر باید لاگین باشید:
+                    <a href="{% url "user:login" %}?next={{ request.path }}" class="text-black">ورود به حساب کاربری</a>
+                </p>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
