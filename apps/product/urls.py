@@ -6,7 +6,8 @@ from .views import (
 from .api.views import (
     LikeUnlikeBookAPIView,
     SaveUnsaveBookAPIView,
-    CommentBookAPIView
+    CommentBookAPIView,
+    CommentAuthorAPIView
 )
 
 
@@ -21,4 +22,5 @@ urlpatterns = [
 
     # AUTHOR
     path("author/<int:pk>/", AuthorDetailView.as_view(), name="author"),
+    path("author/<int:pk>/comment", CommentBookAPIView.as_view(), name="authorcomment"),
 ]

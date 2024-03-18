@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from apps.product.models import Book
+from apps.product.models import Book, Author
 from apps.comment.models import Comment
 from rest_framework.permissions import IsAuthenticated
 from .serializers import CommentSerializer
@@ -69,6 +69,25 @@ class CommentBookAPIView(APIView):
                 user = request.user,
                 text = serializer.validated_data['message'],
                 content_object = book
+            )
+            return Response({"comment": True}, status=status.HTTP_200_OK)
+        except Book.DoesNotExist:
+            return Response({"error": _("book not found.")}, status=status.HTTP_404_NOT_FOUND)
+        
+
+class CommentAuthorAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = CommentSerializer
+
+    def post(self, request, pk):
+        try:
+            serializer = self.serializer_class(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            author = Author.objects.get(pk=pk)
+            Comment.objects.create(
+                user = request.user,
+                text = serializer.validated_data['message'],
+                content_object = author
             )
             return Response({"comment": True}, status=status.HTTP_200_OK)
         except Book.DoesNotExist:
