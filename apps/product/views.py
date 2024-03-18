@@ -33,3 +33,10 @@ class BookDetailView(DetailView):
             ))
     )
 
+
+class AuthorDetailView(DetailView):
+    template_name = "product/author.html"
+    context_object_name = "author"
+
+    # NEEDS DEFER & ONLY
+    queryset = Book.objects.all()
