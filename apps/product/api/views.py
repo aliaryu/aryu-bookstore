@@ -90,5 +90,5 @@ class CommentAuthorAPIView(APIView):
                 content_object = author
             )
             return Response({"comment": True}, status=status.HTTP_200_OK)
-        except Book.DoesNotExist:
-            return Response({"error": _("book not found.")}, status=status.HTTP_404_NOT_FOUND)
+        except Author.DoesNotExist:
+            return Response({"error": _("author not found.")}, status=status.HTTP_404_NOT_FOUND)
