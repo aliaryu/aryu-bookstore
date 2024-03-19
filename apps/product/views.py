@@ -73,7 +73,7 @@ class CategoryListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.filter(category_id=self.kwargs.get("pk"))
+        queryset = queryset.filter(category_id=self.kwargs.get("pk")).select_related("discount")
         return queryset
 
     def get_context_data(self, **kwargs):
