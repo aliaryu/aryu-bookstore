@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block class_body %}
+    class="bg-circle-shadow"
+{% endblock class_body %}
+
+{% comment %} THERE IS 'content' BLOCK IN MAIN {% endcomment %}
+
+{% block javascript %}
+    <script src="{% static "js/signup.js" %}"></script>
+{% endblock javascript %}
