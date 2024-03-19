@@ -1,7 +1,8 @@
 from django.urls import path
 from .views import (
     BookDetailView,
-    AuthorDetailView
+    AuthorDetailView,
+    CategoryListView
 )
 from .api.views import (
     LikeUnlikeBookAPIView,
@@ -23,4 +24,7 @@ urlpatterns = [
     # AUTHOR
     path("author/<int:pk>/", AuthorDetailView.as_view(), name="author"),
     path("author/<int:pk>/comment", CommentAuthorAPIView.as_view(), name="authorcomment"),
+
+    # LISTS
+    path("category/<int:pk>/", CategoryListView.as_view(), name="category"),
 ]
