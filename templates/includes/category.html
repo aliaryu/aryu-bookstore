@@ -1,0 +1,18 @@
+<li class="list-group-item font-20">
+    {% if category.category_set.all %}
+        <a href="{{ category.get_absolute_url }}" class="text-decoration-none text-black">
+            {{ category.cat_name }}
+            <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
+        </a>
+        <ul>
+            {% for sub_category in category.category_set.all %}
+                {% include "includes/category.html" with category=sub_category %}
+            {% endfor %}
+        </ul>
+
+    {% else %}
+    <a href="{{ category.get_absolute_url }}" class="text-decoration-none text-black">
+        {{ category.cat_name }}
+    </a>
+    {% endif %}
+</li>

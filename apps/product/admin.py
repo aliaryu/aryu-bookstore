@@ -23,8 +23,8 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ["cat_name"]
     list_display_links = None
     list_display = ["cat_name", "cat_parent", "edit", "delete"]
-    fields = ["cat_name", "cat_parent", "display_image", "image"]
-    readonly_fields = ["display_image"]
+    fields = ["cat_name", "cat_parent",]
+    readonly_fields = []
 
     def edit(self, obj):
         translate = _("view/edit")
@@ -42,15 +42,8 @@ class CategoryAdmin(admin.ModelAdmin):
             translate
         )
     
-    def display_image(self, obj):
-        if obj.image:
-            return format_html('<img src="{}" height="100" style="background-color: #121212;"/>'.format(obj.image.url))
-        else:
-            return _("there is no image")
-    
     edit.short_description = _("view/edit")
     delete.short_description = _("delete")
-    display_image.short_description = _("preview")
 
 
 @admin.register(Genre)
@@ -59,15 +52,9 @@ class GenreAdmin(admin.ModelAdmin):
     ordering = ["genre_name"]
     search_fields = ["genre_name"]
     list_display_links = None
-    list_display = ["genre_name", "short_description", "edit", "delete"]
-    fields = ["genre_name", "description", "display_image", "image"]
-    readonly_fields = ["display_image"]
-
-    def short_description(self, obj):
-        if len(obj.description) > 50:
-            return obj.description[:50] + " ..."
-        else:
-            return obj.description
+    list_display = ["genre_name", "edit", "delete"]
+    fields = ["genre_name",]
+    readonly_fields = []
 
     def edit(self, obj):
         translate = _("view/edit")
@@ -84,17 +71,9 @@ class GenreAdmin(admin.ModelAdmin):
             reverse('admin:product_genre_delete', args=[obj.id]),
             translate
         )
-    
-    def display_image(self, obj):
-        if obj.image:
-            return format_html('<img src="{}" height="100" style="background-color: #121212;"/>'.format(obj.image.url))
-        else:
-            return _("there is no image")
 
     edit.short_description = _("view/edit")
     delete.short_description = _("delete")
-    short_description.short_description = _("description")
-    display_image.short_description = _("preview")
 
 
 @admin.register(Tag)

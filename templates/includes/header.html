@@ -101,83 +101,25 @@
                     </div>
 
                     <div class="modal-body">
-                        <ul class="pe-0">
+                        <ul class="px-0">
 
                             <li class="list-group-item font-20">
-                                <a href="#" class="text-decoration-none text-black">
+                                <a href="{% url "product:allbooks" %}" class="text-decoration-none text-black">
+                                    <i class="bi bi-grid-3x3-gap font-17"></i>
                                     همه کتاب ها
                                 </a>
                             </li>
                             
                             <li class="list-group-item font-20">
-                                <a href="#" class="text-decoration-none text-black">
+                                <a href="{% url "product:discountbooks" %}" class="text-decoration-none text-black">
+                                    <i class="bi bi-gem font-17"></i>
                                     تخفیف دار ها
                                 </a>
                             </li>
 
-                            <li class="list-group-item font-20">
-                                <a href="#" class="text-decoration-none text-black">
-                                    ادبیات <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
-                                </a>
-                                <ul class="list-group list-unstyled">
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            رمان
-                                        </a>
-                                    </li>
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            نمایش نامه
-                                        </a>
-                                    </li>
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            داستان کوتاه
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="list-group-item font-20">
-                                <a href="#" class="text-decoration-none text-black">
-                                    روانشناسی <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
-                                </a>
-                                <ul class="list-group list-unstyled">
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            عمومی
-                                        </a>
-                                    </li>
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            کودکان
-                                        </a>
-                                    </li>
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            اجتماعی <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
-                                        </a>
-                                        <ul class="list-group list-unstyled">
-                                            <li class="font-20">
-                                                <a href="#" class="text-decoration-none text-black">
-                                                    فرهنگی
-                                                </a>
-                                            </li>
-                                            <li class="font-20">
-                                                <a href="#" class="text-decoration-none text-black">
-                                                    جغرافیایی
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="list-group-item font-20">
-                                <a href="#" class="text-decoration-none text-black">
-                                    تاریخی
-                                </a>
-                            </li>
+                            {% for category in categories %}
+                                {% include "includes/category.html" with category=category %}
+                            {% endfor %}
 
                         </ul>
                     </div>
