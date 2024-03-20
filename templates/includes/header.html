@@ -117,71 +117,9 @@
                                 </a>
                             </li>
 
-                            <li class="list-group-item font-20">
-                                <a href="#" class="text-decoration-none text-black">
-                                    ادبیات <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
-                                </a>
-                                <ul class="list-group list-unstyled">
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            رمان
-                                        </a>
-                                    </li>
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            نمایش نامه
-                                        </a>
-                                    </li>
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            داستان کوتاه
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="list-group-item font-20">
-                                <a href="#" class="text-decoration-none text-black">
-                                    روانشناسی <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
-                                </a>
-                                <ul class="list-group list-unstyled">
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            عمومی
-                                        </a>
-                                    </li>
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            کودکان
-                                        </a>
-                                    </li>
-                                    <li class="font-20">
-                                        <a href="#" class="text-decoration-none text-black">
-                                            اجتماعی <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
-                                        </a>
-                                        <ul class="list-group list-unstyled">
-                                            <li class="font-20">
-                                                <a href="#" class="text-decoration-none text-black">
-                                                    فرهنگی
-                                                </a>
-                                            </li>
-                                            <li class="font-20">
-                                                <a href="#" class="text-decoration-none text-black">
-                                                    جغرافیایی
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="list-group-item font-20">
-                                <a href="#" class="text-decoration-none text-black">
-                                    تاریخی
-                                </a>
-                            </li>
-
-                            
+                            {% for category in categories %}
+                                {% include "includes/category.html" with category=category %}
+                            {% endfor %}
 
                         </ul>
                     </div>
