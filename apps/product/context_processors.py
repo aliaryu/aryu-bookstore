@@ -2,5 +2,5 @@ from .models import Category
 
 
 def categories(request):
-    categories = Category.objects.all()
+    categories = Category.objects.filter(cat_parent__isnull=True)
     return {"categories": categories}
