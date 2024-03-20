@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
     BookDetailView,
     AuthorDetailView,
-    CategoryListView
+    CategoryListView,
+    GenreListView
 )
 from .api.views import (
     LikeUnlikeBookAPIView,
@@ -27,4 +28,5 @@ urlpatterns = [
 
     # LISTS
     path("category/<int:pk>/", CategoryListView.as_view(), name="category"),
+    path("genre/<int:pk>/", GenreListView.as_view(), name="genre"),
 ]
