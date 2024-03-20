@@ -6,7 +6,8 @@ from apps.product.models import (
     Book,
     Author,
     Category,
-    Genre
+    Genre,
+    Tag
 )
 from apps.comment.models import Comment
 from django.db.models import Prefetch
@@ -99,4 +100,22 @@ class GenreListView(ListView):
         context =  super().get_context_data(**kwargs)
         title = get_object_or_404(Genre, pk=self.kwargs.get("pk")).genre_name
         context["title"] = f"ژانر: {title}"
+        return context
+
+
+class TagListView(ListView):
+    model = Tag
+    template_name = "list.html"
+    context_object_name = "books"
+    paginate_by = 16
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(pk=self.kwargs.get("pk")).first().book_set.all()
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        title = get_object_or_404(Genre, pk=self.kwargs.get("pk")).tag_name
+        context["title"] = f"تگ: {title}"
         return context
