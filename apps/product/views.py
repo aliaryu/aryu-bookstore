@@ -111,7 +111,7 @@ class TagListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.filter(pk=self.kwargs.get("pk")).first().book_set.all()
+        queryset = queryset.filter(pk=self.kwargs.get("pk")).first().book_set.all().select_related("discount")
         return queryset
 
     def get_context_data(self, **kwargs):
