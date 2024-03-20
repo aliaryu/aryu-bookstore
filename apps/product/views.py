@@ -116,6 +116,6 @@ class TagListView(ListView):
 
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
-        title = get_object_or_404(Genre, pk=self.kwargs.get("pk")).tag_name
+        title = get_object_or_404(Tag, pk=self.kwargs.get("pk")).tag_name
         context["title"] = f"تگ: {title}"
         return context
