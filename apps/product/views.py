@@ -136,3 +136,20 @@ class AllBooksListView(ListView):
         context =  super().get_context_data(**kwargs)
         context["title"] = f"همه کتاب ها"
         return context
+
+
+class DiscountBooksListView(ListView):
+    model = Book
+    template_name = "list.html"
+    context_object_name = "books"
+    paginate_by = 16
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(discount__isnull=False).select_related("discount").order_by("-id")
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context["title"] = f"تخفیف دار ها"
+        return context
