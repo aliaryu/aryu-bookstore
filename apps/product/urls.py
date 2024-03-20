@@ -29,4 +29,5 @@ urlpatterns = [
     # LISTS
     path("category/<int:pk>/", CategoryListView.as_view(), name="category"),
     path("genre/<int:pk>/", GenreListView.as_view(), name="genre"),
+    path("tag/<int:pk>/", GenreListView.as_view(), name="tag"),
 ]
