@@ -44,6 +44,9 @@ class Genre(models.Model):
     def __str__(self):
         return f"{self.genre_name}"
     
+    def get_absolute_url(self):
+        return reverse("product:genre", kwargs={"pk": self.pk})
+
 
 class Tag(models.Model):
     tag_name = models.CharField(
