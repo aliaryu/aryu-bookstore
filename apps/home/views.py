@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
+from django.shortcuts import get_object_or_404
 from apps.product.models import Book, Author, Tag
 from apps.order.models import OrderBook
 from django.db.models import Count, Sum
@@ -31,4 +31,21 @@ class HomeView(TemplateView):
         context["discount_books"] = Book.objects.filter(discount__isnull=False).select_related(
             "discount").order_by("?")[:10]
 
+        return context
+
+
+class AllBooksListView(ListView):
+    model = Book
+    template_name = "list.html"
+    context_object_name = "books"
+    paginate_by = 16
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.select_related("discount")
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context["title"] = f"همه کتاب ها"
         return context
