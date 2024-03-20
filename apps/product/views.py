@@ -119,3 +119,20 @@ class TagListView(ListView):
         title = get_object_or_404(Tag, pk=self.kwargs.get("pk")).tag_name
         context["title"] = f"تگ: {title}"
         return context
+
+
+class AllBooksListView(ListView):
+    model = Book
+    template_name = "list.html"
+    context_object_name = "books"
+    paginate_by = 16
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.select_related("discount")
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context["title"] = f"همه کتاب ها"
+        return context
