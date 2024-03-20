@@ -129,7 +129,7 @@ class AllBooksListView(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.select_related("discount")
+        queryset = queryset.select_related("discount").order_by("-id")
         return queryset
 
     def get_context_data(self, **kwargs):
