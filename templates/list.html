@@ -1,0 +1,82 @@
+{% extends "main.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block class_body %}
+    class="bg-circle-shadow"
+{% endblock class_body %}
+
+{% block content %}
+
+    {% comment %} SECTION LIST BOOKS {% endcomment %}
+    <section class="container-fluid py-4 bg-dotted">
+        <div class="container px-0">
+            <h2 class="text-center font-30 f-sayeh f-bold">{{ title }} <i class="bi bi-grid-3x3-gap-fill font-20"></i> </h2>
+
+            {% comment %} CARTS {% endcomment %}
+                <div class="justify-content-center align-items-center d-flex flex-wrap">
+                    
+                    {% for book in books %}
+                        <div class="card border-0 m-1 justify-content-center align-items-center" style="width: 150px;">
+                            <div class="card h-100 m-0" style="width: 150px;">
+                                {% if book.discount %}
+                                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">{{ book.discount.show_discount }} تخفیف</div>
+                                {% endif %}
+                                <img class="card-img-top img-shadow" src="{{ book.image.url }}" alt="{{ book.book_name }}" height="220px">
+                                <div class="card-body p-2">
+                                    <div class="text-center">
+                                        <h5 class="fw-bolder h6 mb-0 avoid-overflow">{{ book.book_name }}</h5>
+                                    </div>
+                                    <div class="d-flex justify-content-center align-items-center mt-1">
+                                        {% if book.discount %}
+                                            <span class="text-muted text-decoration-line-through ms-1 font-14">{{ book.price|floatformat:0|intcomma }}</span>
+                                            <span class="text-muted me-1 font-14">{{ book.calculate_price|floatformat:0|intcomma }} تومان</span>
+                                        {% else %}
+                                            <span class="text-muted me-1 font-14">{{ book.price|floatformat:0|intcomma }} تومان</span>
+                                        {% endif %} 
+                                    </div>
+                                </div>
+                                <div class="card-footer p-2 pt-0 m-1 mt-0 border-top-0 bg-transparent">
+                                    <div class="text-center"><a class="form-control btn btn-outline-dark mt-auto f-bold border-secondary font-15" href="{{ book.get_absolute_url }}">جزئیات بیشتر</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+            {% comment %} PAGINATION {% endcomment %}
+            <nav aria-label="..." class="d-flex justify-content-center align-items-center" dir="ltr">
+                <ul class="pagination m-0 p-0 mt-4">
+            
+                    <li class="page-item disabled">
+                        <a class="page-link text-dark">قبلی</a>
+                    </li>
+            
+                    <li class="page-item">
+                        <a class="page-link text-dark active-paginate" href="#">1</a>
+                    </li>
+            
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="#">2</a>
+                    </li>
+            
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="#">3</a>
+                    </li>
+            
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="#">بعدی</a>
+                    </li>
+            
+                </ul>
+            </nav>
+
+        </div>
+    </section>
+
+{% endblock content %}
+
+{% block javascript %}
+    <script src="{% static "js/signup.js" %}"></script>
+{% endblock javascript %}

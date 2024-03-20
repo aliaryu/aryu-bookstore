@@ -25,6 +25,9 @@ class Category(models.Model):
 
     def __str__(self):
         return f"{self.cat_name}"
+    
+    def get_absolute_url(self):
+        return reverse("product:category", kwargs={"pk": self.pk})
 
 
 class Genre(models.Model):
@@ -41,6 +44,9 @@ class Genre(models.Model):
     def __str__(self):
         return f"{self.genre_name}"
     
+    def get_absolute_url(self):
+        return reverse("product:genre", kwargs={"pk": self.pk})
+
 
 class Tag(models.Model):
     tag_name = models.CharField(
@@ -55,6 +61,9 @@ class Tag(models.Model):
 
     def __str__(self):
         return f"{self.tag_name}"
+    
+    def get_absolute_url(self):
+        return reverse("product:tag", kwargs={"pk": self.pk})
     
 
 class Author(LogicalBaseModel):
