@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView
 from apps.product.models import Book, Author, Tag
 from apps.order.models import OrderBook
