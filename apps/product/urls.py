@@ -4,7 +4,8 @@ from .views import (
     AuthorDetailView,
     CategoryListView,
     GenreListView,
-    TagListView
+    TagListView,
+    AllBooksListView
 )
 from .api.views import (
     LikeUnlikeBookAPIView,
@@ -31,4 +32,5 @@ urlpatterns = [
     path("category/<int:pk>/", CategoryListView.as_view(), name="category"),
     path("genre/<int:pk>/", GenreListView.as_view(), name="genre"),
     path("tag/<int:pk>/", TagListView.as_view(), name="tag"),
+    path("allbooks/<int:pk>/", AllBooksListView.as_view(), name="allbooks"),
 ]
