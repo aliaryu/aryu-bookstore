@@ -38,8 +38,8 @@
                 </div>
             
                 <div class="my-1">
-                    <form class="input-group ms-lg-5" dir="ltr" action="" method="get">
-                        <input type="text" class="form-control bg-transparent text-white fw-bold text-end font-17" placeholder="جست و جو ..." dir="rtl">
+                    <form class="input-group ms-lg-5" dir="ltr" action="{% url "product:search" %}" method="get">
+                        <input name="search" type="text" class="form-control bg-transparent text-white fw-bold text-end font-17" placeholder="جست و جو ..." dir="rtl">
                         <button class="btn btn-outline-white border-white border-start-0 font-17" type="submit"><i class="bi bi-search text-white"></i></button>
                     </form>
                 </div>
