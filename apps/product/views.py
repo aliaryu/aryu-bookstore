@@ -164,13 +164,24 @@ class SearchListView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         search_query = self.request.GET.get('search')
+        if search_query is not None:
+            search_query = search_query.strip()
         if search_query:
-            queryset = queryset.filter(
-                Q(book_name__icontains=search_query) |
-                Q(category__cat_name__icontains=search_query) |
-                Q(genre__genre_name__icontains=search_query) |
-                Q(tag__tag_name__icontains=search_query)
-            ).select_related("discount").order_by("-id").distinct()
+            if "ژانر" in search_query:
+                search_query= search_query.replace("ژانر", "").strip()
+                queryset = queryset.filter(
+                    genre__genre_name__icontains=search_query
+                ).select_related("discount").order_by("-id").distinct()
+            elif "#" in search_query:
+                search_query= search_query.replace("#", "").strip()
+                queryset = queryset.filter(
+                    tag__tag_name__icontains=search_query
+                ).select_related("discount").order_by("-id").distinct()
+            else:
+                queryset = queryset.filter(
+                    Q(book_name__icontains=search_query) |
+                    Q(category__cat_name__icontains=search_query)
+                ).select_related("discount").order_by("-id").distinct()
         return queryset
 
     def get_context_data(self, **kwargs):
