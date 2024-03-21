@@ -176,7 +176,8 @@ class SearchListView(ListView):
                 queryset = queryset.filter(
                     Q(book_name__icontains=search_query) |
                     Q(category__cat_name__icontains=search_query) |
-                    Q(genre__genre_name__icontains=search_query)
+                    Q(genre__genre_name__icontains=search_query) |
+                    Q(author__full_name__icontains=search_query)
                 ).select_related("discount").order_by("-id").distinct()
         return queryset.select_related("discount")
 
