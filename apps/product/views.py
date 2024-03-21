@@ -182,7 +182,7 @@ class SearchListView(ListView):
                     Q(book_name__icontains=search_query) |
                     Q(category__cat_name__icontains=search_query)
                 ).select_related("discount").order_by("-id").distinct()
-        return queryset
+        return queryset.select_related("discount")
 
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
