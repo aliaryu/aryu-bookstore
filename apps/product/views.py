@@ -167,12 +167,7 @@ class SearchListView(ListView):
         if search_query is not None:
             search_query = search_query.strip()
         if search_query:
-            if "ژانر" in search_query:
-                search_query= search_query.replace("ژانر", "").strip()
-                queryset = queryset.filter(
-                    genre__genre_name__icontains=search_query
-                ).select_related("discount").order_by("-id").distinct()
-            elif "#" in search_query:
+            if "#" in search_query:
                 search_query= search_query.replace("#", "").strip()
                 queryset = queryset.filter(
                     tag__tag_name__icontains=search_query
@@ -180,7 +175,8 @@ class SearchListView(ListView):
             else:
                 queryset = queryset.filter(
                     Q(book_name__icontains=search_query) |
-                    Q(category__cat_name__icontains=search_query)
+                    Q(category__cat_name__icontains=search_query) |
+                    Q(genre__genre_name__icontains=search_query)
                 ).select_related("discount").order_by("-id").distinct()
         return queryset.select_related("discount")
 
