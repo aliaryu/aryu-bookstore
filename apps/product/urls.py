@@ -38,5 +38,5 @@ urlpatterns = [
     path("discountbooks/", DiscountBooksListView.as_view(), name="discountbooks"),
 
     # SEARCH
-    path("search/<str:search>/", SearchListView.as_view(), name="search"),
+    path("search/", SearchListView.as_view(), name="search"),
 ]
