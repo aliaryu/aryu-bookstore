@@ -12,6 +12,7 @@ from .validators import (
 from apps.core.models import LogicalBaseModel
 from django.contrib.auth.models import Group, Permission
 from django.core.exceptions import ValidationError
+from django.urls import reverse
 from django.utils import timezone
 import os, random
 
@@ -150,6 +151,9 @@ class Address(models.Model):
 
     def __str__(self):
         return f"user: [ {self.user.username} ] - postal code: [ {self.postal_code} ]"
+    
+    def get_absolute_url(self):
+        return reverse("user:useraddress", kwargs={"pk": self.pk})
 
 
 class Role(LogicalBaseModel):
