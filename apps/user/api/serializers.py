@@ -67,6 +67,9 @@ class UserImageSerializer(serializers.ModelSerializer):
 
 
 class UserInfoSerializer(serializers.ModelSerializer):
+    first_name = serializers.CharField(max_length=255, allow_blank=False)
+    last_name = serializers.CharField(max_length=255, allow_blank=False)
+
     class Meta:
         model = User
         fields = ["first_name", "last_name", "birth_date", "username", "email"]
