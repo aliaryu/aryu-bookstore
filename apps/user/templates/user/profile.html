@@ -36,7 +36,7 @@
                     <div id="image-success" class="border border-success rounded-2 px-3 py-2 mb-2 d-none">
                     </div>
                     
-                    <!-- TAB BUTTONS -->
+                    {% comment %} TAB BUTTONS {% endcomment %}
                     <button class="d-flex align-items-center nav-link text-black active" id="v-piluser-tab" data-bs-toggle="pill" data-bs-target="#v-pills-user" type="button" role="tab" aria-controls="v-pills-user" aria-selected="true"> <i class="bi bi-person-fill font-17 ms-1"></i> اطلاعات کاربری</button>
                     <button class="d-flex align-items-center nav-link text-black" id="v-pills-address-tab" data-bs-toggle="pill" data-bs-target="#v-pills-address" type="button" role="tab" aria-controls="v-pills-address" aria-selected="false"> <i class="bi bi-geo-alt-fill font-17 ms-1"></i> آدرس ها</button>
                     <button class="d-flex align-items-center nav-link text-black" id="v-pills-password-tab" data-bs-toggle="pill" data-bs-target="#v-pills-password" type="button" role="tab" aria-controls="v-pills-password" aria-selected="false"> <i class="bi bi-shield-lock-fill ms-1"></i> تغییر رمز</button>
@@ -47,24 +47,25 @@
 
                 <div class="col tab-content px-1 pb-0 py-2 px-sm-3 py-sm-0" id="v-pills-tabContent">
 
-                    <!-- USER INFORMATION -->
+                    {% comment %} USER INFORMATION {% endcomment %}
                     <div class="tab-pane fade bg-white show active" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab" tabindex="0">
 
-                        <!-- FORM EDIT INFORMATION -->
+                        {% comment %} FORM EDIT INFORMATION {% endcomment %}
                         <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
                             <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">اطلاعات کاربری:</span>
                         </span>
-                        <form action="" method="post" class="row g-2">
+
+                        <form id="form-info" class="row g-2">
                             <div class="d-flex mx-0 px-0">
-                                <input type="text" class="form-control bg-transparent place-holder-grey fw-bold ms-1" placeholder="نام">
-                                <input type="text" class="form-control bg-transparent place-holder-grey fw-bold me-1" placeholder="نام خانوادگی">
+                                {{ form_info.first_name }}
+                                {{ form_info.last_name }}
                             </div>
-        
-                            <input type="text" class="form-control bg-transparent place-holder-grey fw-bold" placeholder="تاریخ تولد - مثال: 1402-3-27">
+
+                            {{ form_info.birth_date }}
         
                             <div class="d-flex mx-0 px-0">
-                                <input type="text" class="form-control bg-transparent place-holder-grey fw-bold ms-1" placeholder="نام کاربری">
-                                <input type="email" class="form-control bg-transparent place-holder-grey fw-bold me-1" placeholder="ایمیل">
+                                {{ form_info.username }}
+                                {{ form_info.email }}
                             </div>
     
                             <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
