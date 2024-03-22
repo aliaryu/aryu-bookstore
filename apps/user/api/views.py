@@ -15,7 +15,10 @@ from .serializers import (
     UserImageSerializer,
     UserInfoSerializer,
 )
+from django.contrib.auth import get_user_model
 
+
+User = get_user_model()
 
 
 class UserPassLoginView(APIView):
@@ -48,6 +51,7 @@ class UploadUserImageView(APIView):
 
 
 class UserInfoUpdateView(mixins.UpdateModelMixin, generics.GenericAPIView):
+    queryset = User.objects.all()
     serializer_class = UserInfoSerializer
 
     def put(self, request, pk):
