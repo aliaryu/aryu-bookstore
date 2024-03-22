@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError as DjangoValidationError
+from PIL import Image
 
 
 User = get_user_model()
@@ -56,3 +57,10 @@ class UserImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['image']
+
+    def validate_image(self, value):
+        image = Image.open(value)
+        width, height = image.size
+        if width != height:
+            raise serializers.ValidationError(_("image must be square."))
+        return value
