@@ -26,5 +26,5 @@ urlpatterns = [
     # PROFILE
     path("profile/", ProfileView.as_view(), name="profile"),
     path("uploadimage/", UploadUserImageView.as_view(), name="uploadimage"),
-    path("userinfo/", UserInfoUpdateView.as_view(), name="userinfo"),
+    path("userinfo/<int:pk>/", UserInfoUpdateView.as_view(), name="userinfo"),
 ]
