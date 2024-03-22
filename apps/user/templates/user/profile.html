@@ -14,7 +14,7 @@
 
                         {% comment %} USER IMAGE {% endcomment %}
                         <div class="position-relative d-flex justify-content-center align-items-center grounded-circle overflow-hidden parent-user-image">
-                            <img src="static/image/author/batman.jpg" class="col-6 col-sm-12 img-fluid rounded-circle border border-black" alt="user" id="selected-image">
+                            <img src="{{ user.image.url }}" class="col-6 col-sm-12 img-fluid rounded-circle border border-black" alt="user" id="selected-image">
 
                             <div class="position-absolute d-flex justify-content-center align-items-center rounded-circle hidden-icon"
                                 style="background-color: rgba(255, 255, 255, 0.342); height: 75px; width: 75px;"
@@ -22,7 +22,8 @@
                                 <i class="bi bi-camera-fill position-absolute text-white font-25"></i>
                             </div>
 
-                            <form action="" method="" class="d-none">
+                            <form class="d-none">
+                                {% csrf_token %}
                                 <input type="file" id="image-input" accept="image/*" onchange="previewImage(event)">
                             </form>
                         </div>
@@ -378,4 +379,5 @@
 
 {% block javascript %}
     <script src="{% static "js/scroll.js" %}"></script>
+    <script src="{% static "js/profile_image.js" %}"></script>
 {% endblock javascript %}
