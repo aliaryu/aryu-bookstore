@@ -4,10 +4,6 @@ from django.utils.translation import gettext_lazy as _
 from datetime import date
 
 
-def square_image_validator(image):
-    if image.width != image.height:
-        raise ValidationError(_("image must be square. width and height should be the same"))
-
 image_extension_validator = FileExtensionValidator(
     allowed_extensions = ['jpg', 'jpeg', 'png',]
 )
