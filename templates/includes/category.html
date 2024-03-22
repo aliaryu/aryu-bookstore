@@ -1,4 +1,6 @@
-<li class="list-group-item font-20">
+{% comment %} THIS IS NOT GOOD, BECAUSE IT USE MANY QUERIES AND CANNOT BE OPTIMIZED {% endcomment %}
+
+{% comment %} <li class="list-group-item font-20">
     {% if category.category_set.all %}
         <a href="{{ category.get_absolute_url }}" class="text-decoration-none text-black">
             {{ category.cat_name }}
@@ -15,4 +17,4 @@
         {{ category.cat_name }}
     </a>
     {% endif %}
-</li>
+</li> {% endcomment %}

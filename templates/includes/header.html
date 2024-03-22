@@ -118,9 +118,37 @@
                                 </a>
                             </li>
 
+                            {% comment %} THIS TWO LOOP ONLY SUPPORTS TWO LEVEL OF NESTING CATEGORIES {% endcomment %}
                             {% for category in categories %}
-                                {% include "includes/category.html" with category=category %}
+                                {% if not category.category_set.all %}
+                                    <li class="list-group-item font-20">
+                                        <a href="{{ category.get_absolute_url }}" class="text-decoration-none text-black">
+                                            {{ category.cat_name }}
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li class="list-group-item font-20">
+                                        <a href="{{ category.get_absolute_url }}" class="text-decoration-none text-black">
+                                            {{ category.cat_name }}
+                                            <i class="bi bi-caret-down-fill fs-6 top-2px"></i>
+                                        </a>
+                                        <ul>
+                                            {% for sub_category in category.category_set.all %}
+                                                <li class="list-group-item font-20">
+                                                    <a href="{{ sub_category.get_absolute_url }}" class="text-decoration-none text-black">
+                                                        {{ sub_category.cat_name }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endif %}
                             {% endfor %}
+
+                            {% comment %} IT WAS FOR NESTED CATEGORY BUT IT ISNT OPTIMIZE {% endcomment %}
+                            {% comment %} {% for category in categories %}
+                                {% include "includes/category.html" with category=category %}
+                            {% endfor %} {% endcomment %}
 
                         </ul>
                     </div>
