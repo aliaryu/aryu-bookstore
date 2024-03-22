@@ -64,3 +64,9 @@ class UserImageSerializer(serializers.ModelSerializer):
         if width != height:
             raise serializers.ValidationError(_("image must be square."))
         return value
+
+
+class UserInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["first_name", "last_name", "birth_date", "username", "email"]
