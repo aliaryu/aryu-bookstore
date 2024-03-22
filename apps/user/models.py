@@ -134,6 +134,8 @@ class Address(models.Model):
         verbose_name = _("province"),
         max_length = 3,
         choices = IRAN_PROVINCES,
+        blank = False,
+        null = False
     )
     postal_code = models.PositiveBigIntegerField(
         verbose_name = _("postal code"),
