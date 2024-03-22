@@ -50,3 +50,9 @@ class UserSignUpSerializer(serializers.ModelSerializer):
             **validated_data
         )
         return user
+
+
+class UserImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['image']
