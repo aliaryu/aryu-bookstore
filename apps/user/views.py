@@ -2,7 +2,10 @@ from django.views.generic import TemplateView
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import UserInformationUpdateForm
+from .forms import (
+    UserInformationUpdateForm,
+    UserAddressForm,
+)
 from apps.user.models import Address
 
 class LoginView(UserPassesTestMixin, TemplateView):
@@ -40,5 +43,6 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         context =  super().get_context_data(**kwargs)
         context["form_info"] = UserInformationUpdateForm(instance=self.request.user)
         context["addresses"] = Address.objects.filter(user=self.request.user)
+        context["form_address"] = UserAddressForm()
         return context
 
