@@ -7,8 +7,7 @@ from .managers import (
 )
 from .validators import (
     image_extension_validator,
-    square_image_validator,
-    postal_code_validator
+    postal_code_validator,
 )
 from apps.core.models import LogicalBaseModel
 from django.contrib.auth.models import Group, Permission
@@ -42,8 +41,7 @@ class User(AbstractUser):
         blank = True,
         null = True,
         validators = [
-            image_extension_validator,
-            square_image_validator,
+            image_extension_validator
         ]
     )
     is_delete = models.BooleanField(
@@ -57,6 +55,10 @@ class User(AbstractUser):
         super().clean()
         if self.birth_date and self.birth_date > timezone.now().date():
             raise ValidationError({'birth_date': _("birth date cannot be in future.")})
+
+        width, height = self.image.width, self.image.height
+        if width != height:
+            raise ValidationError({'image': _("image must be square.")})
 
     def save(self, *args, **kwargs):
         if not self.image:
