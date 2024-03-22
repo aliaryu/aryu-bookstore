@@ -1,12 +1,12 @@
 const csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+const imgElement = document.getElementById('selected-image');
+const image_success = document.getElementById('image-success');
+const image_error = document.getElementById('image-error');
 function previewImage(event) {                        
     const input = event.target;
     const reader = new FileReader();
 
     reader.onload = function(){
-        const imgElement = document.getElementById('selected-image');
-        // imgElement.src = reader.result;
-
         const formData = new FormData();
         formData.append('image', input.files[0]);
         fetch("/user/uploadimage/", {
@@ -18,18 +18,21 @@ function previewImage(event) {
         })
         .then(response => {
             if (response.ok) {
-                // Image uploaded successfully
+                image_success.innerHTML = `<span class="text-success">عکس تغییر کرد.</span>`
+                image_success.classList.remove("d-none")
+                image_error.classList.add("d-none")
                 imgElement.src = reader.result;
-                console.log('Image uploaded successfully');
             } else {
-                // Image upload failed
-                console.error('Image upload failed');
+                image_error.innerHTML = `<span class="text-danger">عکس باید مربع باشد.</span>`
+                image_error.classList.remove("d-none")
+                image_success.classList.add("d-none")
             }
         })
         .catch(error => {
-            console.error('Error uploading image:', error);
+            image_error.innerHTML = `<span class="text-danger">خطا: بعدا امتحان کنید.</span>`
+            image_error.classList.remove("d-none")
+            image_success.classList.add("d-none")
         });
     }
-
     reader.readAsDataURL(input.files[0]);
 }
