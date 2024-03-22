@@ -85,38 +85,29 @@
 
                     </div>
 
-                    <!-- ADDRESS -->
+                    {% comment %} ADDRESS {% endcomment %}
                     <div class="tab-pane fade bg-white" id="v-pills-address" role="tabpanel" aria-labelledby="v-pills-address-tab" tabindex="0">
 
-                        <!-- ADDRESSES -->
                         <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
                             <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">آدرس ها:</span>
                         </span>
-                        <div class="border rounded-2 row g-2 p-2 my-2">
-                            <div class="m-0 p-0 me-1 position-relative" style="max-width: 16px;">
-                                <a class="m-0 p-0" href="#"><i class="bi bi-x-square-fill text-danger position-absolute" style="top: 1px;"></i></a>
-                            </div>
-                            <div class="col m-0">
-                                <div class="me-2 d-flex flex-wrap">
-                                    <span class="ms-3">استان: <span class="text-muted">ایلام</span></span>
-                                    <span class="ms-3">کد پستی: <span class="text-muted">1234567890</span></span>
-                                    <span class="ms-3">آدرس: <span class="text-muted">زمین شهری ، خیابان مبارزان ، کوچه مبارزان یک</span></span>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="border rounded-2 row g-2 p-2 my-2">
-                            <div class="m-0 p-0 me-1 position-relative" style="max-width: 16px;">
-                                <a class="m-0 p-0" href="#"><i class="bi bi-x-square-fill text-danger position-absolute" style="top: 1px;"></i></a>
-                            </div>
-                            <div class="col m-0">
-                                <div class="me-2 d-flex flex-wrap">
-                                    <span class="ms-3">استان: <span class="text-muted">کهگیلویه و بویر احمد</span></span>
-                                    <span class="ms-3">کد پستی: <span class="text-muted">1234567890</span></span>
-                                    <span class="ms-3">آدرس: <span class="text-muted">زمین شهری ، خیابان مبارزان ، کوچه مبارزان یک</span></span>
+                        {% for address in addresses %}
+                            <div class="border rounded-2 row g-2 p-2 my-2">
+                                <div class="m-0 p-0 me-1 position-relative" style="max-width: 16px;">
+                                    <a class="m-0 p-0" href="{{ address.get_absolute_url }}" onclick="delete_address(event)">
+                                        <i class="bi bi-x-square-fill text-danger position-absolute" style="top: 1px;"></i>
+                                    </a>
+                                </div>
+                                <div class="col m-0">
+                                    <div class="me-2 d-flex flex-wrap">
+                                        <span class="ms-3">استان: <span class="text-muted">{{ address.get_province_display }}</span></span>
+                                        <span class="ms-3">کد پستی: <span class="text-muted">{{ address.postal_code }}</span></span>
+                                        <span class="ms-3">آدرس: <span class="text-muted">{{ address.address_path }}</span></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
 
                         <!-- FORM ADD ADDRESS -->
                         <span class="d-block my-3 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
@@ -397,4 +388,5 @@
     <script src="{% static "js/scroll.js" %}"></script>
     <script src="{% static "js/profile_image.js" %}"></script>
     <script src="{% static "js/userinfo_form.js" %}"></script>
+    <script src="{% static "js/user_address.js" %}"></script>
 {% endblock javascript %}
