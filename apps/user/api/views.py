@@ -7,12 +7,15 @@ from rest_framework.status import (
 )
 from django.contrib.auth import login
 from django.utils.translation import gettext_lazy as _
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, UpdateAPIView
+from rest_framework import generics, mixins
 from .serializers import (
     UserPassLoginSerializer,
     UserSignUpSerializer,
-    UserImageSerializer
+    UserImageSerializer,
+    UserInfoSerializer,
 )
+
 
 
 class UserPassLoginView(APIView):
@@ -42,3 +45,10 @@ class UploadUserImageView(APIView):
             serializer.save()
             return Response({"message": True}, status=HTTP_200_OK)
         return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
+
+
+class UserInfoUpdateView(mixins.UpdateModelMixin, generics.GenericAPIView):
+    serializer_class = UserInfoSerializer
+
+    def put(self, request, pk):
+        return self.update(request, pk)
