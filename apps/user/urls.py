@@ -9,6 +9,7 @@ from .api.views import (
     UserSignUpView,
     UploadUserImageView,
     UserInfoUpdateView,
+    UserAddressView,
 )
 from django.contrib.auth.views import LogoutView
 
@@ -27,4 +28,5 @@ urlpatterns = [
     path("profile/", ProfileView.as_view(), name="profile"),
     path("uploadimage/", UploadUserImageView.as_view(), name="uploadimage"),
     path("userinfo/<int:pk>/", UserInfoUpdateView.as_view(), name="userinfo"),
+    path("useraddress/<int:pk>/", UserAddressView.as_view(), name="useraddress"),
 ]
