@@ -14,8 +14,10 @@ from .serializers import (
     UserSignUpSerializer,
     UserImageSerializer,
     UserInfoSerializer,
+    UserAddressSerializer,
 )
 from django.contrib.auth import get_user_model
+from apps.user.models import Address
 
 
 User = get_user_model()
@@ -56,3 +58,11 @@ class UserInfoUpdateView(mixins.UpdateModelMixin, generics.GenericAPIView):
 
     def put(self, request, pk):
         return self.update(request, pk)
+
+
+class UserAddressView(mixins.DestroyModelMixin, generics.GenericAPIView):
+    queryset = Address.objects.all()
+    serializer_class = UserAddressSerializer
+
+    def delete(self, request, pk):
+        return self.destroy(request, pk)
