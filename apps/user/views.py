@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import redirect
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class LoginView(UserPassesTestMixin, TemplateView):
     template_name = "user/login.html"
@@ -29,3 +29,7 @@ class SignUpView(UserPassesTestMixin, TemplateView):
 
     def handle_no_permission(self):
         return redirect('home:home')
+
+
+class ProfileView(LoginRequiredMixin, TemplateView):
+    template_name = "user/profile.html"
