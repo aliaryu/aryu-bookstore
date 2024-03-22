@@ -109,23 +109,24 @@
                             </div>
                         {% endfor %}
 
-                        <!-- FORM ADD ADDRESS -->
+                        {% comment %} FORM ADD ADDRESS {% endcomment %}
                         <span class="d-block my-3 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
                             <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">افزودن آدرس:</span>
                         </span>
+
                         <form action="" method="post" class="row g-2">
                             <div class="d-flex mx-0 px-0">
                                 <div class="input-group">
-                                    <select class="form-select ms-1" id="inputGroupSelect01">
-                                        <option selected>استان</option>
-                                        <option value="1">تهران</option>
-                                        <option value="2">ایلام</option>
-                                        <option value="3">کهگیلویه و بویر احمد</option>
+                                    <select name="province" class="form-select ms-1" id="inputGroupSelect01">
+                                        <option value="" disabled selected>انتخاب استان</option>
+                                        {% for province_value, province_label in form_address.fields.province.choices %}
+                                            <option value="{{ province_value }}">{{ province_label }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
-                                <input type="text" class="form-control bg-transparent place-holder-grey fw-bold me-1" placeholder="کد پستی">
+                                {{ form_address.postal_code  }}
                             </div>
-                            <textarea class="form-control bg-transparent place-holder-grey fw-bold" rows="3" placeholder="آدرس ..."></textarea>
+                            {{ form_address.address_path  }}
                             <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
                                 افزودن آدرس
                                 <i class="bi bi-geo-alt-fill font-17 mx-1"></i>
