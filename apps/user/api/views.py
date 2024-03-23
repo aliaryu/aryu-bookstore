@@ -7,7 +7,8 @@ from rest_framework.status import (
 )
 from django.contrib.auth import login
 from django.utils.translation import gettext_lazy as _
-from rest_framework.generics import CreateAPIView, UpdateAPIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.generics import CreateAPIView
 from rest_framework import generics, mixins
 from .serializers import (
     UserPassLoginSerializer,
@@ -43,6 +44,8 @@ class UserSignUpView(CreateAPIView):
 
 
 class UploadUserImageView(APIView):
+    permission_classes = [IsAuthenticated]
+
     def put(self, request, *args, **kwargs):
         user = request.user
         serializer = UserImageSerializer(user, data=request.data)
@@ -53,6 +56,8 @@ class UploadUserImageView(APIView):
 
 
 class UserInfoUpdateView(mixins.UpdateModelMixin, generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+
     queryset = User.objects.all()
     serializer_class = UserInfoSerializer
 
@@ -61,6 +66,8 @@ class UserInfoUpdateView(mixins.UpdateModelMixin, generics.GenericAPIView):
 
 
 class UserAddressView(mixins.DestroyModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
+
     queryset = Address.objects.all()
     serializer_class = UserAddressSerializer
 
