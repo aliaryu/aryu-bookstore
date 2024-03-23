@@ -7,12 +7,12 @@ from .managers import (
 )
 from .validators import (
     image_extension_validator,
-    square_image_validator,
-    postal_code_validator
+    postal_code_validator,
 )
 from apps.core.models import LogicalBaseModel
 from django.contrib.auth.models import Group, Permission
 from django.core.exceptions import ValidationError
+from django.urls import reverse
 from django.utils import timezone
 import os, random
 
@@ -42,8 +42,7 @@ class User(AbstractUser):
         blank = True,
         null = True,
         validators = [
-            image_extension_validator,
-            square_image_validator,
+            image_extension_validator
         ]
     )
     is_delete = models.BooleanField(
@@ -57,6 +56,10 @@ class User(AbstractUser):
         super().clean()
         if self.birth_date and self.birth_date > timezone.now().date():
             raise ValidationError({'birth_date': _("birth date cannot be in future.")})
+
+        width, height = self.image.width, self.image.height
+        if width != height:
+            raise ValidationError({'image': _("image must be square.")})
 
     def save(self, *args, **kwargs):
         if not self.image:
@@ -93,7 +96,7 @@ class Address(models.Model):
         ("AZR", "آذربایجان شرقی"),
         ("AZL", "آذربایجان غربی"),
         ("ARD", "اردبیل"),
-        ("ESF", "اصفحان"),
+        ("ESF", "اصفهان"),
         ("ALB", "البرز"),
         ("ILA", "ایلام"),
         ("BOS", "بوشهر"),
@@ -131,6 +134,8 @@ class Address(models.Model):
         verbose_name = _("province"),
         max_length = 3,
         choices = IRAN_PROVINCES,
+        blank = False,
+        null = False
     )
     postal_code = models.PositiveBigIntegerField(
         verbose_name = _("postal code"),
@@ -148,6 +153,9 @@ class Address(models.Model):
 
     def __str__(self):
         return f"user: [ {self.user.username} ] - postal code: [ {self.postal_code} ]"
+    
+    def get_absolute_url(self):
+        return reverse("user:useraddress", kwargs={"pk": self.pk})
 
 
 class Role(LogicalBaseModel):

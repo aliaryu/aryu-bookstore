@@ -60,6 +60,10 @@ class Order(LogicalBaseModel, TimeStampBaseModel):
     def __str__(self):
         return f"order number: [ {self.id} ]"
     
+    def calculate_price(self):
+        total = sum([item.count * item.book.price for item in self.orderbook_set.all()])
+        return total
+
 
 class OrderStaff(Order):
     class Meta:
