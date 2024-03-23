@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import (
     UserInformationUpdateForm,
     UserAddressForm,
+    UserChangePasswordForm,
 )
 from apps.user.models import Address
 
@@ -43,6 +44,6 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         context =  super().get_context_data(**kwargs)
         context["form_info"] = UserInformationUpdateForm(instance=self.request.user)
         context["addresses"] = Address.objects.filter(user=self.request.user)
+        context["form_changepass"] = UserChangePasswordForm()
         context["form_address"] = UserAddressForm()
         return context
-
