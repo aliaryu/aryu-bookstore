@@ -10,7 +10,7 @@ from apps.product.models import (
     Tag
 )
 from apps.comment.models import Comment
-from django.db.models import Prefetch
+from django.db.models import Prefetch, Q
 from django.shortcuts import get_object_or_404
 
 
@@ -152,4 +152,36 @@ class DiscountBooksListView(ListView):
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
         context["title"] = f"تخفیف دار ها"
+        return context
+
+
+class SearchListView(ListView):
+    model = Book
+    template_name = "list.html"
+    context_object_name = "books"
+    paginate_by = 16
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        search_query = self.request.GET.get('search')
+        if search_query is not None:
+            search_query = search_query.strip()
+        if search_query:
+            if "#" in search_query:
+                search_query= search_query.replace("#", "").strip()
+                queryset = queryset.filter(
+                    tag__tag_name__icontains=search_query
+                ).select_related("discount").order_by("-id").distinct()
+            else:
+                queryset = queryset.filter(
+                    Q(book_name__icontains=search_query) |
+                    Q(category__cat_name__icontains=search_query) |
+                    Q(genre__genre_name__icontains=search_query) |
+                    Q(author__full_name__icontains=search_query)
+                ).select_related("discount").order_by("-id").distinct()
+        return queryset.select_related("discount")
+
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context["title"] = f"نتایج جستـــ و جو"
         return context

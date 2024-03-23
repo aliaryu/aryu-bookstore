@@ -8,7 +8,7 @@
 
                     {% if tags %}
                         {% for tag in tags %}
-                            <a href="list.html" class="f-bold f-15 text-decoration-none tags"><i class="bi bi-hash i-tr"></i>{{ tag.tag_name }}</a>
+                            <a href="{{ tags.get_absolute_url }}" class="f-bold f-15 text-decoration-none tags"><i class="bi bi-hash i-tr"></i>{{ tag.tag_name }}</a>
                         {% endfor %}
                     {% else %}
                         <p class="text-center f-bold">تگ ایی وجود ندارد -_-</p>

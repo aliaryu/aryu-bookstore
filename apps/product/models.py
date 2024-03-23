@@ -2,7 +2,9 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from apps.core.models import LogicalBaseModel
 from django.contrib.contenttypes.fields import GenericRelation
+from django.core.exceptions import ValidationError
 from django.urls import reverse
+
 
 
 class Category(models.Model):
@@ -18,6 +20,11 @@ class Category(models.Model):
         null = True,
         blank = True,
     )
+
+    def clean(self) -> None:
+        super().clean()
+        if self.cat_parent.cat_parent:
+            raise ValidationError(_("Only up to two levels of categories are allowed."))
 
     class Meta:
         verbose_name = _("category")

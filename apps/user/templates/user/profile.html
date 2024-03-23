@@ -1,0 +1,321 @@
+{% extends "main.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+    {% comment %} {% include "user/includes/..." %} {% endcomment %}
+
+    {% comment %} SECTION PROFILE {% endcomment %}
+    <section class="container-fluid my-2 my-sm-3 my-lg-4 my-xl-5">
+        <div class="mx-2 px-0 mx-lg-3 px-lg-4 mx-xl-4 px-xl-5 mx-xxl-5 px-xxl-5 px-0">
+
+            <div class="row align-items-start bg-dotted">
+                <div class="bg-white col-12 col-sm-5 col-md-4 col-lg-3 col-xl-3 col-xxl-2 nav flex-column nav-pills tab-profile border rounded-2" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="padding: 12px;">
+                    <div class="d-flex justify-content-center align-items-center mb-2 p-5 rounded-2 position-relative" id="profile-user-image">
+
+                        {% comment %} USER IMAGE {% endcomment %}
+                        <div class="position-relative d-flex justify-content-center align-items-center grounded-circle overflow-hidden parent-user-image">
+                            <img src="{{ user.image.url }}" class="col-6 col-sm-12 img-fluid rounded-circle border border-black" alt="user" id="selected-image">
+
+                            <div class="position-absolute d-flex justify-content-center align-items-center rounded-circle hidden-icon"
+                                style="background-color: rgba(255, 255, 255, 0.342); height: 75px; width: 75px;"
+                                onclick="document.getElementById('image-input').click()">
+                                <i class="bi bi-camera-fill position-absolute text-white font-25"></i>
+                            </div>
+
+                            <form class="d-none">
+                                {% csrf_token %}
+                                <input type="file" id="image-input" accept="image/*" onchange="previewImage(event)">
+                            </form>
+                        </div>
+                        
+                    </div>
+
+                    <div id="image-error" class="border border-danger rounded-2 px-3 py-2 mb-2 d-none">
+                    </div>
+
+                    <div id="image-success" class="border border-success rounded-2 px-3 py-2 mb-2 d-none">
+                    </div>
+                    
+                    {% comment %} TAB BUTTONS {% endcomment %}
+                    <button class="d-flex align-items-center nav-link text-black active" id="v-piluser-tab" data-bs-toggle="pill" data-bs-target="#v-pills-user" type="button" role="tab" aria-controls="v-pills-user" aria-selected="true"> <i class="bi bi-person-fill font-17 ms-1"></i> اطلاعات کاربری</button>
+                    <button class="d-flex align-items-center nav-link text-black" id="v-pills-address-tab" data-bs-toggle="pill" data-bs-target="#v-pills-address" type="button" role="tab" aria-controls="v-pills-address" aria-selected="false"> <i class="bi bi-geo-alt-fill font-17 ms-1"></i> آدرس ها</button>
+                    <button class="d-flex align-items-center nav-link text-black" id="v-pills-password-tab" data-bs-toggle="pill" data-bs-target="#v-pills-password" type="button" role="tab" aria-controls="v-pills-password" aria-selected="false"> <i class="bi bi-shield-lock-fill ms-1"></i> تغییر رمز</button>
+                    <button class="d-flex align-items-center nav-link text-black" id="v-pills-order-tab" data-bs-toggle="pill" data-bs-target="#v-pills-order" type="button" role="tab" aria-controls="v-pills-order" aria-selected="false"> <i class="bi bi-bag-fill ms-1"></i> سفارش ها</button>
+                    <button class="d-flex align-items-center nav-link text-black" id="v-pills-like-tab" data-bs-toggle="pill" data-bs-target="#v-pills-like" type="button" role="tab" aria-controls="v-pills-like" aria-selected="false"> <i class="bi bi-suit-heart-fill ms-1"></i> پسندیده ها</button>
+                    <button class="d-flex align-items-center nav-link text-black" id="v-pills-save-tab" data-bs-toggle="pill" data-bs-target="#v-pills-save" type="button" role="tab" aria-controls="v-pills-save" aria-selected="false"> <i class="bi bi-bookmark-fill ms-1"></i> ذخیره ها</button>
+                </div>
+
+                <div class="col tab-content px-1 pb-0 py-2 px-sm-3 py-sm-0" id="v-pills-tabContent">
+
+                    {% comment %} USER INFORMATION {% endcomment %}
+                    <div class="tab-pane fade bg-white show active" id="v-pills-user" role="tabpanel" aria-labelledby="v-pills-user-tab" tabindex="0">
+
+                        {% comment %} FORM EDIT INFORMATION {% endcomment %}
+                        <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
+                            <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">اطلاعات کاربری:</span>
+                        </span>
+                        
+                        <input type="hidden"  value="{{ request.user.id }}" id="user-id">
+
+                        <form id="userinfo-form" class="row g-2">
+                            <div class="d-flex mx-0 px-0">
+                                {{ form_info.first_name }}
+                                {{ form_info.last_name }}
+                            </div>
+
+                            {{ form_info.birth_date }}
+        
+                            <div class="d-flex mx-0 px-0">
+                                {{ form_info.username }}
+                                {{ form_info.email }}
+                            </div>
+    
+                            <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
+                                ویرایش اطلاعات
+                                <i class="bi bi-gear-fill mx-1"></i>
+                            </button>
+                        </form>
+
+                        <div id="userinfo-error" class="form-control border-danger mt-2 f-bold d-none">
+                        </div>
+
+                        <div id="userinfo-success" class="form-control border-success mt-2 f-bold d-none">
+                            <span class="text-success">اطلاعات با موفقیت ویرایش شدند.</span>
+                        </div>
+
+                    </div>
+
+                    {% comment %} ADDRESS {% endcomment %}
+                    <div class="tab-pane fade bg-white" id="v-pills-address" role="tabpanel" aria-labelledby="v-pills-address-tab" tabindex="0">
+
+                        <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
+                            <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">آدرس ها:</span>
+                        </span>
+
+                        {% if addresses %}
+                            {% for address in addresses %}
+                                <div class="border rounded-2 row g-2 p-2 my-2">
+                                    <div class="m-0 p-0 me-1 position-relative" style="max-width: 16px;">
+                                        <a class="m-0 p-0" href="{{ address.get_absolute_url }}" onclick="delete_address(event)">
+                                            <i class="bi bi-x-square-fill text-danger position-absolute" style="top: 1px;"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col m-0">
+                                        <div class="me-2 d-flex flex-wrap">
+                                            <span class="ms-3">استان: <span class="text-muted">{{ address.get_province_display }}</span></span>
+                                            <span class="ms-3">کد پستی: <span class="text-muted">{{ address.postal_code }}</span></span>
+                                            <span class="ms-3">آدرس: <span class="text-muted">{{ address.address_path }}</span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <span class="me-2 font-15">آدرسی اضافه نشده ..</span>
+                        {% endif %}
+
+                        {% comment %} FORM ADD ADDRESS {% endcomment %}
+                        <span class="d-block my-3 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
+                            <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">افزودن آدرس:</span>
+                        </span>
+
+                        <form id="address-form" class="row g-2">
+                            <div class="d-flex mx-0 px-0">
+                                <div class="input-group">
+                                    <select name="province" class="form-select ms-1" id="inputGroupSelect01">
+                                        <option value="" disabled selected>انتخاب استان</option>
+                                        {% for province_value, province_label in form_address.fields.province.choices %}
+                                            <option value="{{ province_value }}">{{ province_label }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                {{ form_address.postal_code  }}
+                            </div>
+                            {{ form_address.address_path  }}
+                            <input value="{{ request.user.id }}" name="user" type="hidden">
+                            <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
+                                افزودن آدرس
+                                <i class="bi bi-geo-alt-fill font-17 mx-1"></i>
+                            </button>
+                        </form>
+
+                        <div id="address-error" class="form-control border-danger mt-2 f-bold d-none">
+                        </div>
+
+                        <div id="address-success" class="form-control border-success mt-2 f-bold d-none">
+                            <span class="text-success">آدرس جدید اضافه شد. رفرش کنید 👾</span>
+                        </div>
+
+                    </div>
+
+                    {% comment %} CHANGE PASSWORD {% endcomment %}
+                    <div class="tab-pane fade bg-white" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab" tabindex="0">
+
+                        <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
+                            <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">تغییر رمز:</span>
+                        </span>
+
+                        <form id="password-form" class="row g-2">
+                            {{ form_changepass.old_password }}
+                            {{ form_changepass.new_password1 }}
+                            {{ form_changepass.new_password2 }}
+                            <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
+                                تغییر رمز
+                                <i class="bi bi-shield-lock-fill mx-1 font-15"></i>
+                            </button>
+                        </form>
+
+                        <div id="password-error" class="form-control border-danger mt-2 f-bold d-none">
+                        </div>
+
+                        <div id="password-success" class="form-control border-success mt-2 f-bold d-none">
+                            <span class="text-success">رمز عبور با موفقیت تغییر کرد 🕵🏻‍♂️</span>
+                        </div>
+
+                    </div>
+
+                    {% comment %} ORDERS {% endcomment %}
+                    <div class="tab-pane fade bg-white" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab" tabindex="0">
+                        <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
+                            <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">سفارش ها:</span>
+                        </span>
+
+                        {% comment %} TABLE ORDERS {% endcomment %}
+                        <div class="table-responsive">
+                            <table class="table scrolling-wrapper table-hover">
+                            
+                                {% comment %} HEAD TABLE {% endcomment %}
+                                <thead class="table-transparent">
+                                    <tr>
+                                        <th scope="col"><i class="bi bi-slack font-15"></i> شماره</th>
+                                        <th scope="col"><i class="bi bi-calendar-week-fill font-15"></i> تاریخ</th>
+                                        <th scope="col"><i class="bi bi-database-fill"></i> قیمت کل</th>
+                                        <th scope="col"><i class="bi bi-hourglass-split"></i> وضعیت</th>
+                                        <th scope="col"><i class="bi bi-eye-fill"></i> جزئیات</th>
+                                    </tr>
+                                </thead>
+    
+                                {% comment %} BODY TABLE {% endcomment %}
+                                <tbody>
+
+                                    {% if orders %}
+                                        {% for order in orders %}
+
+                                            <tr class="font-14">
+                                                <td>{{ order.id }}</td>
+                                                <td>{{ order.create_at }}</td>
+                                                <td>{{ order.calculate_price|floatformat:0|intcomma:False }}ت</td>
+                                                <td class="
+                                                {% if order.status == 'PEN' %}
+                                                    text-checking
+                                                {% elif order.status == 'PRO' %}
+                                                    text-inprogress
+                                                {% elif order.status == 'COM' %}
+                                                    text-completed
+                                                {% elif order.status == 'DEL' %}
+                                                    text-canceled
+                                                {% endif %}
+                                                ">
+                                                    {{ order.get_status_display }}
+                                                </td>
+                                                <td><span class="btn bg-secondary f-bold font-14 py-0 text-light">مشاهده</span></td>
+                                            </tr>
+
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td>
+                                                <span class="me-2">سفارشی موجود نیست 😡</span>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+
+                                </tbody>
+    
+                            </table>
+                        </div>
+
+                    </div>
+
+                    {% comment %} LIKES {% endcomment %}
+                    <div class="tab-pane fade" id="v-pills-like" role="tabpanel" aria-labelledby="v-pills-like-tab" tabindex="0">
+                        <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
+                            <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">پسندیده ها:</span>
+                        </span>
+
+                        <div class="justify-content-center align-items-center d-flex flex-wrap">
+    
+                            {% if likes %}
+                                {% for book in likes %}
+                                    <div class="card border-0 m-1 justify-content-center align-items-center" style="width: 150px;">
+                                        <div class="card h-100 m-0" style="width: 150px;">
+                                            <img class="card-img-top img-shadow" src="{{ book.image.url }}" alt="{{ book.book_name }}" height="220px">
+                                            <div class="card-body p-2">
+                                                <div class="text-center">
+                                                    <h5 class="fw-bolder h6 mb-0 avoid-overflow">{{ book.book_name }}</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer p-2 pt-0 m-1 mt-0 border-top-0 bg-transparent">
+                                                <div class="text-center"><a class="form-control btn btn-outline-dark mt-auto f-bold border-secondary font-15"
+                                                    href="{{ book.get_absolute_url }}">جزئیات بیشتر</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <span class="me-2 font-15">هیچ کتابی را نپسندیده اید 💔</span>
+                            {% endif %}
+
+                        </div>
+                        
+                    </div>
+
+                    {% comment %} SAVES {% endcomment %}
+                    <div class="tab-pane fade" id="v-pills-save" role="tabpanel" aria-labelledby="v-pills-save-tab" tabindex="0">
+                        <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
+                            <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">ذخیره ها:</span>
+                        </span>
+
+                        <div class="justify-content-center align-items-center d-flex flex-wrap">
+
+                            {% if saves %}
+                                {% for book in saves %}
+                                    <div class="card border-0 m-1 justify-content-center align-items-center" style="width: 150px;">
+                                        <div class="card h-100 m-0" style="width: 150px;">
+                                            <img class="card-img-top img-shadow" src="{{ book.image.url }}" alt="{{ book.book_name }}" height="220px">
+                                            <div class="card-body p-2">
+                                                <div class="text-center">
+                                                    <h5 class="fw-bolder h6 mb-0 avoid-overflow">{{ book.book_name }}</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer p-2 pt-0 m-1 mt-0 border-top-0 bg-transparent">
+                                                <div class="text-center"><a class="form-control btn btn-outline-dark mt-auto f-bold border-secondary font-15"
+                                                    href="{{ book.get_absolute_url }}">جزئیات بیشتر</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <span class="me-2 font-15">هیچ کتابی را ذخیره نکرده اید 💔</span>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+    
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+{% endblock content %}
+
+{% block javascript %}
+    <script src="{% static "js/scroll.js" %}"></script>
+    <script src="{% static "js/profile_image.js" %}"></script>
+    <script src="{% static "js/userinfo_form.js" %}"></script>
+    <script src="{% static "js/user_address.js" %}"></script>
+    <script src="{% static "js/changepass_form.js" %}"></script>
+{% endblock javascript %}

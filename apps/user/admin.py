@@ -52,7 +52,7 @@ class UserAdmin(UserAdmin):
         if obj.is_superuser:
             return _("Superuser")
         elif obj.is_staff:
-            return obj.staff.role.role_name
+            return obj.staff.role.get_role_name_display()
         else:
             return _("Customer")
 

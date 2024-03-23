@@ -8,7 +8,7 @@
 
                     {% if authors %}
                         {% for author in authors %}
-                            <a href="author.html" class="f-bold f-15 text-decoration-none tags"><i class="bi bi-person i-tr"></i>{{ author.full_name }}</a>
+                            <a href="{{ author.get_absolute_url }}" class="f-bold f-15 text-decoration-none tags"><i class="bi bi-person i-tr"></i>{{ author.full_name }}</a>
                         {% endfor %}
                     {% else %}
                         <p class="text-center f-bold">نویسنده ای وجود ندارد -_-</p>
