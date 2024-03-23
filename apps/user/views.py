@@ -8,7 +8,8 @@ from .forms import (
     UserChangePasswordForm,
 )
 from apps.user.models import Address
-from apps.order.models import Order
+from apps.order.models import Order, OrderBook
+from django.db.models import Prefetch
 
 class LoginView(UserPassesTestMixin, TemplateView):
     template_name = "user/login.html"
@@ -49,5 +50,7 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         context["addresses"] = Address.objects.filter(user=self.request.user)
         context["form_changepass"] = UserChangePasswordForm()
         context["form_address"] = UserAddressForm()
-        context["orders"] = Order.objects.filter(user=self.request.user)
+        context["orders"] = Order.objects.filter(user=self.request.user).prefetch_related(
+            Prefetch("orderbook_set", queryset=OrderBook.objects.select_related("book"))
+        )
         return context
