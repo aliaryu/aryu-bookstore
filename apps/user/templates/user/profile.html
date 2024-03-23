@@ -1,5 +1,6 @@
 {% extends "main.html" %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
     {% comment %} {% include "user/includes/..." %} {% endcomment %}
@@ -173,19 +174,17 @@
 
                     </div>
 
-                    <!-- ORDERS -->
+                    {% comment %} ORDERS {% endcomment %}
                     <div class="tab-pane fade bg-white" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab" tabindex="0">
                         <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
                             <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">سفارش ها:</span>
                         </span>
 
-                        <!-- <div class="row p-2 g-2 mt-1 border rounded-2"> ... </div> -->
-
-                        <!-- TABLE ORDERS -->
+                        {% comment %} TABLE ORDERS {% endcomment %}
                         <div class="table-responsive">
                             <table class="table scrolling-wrapper table-hover">
                             
-                                <!-- HEAD TABLE -->
+                                {% comment %} HEAD TABLE {% endcomment %}
                                 <thead class="table-transparent">
                                     <tr>
                                         <th scope="col"><i class="bi bi-slack font-15"></i> شماره</th>
@@ -196,41 +195,41 @@
                                     </tr>
                                 </thead>
     
-                                <!-- BODY TABLE -->
+                                {% comment %} BODY TABLE {% endcomment %}
                                 <tbody>
-    
-                                    <tr class="font-14">
-                                        <td>251</td>
-                                        <td>2-7-1402 , 19:25</td>
-                                        <td>430,000ت</td>
-                                        <td class="text-checking">در حال بررسی</td>
-                                        <td><span class="btn bg-secondary f-bold font-14 py-0 text-light">مشاهده</span></td>
-                                    </tr>
 
-                                    <tr class="font-14">
-                                        <td>257</td>
-                                        <td>27-3-1402 , 13:20</td>
-                                        <td>1,250,000ت</td>
-                                        <td class="text-inprogress">در حال انجام</td>
-                                        <td><span class="btn bg-secondary f-bold font-14 py-0 text-light">مشاهده</span></td>
-                                    </tr>
+                                    {% if orders %}
+                                        {% for order in orders %}
 
-                                    <tr class="font-14">
-                                        <td>392</td>
-                                        <td>18-5-1403 , 00:00</td>
-                                        <td>550,000ت</td>
-                                        <td class="text-completed">تکمیل شده</td>
-                                        <td><span class="btn bg-secondary f-bold font-14 py-0 text-light">مشاهده</span></td>
-                                    </tr>
+                                            <tr class="font-14">
+                                                <td>{{ order.id }}</td>
+                                                <td>{{ order.create_at }}</td>
+                                                <td>{{ order.calculate_price|floatformat:0|intcomma:False }}ت</td>
+                                                <td class="
+                                                {% if order.status == 'PEN' %}
+                                                    text-checking
+                                                {% elif order.status == 'PRO' %}
+                                                    text-inprogress
+                                                {% elif order.status == 'COM' %}
+                                                    text-completed
+                                                {% elif order.status == 'DEL' %}
+                                                    text-canceled
+                                                {% endif %}
+                                                ">
+                                                    {{ order.get_status_display }}
+                                                </td>
+                                                <td><span class="btn bg-secondary f-bold font-14 py-0 text-light">مشاهده</span></td>
+                                            </tr>
 
-                                    <tr class="font-14">
-                                        <td>4785</td>
-                                        <td>1-1-1404 , 9:10</td>
-                                        <td>1,400,000ت</td>
-                                        <td class="text-canceled">تایید نشده</td>
-                                        <td><span class="btn bg-secondary f-bold font-14 py-0 text-light">مشاهده</span></td>
-                                    </tr>
-                                  
+                                        {% endfor %}
+                                    {% else %}
+                                        <tr>
+                                            <td>
+                                                <span class="me-2">سفارشی موجود نیست 😡</span>
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+
                                 </tbody>
     
                             </table>
