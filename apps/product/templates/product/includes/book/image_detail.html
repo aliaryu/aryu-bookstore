@@ -166,7 +166,7 @@
                     {% csrf_token %}
 
                     {% comment %} BUTTONS  {% endcomment %}
-                    <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent"> <i class="bi bi-bag font-17 btn-hover"></i> افزودن به سبد </button>
+                    <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent" id="addtocart"> <i class="bi bi-bag font-17 btn-hover"></i> افزودن به سبد </button>
 
                     {% if user in book.likes.all %}
                       <button class="btn btn-outline-dark my-1 f-bold btn-hover-parent" id="like-unlike"> <i class="bi bi-arrow-through-heart font-17 btn-hover"></i> لغو پسندیدن </button>
