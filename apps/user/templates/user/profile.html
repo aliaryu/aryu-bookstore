@@ -114,7 +114,7 @@
                             <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">افزودن آدرس:</span>
                         </span>
 
-                        <form action="" method="post" class="row g-2">
+                        <form id="address-form" class="row g-2">
                             <div class="d-flex mx-0 px-0">
                                 <div class="input-group">
                                     <select name="province" class="form-select ms-1" id="inputGroupSelect01">
@@ -127,11 +127,19 @@
                                 {{ form_address.postal_code  }}
                             </div>
                             {{ form_address.address_path  }}
+                            <input value="{{ request.user.id }}" name="user" type="hidden">
                             <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
                                 افزودن آدرس
                                 <i class="bi bi-geo-alt-fill font-17 mx-1"></i>
                             </button>
                         </form>
+
+                        <div id="address-error" class="form-control border-danger mt-2 f-bold d-none">
+                        </div>
+
+                        <div id="address-success" class="form-control border-success mt-2 f-bold d-none">
+                            <span class="text-success">آدرس جدید اضافه شد. رفرش کنید 👾</span>
+                        </div>
 
                     </div>
 
