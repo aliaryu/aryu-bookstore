@@ -10,6 +10,7 @@ from .api.views import (
     UploadUserImageView,
     UserInfoUpdateView,
     UserAddressView,
+    UserPasswordChangeView
 )
 from django.contrib.auth.views import LogoutView
 
@@ -30,4 +31,5 @@ urlpatterns = [
     path("userinfo/<int:pk>/", UserInfoUpdateView.as_view(), name="userinfo"),
     path("useraddress/<int:pk>/", UserAddressView.as_view(), name="useraddress"),
     path("useraddress/", UserAddressView.as_view(), name="useraddresscreate"),
+    path("userchangepass/", UserPasswordChangeView.as_view(), name="userchangepass"),
 ]
