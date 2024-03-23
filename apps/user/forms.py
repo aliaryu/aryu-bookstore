@@ -68,7 +68,7 @@ class UserAddressForm(forms.ModelForm):
         })
 
 
-class CustomPasswordChangeForm(forms.Form):
+class UserChangePasswordForm(forms.Form):
     old_password = forms.CharField(
         widget=forms.PasswordInput(attrs={
             "class": "col-12 col-md-12 form-control bg-transparent place-holder-grey fw-bold",
