@@ -55,4 +55,5 @@ class ProfileView(LoginRequiredMixin, TemplateView):
             Prefetch("orderbook_set", queryset=OrderBook.objects.select_related("book"))
         )
         context["likes"] = self.request.user.user_likes.all()
+        context["saves"] = self.request.user.user_saves.all()
         return context
