@@ -49,20 +49,47 @@ class UserAddressForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['province'].choices = list(self.fields['province'].choices)[1:]
         self.fields["province"].widget.attrs.update({
-           "class": "form-select ms-1",
-           "id": "inputGroupSelect01",
-           "required": True
+            "class": "form-select ms-1",
+            "id": "inputGroupSelect01",
+            "required": True
         })
         self.fields["province"].empty_label = "انتخاب کنید"
         self.fields["postal_code"].widget.attrs.update({
-           "class": "form-control bg-transparent place-holder-grey fw-bold me-1",
-           "placeholder": "کد پستی",
-           "type": "text",
-           "required": True
+            "class": "form-control bg-transparent place-holder-grey fw-bold me-1",
+            "placeholder": "کد پستی",
+            "type": "text",
+            "required": True
         })
         self.fields["address_path"].widget.attrs.update({
-           "class": "form-control bg-transparent place-holder-grey fw-bold",
-           "placeholder": "آدرس ...",
-           "rows": "3",
-           "required": True
+            "class": "form-control bg-transparent place-holder-grey fw-bold",
+            "placeholder": "آدرس ...",
+            "rows": "3",
+            "required": True
         })
+
+
+class CustomPasswordChangeForm(forms.Form):
+    old_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            "class": "col-12 col-md-12 form-control bg-transparent place-holder-grey fw-bold",
+            "placeholder": "رمز فعلی",
+            "type": "password",
+            "required": True
+        })
+    )
+    new_password1 = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            "class": "col-12 col-md ms-md-1 form-control bg-transparent place-holder-grey fw-bold",
+            "placeholder": "رمز جدید",
+            "type": "password",
+            "required": True
+        })
+    )
+    new_password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            "class": "col-12 col-md me-md-1 form-control bg-transparent place-holder-grey fw-bold",
+            "placeholder": "تکرار رمز جدید",
+            "type": "password",
+            "required": True
+        })
+    )
