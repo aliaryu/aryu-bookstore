@@ -92,22 +92,26 @@
                             <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">آدرس ها:</span>
                         </span>
 
-                        {% for address in addresses %}
-                            <div class="border rounded-2 row g-2 p-2 my-2">
-                                <div class="m-0 p-0 me-1 position-relative" style="max-width: 16px;">
-                                    <a class="m-0 p-0" href="{{ address.get_absolute_url }}" onclick="delete_address(event)">
-                                        <i class="bi bi-x-square-fill text-danger position-absolute" style="top: 1px;"></i>
-                                    </a>
-                                </div>
-                                <div class="col m-0">
-                                    <div class="me-2 d-flex flex-wrap">
-                                        <span class="ms-3">استان: <span class="text-muted">{{ address.get_province_display }}</span></span>
-                                        <span class="ms-3">کد پستی: <span class="text-muted">{{ address.postal_code }}</span></span>
-                                        <span class="ms-3">آدرس: <span class="text-muted">{{ address.address_path }}</span></span>
+                        {% if addresses %}
+                            {% for address in addresses %}
+                                <div class="border rounded-2 row g-2 p-2 my-2">
+                                    <div class="m-0 p-0 me-1 position-relative" style="max-width: 16px;">
+                                        <a class="m-0 p-0" href="{{ address.get_absolute_url }}" onclick="delete_address(event)">
+                                            <i class="bi bi-x-square-fill text-danger position-absolute" style="top: 1px;"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col m-0">
+                                        <div class="me-2 d-flex flex-wrap">
+                                            <span class="ms-3">استان: <span class="text-muted">{{ address.get_province_display }}</span></span>
+                                            <span class="ms-3">کد پستی: <span class="text-muted">{{ address.postal_code }}</span></span>
+                                            <span class="ms-3">آدرس: <span class="text-muted">{{ address.address_path }}</span></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        {% endfor %}
+                            {% endfor %}
+                        {% else %}
+                            <span class="me-2 font-15">آدرسی اضافه نشده ..</span>
+                        {% endif %}
 
                         {% comment %} FORM ADD ADDRESS {% endcomment %}
                         <span class="d-block my-3 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
