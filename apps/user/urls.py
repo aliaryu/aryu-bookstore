@@ -29,4 +29,5 @@ urlpatterns = [
     path("uploadimage/", UploadUserImageView.as_view(), name="uploadimage"),
     path("userinfo/<int:pk>/", UserInfoUpdateView.as_view(), name="userinfo"),
     path("useraddress/<int:pk>/", UserAddressView.as_view(), name="useraddress"),
+    path("useraddress/", UserAddressView.as_view(), name="useraddresscreate"),
 ]
