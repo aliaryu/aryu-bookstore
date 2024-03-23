@@ -16,6 +16,7 @@ from .serializers import (
     UserImageSerializer,
     UserInfoSerializer,
     UserAddressSerializer,
+    UserPasswordChangeSerializer,
 )
 from django.contrib.auth import get_user_model
 from apps.user.models import Address
@@ -76,3 +77,14 @@ class UserAddressView(mixins.DestroyModelMixin, mixins.CreateModelMixin, generic
 
     def delete(self, request, pk):
         return self.destroy(request, pk)
+
+
+class UserPasswordChangeView(APIView):
+    serializer_class = UserPasswordChangeSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data, context={"request": request})
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": _("password changed successfully.")}, status=HTTP_200_OK)
+        return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
