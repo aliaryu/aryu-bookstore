@@ -60,9 +60,12 @@ class UserInfoUpdateView(mixins.UpdateModelMixin, generics.GenericAPIView):
         return self.update(request, pk)
 
 
-class UserAddressView(mixins.DestroyModelMixin, generics.GenericAPIView):
+class UserAddressView(mixins.DestroyModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
     queryset = Address.objects.all()
     serializer_class = UserAddressSerializer
+
+    def post(self, request):
+        return self.create(request)
 
     def delete(self, request, pk):
         return self.destroy(request, pk)
