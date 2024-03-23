@@ -81,18 +81,21 @@ class OrderAdmin(admin.ModelAdmin):
             return super().get_queryset(request).filter(status="PEN").select_related("user", "staff__user", "address")
         
     def save_model(self, request, obj, form, change):
-        if obj.status == "PEN":
-            if request.user.is_staff:
-                obj.staff = None
-        elif obj.status == "PRO":
-            if request.user.is_staff:
-                obj.staff = request.user.staff
-        elif obj.status == "COM":
-            if request.user.is_staff:
-                obj.staff = request.user.staff
-        elif obj.status == "DEL":
-            if request.user.is_staff:
-                obj.staff = request.user.staff
+        if request.user.is_superuser:
+            pass
+        elif request.user.is_staff:
+            if obj.status == "PEN":
+                if request.user.is_staff:
+                    obj.staff = None
+            elif obj.status == "PRO":
+                if request.user.is_staff:
+                    obj.staff = request.user.staff
+            elif obj.status == "COM":
+                if request.user.is_staff:
+                    obj.staff = request.user.staff
+            elif obj.status == "DEL":
+                if request.user.is_staff:
+                    obj.staff = request.user.staff
         obj.save()
 
 
