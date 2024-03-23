@@ -26,17 +26,17 @@ class OrderAdmin(admin.ModelAdmin):
     list_display_links = None
     list_display = ["__str__", "user", "staff", "create_at", "status", "edit", "delete"]
     fieldsets = [
-        [_("customer information"), {"fields": ["user", "get_user_fullname", "get_user_phone", "address", "full_address"]}],
+        [_("customer information"), {"fields": ["user", "get_user_fullname", "address", "full_address"]}],
         [_("order information"), {"fields": ["staff", "create_at", "update_at", "status", "get_total_cost"]}]
     ]
-    readonly_fields = ["user", "staff", "get_user_fullname", "get_user_phone", "full_address", "create_at", "update_at", "get_total_cost"]
+    readonly_fields = ["user", "staff", "get_user_fullname", "full_address", "create_at", "update_at", "get_total_cost"]
 
     def get_readonly_fields(self, request, obj=None):
         if not obj:
-            return ["get_user_fullname", "get_user_phone", "full_address", "create_at", "update_at", "get_total_cost"]
+            return ["get_user_fullname", "full_address", "create_at", "update_at", "get_total_cost"]
         else:
             if request.user.is_superuser:
-                return ["get_user_fullname", "get_user_phone", "full_address", "create_at", "update_at", "get_total_cost"]
+                return ["get_user_fullname", "full_address", "create_at", "update_at", "get_total_cost"]
         return super().get_readonly_fields(request, obj)
 
     def edit(self, obj):
@@ -58,9 +58,6 @@ class OrderAdmin(admin.ModelAdmin):
     def get_user_fullname(self, obj):
         return obj.user.get_full_name()
     
-    def get_user_phone(self, obj):
-        return obj.user.phone
-    
     def full_address(self, obj):
         return f"city: {obj.address.get_province_display()}\npostal code: {obj.address.postal_code}\naddress: {obj.address.address_path}"
     
@@ -70,7 +67,6 @@ class OrderAdmin(admin.ModelAdmin):
     edit.short_description = _("view/edit")
     delete.short_description = _("delete")
     get_user_fullname.short_description = _("full name")
-    get_user_phone.short_description = _("phone")
     full_address.short_description = _("full address")
     get_total_cost.short_description = _("total cost")
 
