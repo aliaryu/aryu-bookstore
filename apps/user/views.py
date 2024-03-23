@@ -9,6 +9,7 @@ from .forms import (
 )
 from apps.user.models import Address
 from apps.order.models import Order, OrderBook
+from apps.product.models import Book
 from django.db.models import Prefetch
 
 class LoginView(UserPassesTestMixin, TemplateView):
@@ -53,4 +54,5 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         context["orders"] = Order.objects.filter(user=self.request.user).prefetch_related(
             Prefetch("orderbook_set", queryset=OrderBook.objects.select_related("book"))
         )
+        context["likes"] = self.request.user.user_likes.all()
         return context
