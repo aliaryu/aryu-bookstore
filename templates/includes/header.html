@@ -23,7 +23,7 @@
                     {% endif %}
 
                     {% if user.is_authenticated %}
-                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="signup.html">
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="{% url "user:profile" %}">
                             پروفایل
                             <i class="bi bi-person-circle text-white" style="font-size: 18px;"></i>
                         </a>
