@@ -80,3 +80,29 @@ class UserAddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
         fields = "__all__"
+
+
+class UserPasswordChangeSerializer(serializers.Serializer):
+    old_password = serializers.CharField(max_length=128, allow_blank=False, write_only=True)
+    new_password1 = serializers.CharField(max_length=128, allow_blank=False, write_only=True)
+    new_password2 = serializers.CharField(max_length=128, allow_blank=False, write_only=True)
+
+    def validate(self, data):
+        user = self.context['request'].user
+        old_password = data.get("old_password")
+        new_password1 = data.get("new_password1")
+        new_password2 = data.get("new_password2")
+
+        if not user.check_password(old_password):
+            raise serializers.ValidationError(_("current password is incorrect."))
+
+        if new_password1 != new_password2:
+            raise serializers.ValidationError("passwords are not same.")
+
+        return data
+
+    def save(self):
+        user = self.context["request"].user
+        new_password = self.validated_data["new_password1"]
+        user.set_password(new_password)
+        user.save()
