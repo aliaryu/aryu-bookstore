@@ -15,7 +15,7 @@ function get_cookie() {
 function set_cookie(cart_object) {
     var cart_str = JSON.stringify(cart_object);
     var expiration_date = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString();
-    document.cookie = "cart=" + cart_str + ";expires=" + expiration_date + ";path=/";
+    document.cookie = "cart=" + cart_str + ";expires=" + expiration_date + ";path=/;SameSite=None;Secure";
 }
 
 function add_increase_item(book_id) {
