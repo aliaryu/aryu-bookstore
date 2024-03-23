@@ -8,6 +8,7 @@ from .forms import (
     UserChangePasswordForm,
 )
 from apps.user.models import Address
+from apps.order.models import Order
 
 class LoginView(UserPassesTestMixin, TemplateView):
     template_name = "user/login.html"
@@ -48,4 +49,5 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         context["addresses"] = Address.objects.filter(user=self.request.user)
         context["form_changepass"] = UserChangePasswordForm()
         context["form_address"] = UserAddressForm()
+        context["orders"] = Order.objects.filter(user=self.request.user)
         return context
