@@ -87,6 +87,13 @@ class UserPasswordChangeSerializer(serializers.Serializer):
     new_password1 = serializers.CharField(max_length=128, allow_blank=False, write_only=True)
     new_password2 = serializers.CharField(max_length=128, allow_blank=False, write_only=True)
 
+    def validate_new_password1(self, value):
+        try:
+            validate_password(value)
+        except DjangoValidationError as e:
+            raise serializers.ValidationError(e.messages)
+        return value
+
     def validate(self, data):
         user = self.context['request'].user
         old_password = data.get("old_password")
