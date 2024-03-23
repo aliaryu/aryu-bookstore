@@ -17,3 +17,24 @@ function set_cookie(cart_object) {
     var expiration_date = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toUTCString();
     document.cookie = "cart=" + cart_str + ";expires=" + expiration_date + ";path=/";
 }
+
+function add_increase_item(book_id) {
+    var cart = get_cookie();
+    if (cart.hasOwnProperty(book_id)) {
+        cart[book_id]++;
+    } else {
+        cart[book_id] = 1;
+    }
+    set_cookie(cart);
+}
+
+function delete_decrease_item(book_id) {
+    var cart = get_cookie();
+    if (cart.hasOwnProperty(book_id)) {
+        cart[book_id]--;
+        if (cart[book_id] === 0) {
+            delete cart[book_id];
+        }
+    }
+    set_cookie(cart);
+}
