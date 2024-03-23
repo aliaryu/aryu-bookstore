@@ -18,6 +18,8 @@ class LoginView(UserPassesTestMixin, TemplateView):
             context["next"] = next
         if (next:=self.request.GET.get("signup", None)):
             context["signup"] = True
+        if (next:=self.request.GET.get("changepass", None)):
+            context["changepass"] = True
         return context
 
     def test_func(self):
