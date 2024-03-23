@@ -147,23 +147,30 @@
 
                     </div>
 
-                    <!-- CHANGE PASSWORD -->
+                    {% comment %} CHANGE PASSWORD {% endcomment %}
                     <div class="tab-pane fade bg-white" id="v-pills-password" role="tabpanel" aria-labelledby="v-pills-password-tab" tabindex="0">
-                        <!-- FORM EDIT PASSWORD -->
+
                         <span class="d-block my-2 mb-3 position-relative border border-primary border-bottom-0 border-start-0 border-end-0">
                             <span class="d-block text-primary position-absolute bg-white" style="top: -13px; right: 10px;">تغییر رمز:</span>
                         </span>
-                        <form action="" method="post" class="row g-2">
 
-                            <input type="password" class="col-12 col-md-12 form-control bg-transparent place-holder-grey fw-bold" placeholder="رمز فعلی">
-                            <input type="password" class="col-12 col-md ms-md-1 form-control bg-transparent place-holder-grey fw-bold" placeholder="رمز جدید">
-                            <input type="password" class="col-12 col-md me-md-1 form-control bg-transparent place-holder-grey fw-bold" placeholder="تکرار رمز جدید">
-    
+                        <form id="password-form" class="row g-2">
+                            {{ form_changepass.old_password }}
+                            {{ form_changepass.new_password1 }}
+                            {{ form_changepass.new_password2 }}
                             <button type="submit" class="d-flex justify-content-center align-items-center form-control bg-transparent fw-bold">
                                 تغییر رمز
                                 <i class="bi bi-shield-lock-fill mx-1 font-15"></i>
                             </button>
                         </form>
+
+                        <div id="password-error" class="form-control border-danger mt-2 f-bold d-none">
+                        </div>
+
+                        <div id="password-success" class="form-control border-success mt-2 f-bold d-none">
+                            <span class="text-success">رمز عبور با موفقیت تغییر کرد 🕵🏻‍♂️</span>
+                        </div>
+
                     </div>
 
                     <!-- ORDERS -->
@@ -402,4 +409,5 @@
     <script src="{% static "js/profile_image.js" %}"></script>
     <script src="{% static "js/userinfo_form.js" %}"></script>
     <script src="{% static "js/user_address.js" %}"></script>
+    <script src="{% static "js/changepass_form.js" %}"></script>
 {% endblock javascript %}
