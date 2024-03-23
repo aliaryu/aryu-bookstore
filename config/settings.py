@@ -61,8 +61,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                # CUSTOM CONtEXT PROCESSORS
-                "apps.product.context_processors.categories"
+                # CUSTOM CONTEXT PROCESSORS
+                "apps.product.context_processors.categories",
+                "apps.product.context_processors.red_dot_cart",
             ],
         },
     },
