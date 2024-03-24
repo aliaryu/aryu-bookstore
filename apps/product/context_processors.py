@@ -8,10 +8,6 @@ def categories(request):
 
 
 def red_dot_cart(request):
-    if (cart:=request.COOKIES.get("cart")):
+    if (cart:=request.COOKIES.get("cart", None)):
         cart = json.loads(cart)
-        if cart:
-            result = True
-        else:
-            result = False
-    return {"red_dot_cart": result}
+    return {"red_dot_cart": bool(cart)}
