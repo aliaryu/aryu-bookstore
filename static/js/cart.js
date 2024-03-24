@@ -13,6 +13,15 @@ function cart_info() {
     });
     count_items.textContent = default_count_items;
     price_items.textContent = default_price_items.toLocaleString('us-EN') + " تومان";
+
+    if (book_items.length === 0) {
+        document.getElementById("container-books").innerHTML =
+            `<span class="d-flex justify-content-center align-items-center h-100 mb-5 bg-dotted">
+                <span class="bg-white">
+                    سبد خرید خالیه 😡
+                </span>
+            </span>`
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
