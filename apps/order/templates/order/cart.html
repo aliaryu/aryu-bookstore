@@ -15,7 +15,8 @@
 
                     {% if books %}
                         {% for book in books %}
-                            <div class="d-flex border rounded-2 p-2 mx-1 position-relative mb-3">
+                            <div class="d-flex border rounded-2 p-2 mx-1 position-relative mb-3 book-item"
+                            count="{{ book.1 }}" price="{{ book.0.calculate_price}}">
 
                                 <i class="bi bi-x-square-fill bg-white text-danger position-absolute" role="button"
                                 style="top: -15px; left: 14px; font-size: 20px;" onclick="full_delete_item({{ book.0.id }}, event)"></i>
@@ -99,14 +100,14 @@
                             <span class="f-bold">
                                 <i class="bi bi-box-seam"></i>
                                 تعداد کالا ها:
-                                <span class="text-muted">3</span>
+                                <span class="text-muted" id="count-items">0</span>
                             </span>
                         </div>
                         <div class="pe-1">
                             <span class="f-bold">
                                 <i class="bi bi-database"></i>
                                 قیمت کل:
-                                <span class="text-muted">280,000 تومان</span>
+                                <span class="text-muted" id="price-items"a>0</span>
                             </span>
                         </div>
 
