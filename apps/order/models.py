@@ -91,7 +91,7 @@ class OrderBook(LogicalBaseModel):
         super().clean()
         if self.count > self.book.count:
             raise ValidationError(
-                _("%(book)s, count: %(count)s - order quantity is more than the stock.") % {"book": self.book.book_name, "count": self.book.count}
+                _("%(book)s, inventory: %(count)s - order quantity is more than the stock.") % {"book": self.book.book_name, "count": self.book.count}
             )
 
     def save(self, *args, **kwargs):
