@@ -17,7 +17,7 @@ class CartView(TemplateView):
 
         cart = self.get_cookie_cart()
         if cart:
-            books = Book.objects.filter(id__in=cart.keys())
+            books = Book.objects.filter(id__in=cart.keys()).select_related("discount").prefetch_related("author")
             for book in books:
                 context["books"].append((book, cart[str(book.id)]))
 
