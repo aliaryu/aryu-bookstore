@@ -365,3 +365,7 @@ select:valid {
         opacity: 1;
     }
 }
+
+.form-select, .form-select:disabled {
+    font-weight: bold !important;
+}
