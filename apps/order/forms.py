@@ -2,6 +2,9 @@ from django import forms
 from apps.user.models import Address
 
 
+class AddressModelChoiceField(forms.ModelChoiceField):
+    def label_from_instance(self, obj):
+        return f"{obj.get_province_display()} - {obj.postal_code}"
 
 
 class PaymentForm(forms.Form):
