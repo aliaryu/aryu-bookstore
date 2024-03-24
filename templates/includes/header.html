@@ -35,13 +35,13 @@
                     {% endif %}
 
                     {% if red_dot_cart %}
-                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white position-relative" href="cart.html">
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white position-relative" href="{% url "order:cart" %}">
                             سبد خرید
                             <i class="bi bi-cart text-white"></i>
                             <span id="red-dot-cart"></span>
                         </a>
                     {% else %}
-                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="cart.html">سبد خرید <i class="bi bi-cart text-white"></i> </a>
+                        <a class="navbar-brand btn rounded-0 m-0 border-0 f-bold text-white" href="{% url "order:cart" %}">سبد خرید <i class="bi bi-cart text-white"></i> </a>
                     {% endif %}
                 </div>
             
