@@ -115,14 +115,23 @@
 
                         <hr class="m-0 mx-1 mt-2">
 
-                        <form action="" method="" disabled>
+                        <form action="" method="">
                             <fieldset {% if not user.is_authenticated %} disabled {% endif %}>
-                                <input class="form-control bg-transparent place-holder-grey fw-bold mt-2" placeholder="کد تخفیف دارید؟" type="text" >
+   
+                                <select name="address" class="form-select mt-2" id="id_address" name="address" required>
+                                    <option value="" disabled selected>انتخاب آدرس</option>
+                                    {% for address_value, address_label in payment_form.fields.address.choices %}
+                                        <option value="{{ address_value }}">{{ address_label }}</option>
+                                    {% endfor %}
+                                </select>
+
+                                {{ payment_form.discount_code }}
 
                                 <button class="d-flex justify-content-center align-items-center form-control text-white fw-bold mt-2 rainbow-background" type="submit">
                                     ثبت سفارش
                                     <i class="bi bi-credit-card-2-back text-white mx-1"></i>
                                 </button>
+
                             </fieldset>
 
                             {% if not user.is_authenticated %}
