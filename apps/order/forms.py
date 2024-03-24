@@ -46,4 +46,18 @@ class PaymentForm(forms.Form):
             except Discount.DoesNotExist:
                 raise forms.ValidationError("کد تخفیف نا معتبر است.")
         return discount_code
-    
+
+    def clean(self):
+        cleaned_data = super().clean()
+        if not self.cookie:
+            raise forms.ValidationError("سبد خرید شما خالی است.")
+        
+        books = Book.objects.filter(id__in = self.cookie.keys())
+        with transaction.atomic():
+            order = Order.objects.create(user=self.user, address=self.cleaned_data["address"])
+            for id, count in self.cookie.items():
+                order_book = OrderBook(order=order, book=books.get(id=int(id)), count=int(count))
+                order_book.full_clean()
+                order_book.save()
+
+        return cleaned_data
