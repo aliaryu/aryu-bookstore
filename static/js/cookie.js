@@ -38,3 +38,11 @@ function delete_decrease_item(book_id) {
     }
     set_cookie(cart);
 }
+
+function delete_item(book_id) {
+    var cart = get_cookie();
+    if (cart.hasOwnProperty(book_id)) {
+        delete cart[book_id];
+    }
+    set_cookie(cart);
+}
