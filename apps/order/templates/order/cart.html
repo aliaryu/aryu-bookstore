@@ -17,16 +17,20 @@
                         {% for book in books %}
                             <div class="d-flex border rounded-2 p-2 mx-1 position-relative mb-3">
 
-                                <i class="bi bi-x-square-fill bg-white text-danger position-absolute" role="button" style="top: -15px; left: 14px; font-size: 20px;"></i>
+                                <i class="bi bi-x-square-fill bg-white text-danger position-absolute" role="button"
+                                style="top: -15px; left: 14px; font-size: 20px;" onclick="full_delete_item({{ book.0.id }}, event)"></i>
 
                                 {% comment %} DISCOUNT {% endcomment %}
                                 {% if book.0.discount %}
-                                    <div class="badge bg-dark text-white position-absolute rounded-1" style="top: -11px; left: 40px;">{{ book.0.discount.show_discount }} تخفیف</div>
+                                    <div class="badge bg-dark text-white position-absolute rounded-1" 
+                                    style="top: -11px; left: 40px;">{{ book.0.discount.show_discount }} تخفیف</div>
                                 {% endif %}
         
                                 {% comment %} IMAGE {% endcomment %}
                                 <div class="position-relative">
-                                    <a href="{{ book.0.get_absolute_url }}"><img class="img-shadow rounded-2" src="{{ book.0.image.url }}" alt="{{ book.0.book_name }}" height="123px"></a>
+                                    <a href="{{ book.0.get_absolute_url }}">
+                                        <img class="img-shadow rounded-2" src="{{ book.0.image.url }}" alt="{{ book.0.book_name }}" height="123px">
+                                    </a>
                                 </div>
         
                                 {% comment %} INFORMATION & BUTTONS {% endcomment %}
@@ -129,4 +133,5 @@
 {% block javascript %}
     <script src="{% static "js/scroll.js" %}"></script>
     <script src="{% static "js/cookie.js" %}"></script>
+    <script src="{% static "js/cart.js" %}"></script>
 {% endblock javascript %}
