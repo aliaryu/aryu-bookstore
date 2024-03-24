@@ -120,9 +120,13 @@
    
                                 <select name="address" class="form-select mt-2" id="id_address" name="address" required>
                                     <option value="" disabled selected>انتخاب آدرس</option>
-                                    {% for address_value, address_label in payment_form.fields.address.choices %}
-                                        <option value="{{ address_value }}">{{ address_label }}</option>
-                                    {% endfor %}
+                                    {% if payment_form.fields.address.choices %}
+                                        {% for address_value, address_label in payment_form.fields.address.choices %}
+                                            <option value="{{ address_value }}">{{ address_label }}</option>
+                                        {% endfor %}
+                                    {% else %}
+                                        <option value="" disabled>آدرسی اضافه نشده - به پروفایل بروید</option>
+                                    {% endif %}
                                 </select>
 
                                 {{ payment_form.discount_code }}
