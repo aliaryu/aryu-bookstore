@@ -24,3 +24,12 @@ function full_delete_item(book_id, event) {
     event.target.parentNode.remove();
     cart_info();
 }
+
+function change_count_item(input) {
+    var count_input = input.value;
+    var parent_div = input.parentNode.parentNode.parentNode;
+    var book_id = parent_div.getAttribute("bookid");
+    parent_div.setAttribute("count", count_input);
+    add_increase_item(book_id, count_input);
+    cart_info();
+}

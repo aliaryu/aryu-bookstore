@@ -18,26 +18,31 @@ function set_cookie(cart_object) {
     document.cookie = "cart=" + cart_str + ";expires=" + expiration_date + ";path=/;SameSite=None;Secure";
 }
 
-function add_increase_item(book_id) {
+function add_increase_item(book_id, count=null) {
     var cart = get_cookie();
     if (cart.hasOwnProperty(book_id)) {
-        cart[book_id]++;
+        if (count != null) {
+            cart[book_id] = count;
+        } else {
+            cart[book_id]++;
+        }
     } else {
         cart[book_id] = 1;
     }
     set_cookie(cart);
 }
 
-function delete_decrease_item(book_id) {
-    var cart = get_cookie();
-    if (cart.hasOwnProperty(book_id)) {
-        cart[book_id]--;
-        if (cart[book_id] === 0) {
-            delete cart[book_id];
-        }
-    }
-    set_cookie(cart);
-}
+// USELESS
+// function delete_decrease_item(book_id) {
+//     var cart = get_cookie();
+//     if (cart.hasOwnProperty(book_id)) {
+//         cart[book_id]--;
+//         if (cart[book_id] === 0) {
+//             delete cart[book_id];
+//         }
+//     }
+//     set_cookie(cart);
+// }
 
 function delete_item(book_id) {
     var cart = get_cookie();
