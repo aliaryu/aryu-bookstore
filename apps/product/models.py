@@ -242,6 +242,8 @@ class Book(LogicalBaseModel):
                 if self.price <= self.discount.cash:
                     return 0
                 return float(self.price) - self.discount.cash
-            
+        else:
+            return self.price
+
     def get_absolute_url(self):
         return reverse("product:book", kwargs={"pk": self.pk})
