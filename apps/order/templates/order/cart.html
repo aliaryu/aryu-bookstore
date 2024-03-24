@@ -16,7 +16,7 @@
                     {% if books %}
                         {% for book in books %}
                             <div class="d-flex border rounded-2 p-2 mx-1 position-relative mb-3 book-item"
-                            count="{{ book.1 }}" price="{{ book.0.calculate_price}}">
+                            count="{{ book.1 }}" price="{{ book.0.calculate_price}}" bookid="{{ book.0.id }}">
 
                                 <i class="bi bi-x-square-fill bg-white text-danger position-absolute" role="button"
                                 style="top: -15px; left: 14px; font-size: 20px;" onclick="full_delete_item({{ book.0.id }}, event)"></i>
@@ -67,14 +67,16 @@
         
                                     {% comment %} BUTTONS {% endcomment %}
                                     <div class="d-flex mt-1">
-                                        <button class="btn border rounded-start-0" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        <button class="btn border rounded-start-0" onclick="this.parentNode.querySelector('input[type=number]').stepUp();
+                                        this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('input'));">
                                             <i class="bi bi-plus font-15"></i>
                                         </button>
         
-                                        <input class="form-control text-center num border border-start-0 border-end-0 rounded-0 f-bold font-14"
-                                        type="number" value="{{ book.1 }}" style="width: 50px;" min="1" max="999">
-        
-                                        <button class="btn border rounded-end-0" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                        <input class="form-control text-center num border border-start-0 border-end-0 rounded-0 f-bold font-14" type="number"
+                                        value="{{ book.1 }}" style="width: 50px;" min="1" max="999" lang="en" oninput="change_count_item(this)">
+
+                                        <button class="btn border rounded-end-0" onclick="this.parentNode.querySelector('input[type=number]').stepDown();
+                                        this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('input'));">
                                             <i class="bi bi-dash font-15"></i>
                                         </button>
                                     </div>
