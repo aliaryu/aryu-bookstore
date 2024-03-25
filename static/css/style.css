@@ -344,3 +344,28 @@ select:valid {
         background-position: 0% 50%;
     }
 }
+
+#red-dot-cart {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    background: linear-gradient(#b40143f1, #b6007fef);
+    border-radius: 100%;
+    animation: change-color 3s linear infinite;
+}
+
+@keyframes change-color {
+    0% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+}
+
+.form-select, .form-select:disabled {
+    font-weight: bold !important;
+}

@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from apps.core.models import LogicalBaseModel, TimeStampBaseModel
 from django.core.exceptions import ValidationError
 from django.db.models import F
+from django.utils.html import format_html
 from django.contrib.auth import get_user_model
 
 
@@ -90,8 +91,13 @@ class OrderBook(LogicalBaseModel):
     def clean(self):
         super().clean()
         if self.count > self.book.count:
-            raise ValidationError(_("The order quantity is more than the available stock."))
-        
+            raise ValidationError(
+                 format_html(
+                    _("%(book)s, inventory: %(count)s<br>order quantity is more than the stock.") 
+                    % {"book": self.book.book_name, "count": self.book.count}
+                )
+            )
+
     def save(self, *args, **kwargs):
         self.book.count = F('count') - self.count
         self.book.save(update_fields=['count'])

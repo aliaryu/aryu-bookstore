@@ -1,0 +1,181 @@
+{% extends "main.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+    {% comment %} SECTION CART {% endcomment %}
+    <section class="container-fluid py-3 pb-0 px-0">
+        <div class="container p-0">
+
+            <div class="row p-0 m-0 px-1">
+
+                {% comment %} ITEMS {% endcomment %}
+                <div class="col-12 col-md-8 p-0" id="container-books">
+
+                    {% if books %}
+                        {% for book in books %}
+                            <div class="d-flex border rounded-2 p-2 mx-1 position-relative mb-3 book-item"
+                            count="{{ book.1 }}" price="{{ book.0.calculate_price}}" bookid="{{ book.0.id }}">
+
+                                <i class="bi bi-x-square-fill bg-white text-danger position-absolute" role="button"
+                                style="top: -15px; left: 14px; font-size: 20px;" onclick="full_delete_item({{ book.0.id }}, event)"></i>
+
+                                {% comment %} DISCOUNT {% endcomment %}
+                                {% if book.0.discount %}
+                                    <div class="badge bg-dark text-white position-absolute rounded-1" 
+                                    style="top: -11px; left: 40px;">{{ book.0.discount.show_discount }} تخفیف</div>
+                                {% endif %}
+        
+                                {% comment %} IMAGE {% endcomment %}
+                                <div class="position-relative">
+                                    <a href="{{ book.0.get_absolute_url }}">
+                                        <img class="img-shadow rounded-2" src="{{ book.0.image.url }}" alt="{{ book.0.book_name }}" height="123px">
+                                    </a>
+                                </div>
+        
+                                {% comment %} INFORMATION & BUTTONS {% endcomment %}
+                                <div class="me-2">
+                                    <div class="" >
+                                        <h6 class="text-black f-bold font-20">
+                                            <i class="bi bi-book"></i>&nbsp;
+                                            {{ book.0.book_name }}
+                                        </h6>
+                                    </div>
+                                    <div class="">
+                                        <span class="f-bold font-14">
+                                            <i class="bi bi-people font-15"></i>
+                                            نویسندگان:
+                                            {% for author in book.0.author.all %}
+                                                <a class="text-decoration-none" href="{{ author.get_absolute_url }}">{{ author.full_name }}</a>
+                                                {% if not forloop.last %}, {% endif %}
+                                            {% endfor %}
+                                        </span>
+                                    </div>
+                                    <div class="">
+                                        <span class="f-bold font-14">
+                                            <i class="bi bi-tags font-15"></i>
+                                            قیمت:
+                                            {% if book.0.discount %}
+                                                <span class="text-muted text-decoration-line-through ms-1">{{ book.0.price|floatformat:0|intcomma:False }}</span>
+                                                <span class="text-black d-inline-block">{{ book.0.calculate_price|floatformat:0|intcomma:False }} تومان</span>
+                                            {% else %}
+                                                <span class="text-black d-inline-block">{{ book.0.calculate_price|floatformat:0|intcomma:False }} تومان</span>
+                                            {% endif %}
+                                        </span>
+                                    </div>
+        
+                                    {% comment %} BUTTONS {% endcomment %}
+                                    <div class="d-flex mt-1">
+                                        <button class="btn border rounded-start-0" onclick="this.parentNode.querySelector('input[type=number]').stepUp();
+                                        this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('input'));">
+                                            <i class="bi bi-plus font-15"></i>
+                                        </button>
+        
+                                        <input class="form-control text-center num border border-start-0 border-end-0 rounded-0 f-bold font-14" type="number"
+                                        value="{{ book.1 }}" style="width: 50px;" min="1" max="999" lang="en" oninput="change_count_item(this)">
+
+                                        <button class="btn border rounded-end-0" onclick="this.parentNode.querySelector('input[type=number]').stepDown();
+                                        this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('input'));">
+                                            <i class="bi bi-dash font-15"></i>
+                                        </button>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                            <span class="d-flex justify-content-center align-items-center h-100 mb-5 bg-dotted">
+                                <span class="bg-white">
+                                    سبد خرید خالیه 😡
+                                </span>
+                            </span>
+                    {% endif %}
+
+                </div>
+                
+                {% comment %} PAYMENT FORM {% endcomment %}
+                <div class="col-12 col-md-4 p-1 py-0 pb-3 pe-md-3 bg-dotted">
+                    <div class="border rounded-2 p-2 bg-white">
+
+                        <div class="pe-1">
+                            <span class="f-bold">
+                                <i class="bi bi-box-seam"></i>
+                                تعداد کالا ها:
+                                <span class="text-muted" id="count-items">0</span>
+                            </span>
+                        </div>
+                        <div class="pe-1">
+                            <span class="f-bold">
+                                <i class="bi bi-database"></i>
+                                قیمت کل:
+                                <span class="text-muted" id="price-items"a>0</span>
+                            </span>
+                        </div>
+
+                        <hr class="m-0 mx-1 mt-2">
+
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <fieldset {% if not user.is_authenticated %} disabled {% endif %}>
+   
+                                <select name="address" class="form-select mt-2" id="id_address" name="address" required>
+                                    <option value="" disabled selected>انتخاب آدرس</option>
+                                    {% if payment_form.fields.address.choices %}
+                                        {% for address_value, address_label in payment_form.fields.address.choices %}
+                                            <option value="{{ address_value }}">{{ address_label }}</option>
+                                        {% endfor %}
+                                    {% else %}
+                                        <option value="" disabled>آدرسی اضافه نشده - به پروفایل بروید</option>
+                                    {% endif %}
+                                </select>
+
+                                {{ payment_form.discount_code }}
+
+                                <button class="d-flex justify-content-center align-items-center form-control text-white fw-bold mt-2 rainbow-background" type="submit">
+                                    ثبت سفارش
+                                    <i class="bi bi-credit-card-2-back text-white mx-1"></i>
+                                </button>
+
+                            </fieldset>
+
+                            {% if not user.is_authenticated %}
+                                <p class="text-center m-0 mt-1">
+                                    برای ثبت سفارش باید لاگین باشید:
+                                    <a href="{% url "user:login" %}?next={{ request.path }}" class="text-black">ورود به حساب کاربری</a>
+                                </p>
+                            {% endif %}
+
+                            {% if payment_success %}
+                                <div class="form-control border-success mt-2 f-bold">
+                                    <span class="text-success text-center d-inline-block">سفارش شما ثبت شد. میتوانید در پروفایل کاربری خود وضعیت سفارش را ببینید.</span>
+                                </div>
+                            {% endif %}
+
+                            {% if payment_form.errors %}
+                                <div class="form-control border-danger mt-2 f-bold">
+                                    <strong class="text-danger">خطا(ها):</strong>
+                                    <ul class="ms-0 mb-0">
+                                        {% for error in payment_form.errors.values %}
+                                            <li class="font-17 fw-bold text-danger">{{ error.0 }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+{% endblock content %}
+
+{% block javascript %}
+    <script src="{% static "js/scroll.js" %}"></script>
+    <script src="{% static "js/cookie.js" %}"></script>
+    <script src="{% static "js/cart.js" %}"></script>
+{% endblock javascript %}
