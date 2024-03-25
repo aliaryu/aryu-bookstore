@@ -115,7 +115,8 @@
 
                         <hr class="m-0 mx-1 mt-2">
 
-                        <form action="" method="">
+                        <form action="" method="post">
+                            {% csrf_token %}
                             <fieldset {% if not user.is_authenticated %} disabled {% endif %}>
    
                                 <select name="address" class="form-select mt-2" id="id_address" name="address" required>
@@ -143,6 +144,23 @@
                                     برای ثبت سفارش باید لاگین باشید:
                                     <a href="{% url "user:login" %}?next={{ request.path }}" class="text-black">ورود به حساب کاربری</a>
                                 </p>
+                            {% endif %}
+
+                            {% if payment_success %}
+                                <div class="form-control border-success mt-2 f-bold">
+                                    <span class="text-success text-center d-inline-block">سفارش شما ثبت شد. میتوانید در پروفایل کاربری خود وضعیت سفارش را ببینید.</span>
+                                </div>
+                            {% endif %}
+
+                            {% if payment_form.errors %}
+                                <div class="form-control border-danger mt-2 f-bold">
+                                    <strong class="text-danger">خطا(ها):</strong>
+                                    <ul class="ms-0 mb-0">
+                                        {% for error in payment_form.errors.values %}
+                                            <li class="font-17 fw-bold text-danger">{{ error.0 }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
                             {% endif %}
                         </form>
 
