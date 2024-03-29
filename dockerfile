@@ -4,10 +4,14 @@ WORKDIR /app
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
-ENV PATH="/PY/BIN:$PATH"
+
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app/
 
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN python manage.py makemigrations
+RUN python manage.py migrate
 
+# THIS RUN 'filldb' SCRIPT TO FILL DATABASE
+RUN python scripts/fill_database/filldb.py
