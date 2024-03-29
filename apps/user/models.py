@@ -63,7 +63,7 @@ class User(AbstractUser):
 
     def save(self, *args, **kwargs):
         if not self.image:
-            image_folder = r"media\user-default"
+            image_folder = os.path.join("media", "user-default")
             image_files = [img for img in os.listdir(image_folder) if os.path.isfile(os.path.join(image_folder, img))]
             if image_files:
                 random_image = random.choice(image_files)
