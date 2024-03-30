@@ -1,5 +1,16 @@
-version: '3.8'
+version: "3.8"
 
+services:
+
+  redis:
+    container_name: redis
+    image: redis:7.0.11-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - aryu_network
 
   django:
     container_name: aryu_bookstore
@@ -13,10 +24,12 @@ version: '3.8'
       - "8000:8000"
     depends_on:
       - redis
+    networks:
+      - aryu_network
 
 volumes:
   redis_data:
 
 networks:
-  your_network:
+  aryu_network:
     driver: bridge
