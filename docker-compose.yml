@@ -2,7 +2,7 @@ version: '3.8'
 
 
   django:
-    container_name: aryu_book_store
+    container_name: aryu_bookstore
     build: 
       context: ./
       dockerfile: Dockerfile
@@ -13,3 +13,10 @@ version: '3.8'
       - "8000:8000"
     depends_on:
       - redis
+
+volumes:
+  redis_data:
+
+networks:
+  your_network:
+    driver: bridge
