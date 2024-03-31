@@ -2,8 +2,36 @@ version: "3.8"
 
 services:
 
+  django:
+    container_name: aryu_bookstore
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    command: sh -c "python manage.py makemigrations && python manage.py migrate && python scripts/fill_database/filldb.py && python manage.py runserver 0.0.0.0:8000"
+    # volumes:
+    #   - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - aryu_network
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: aryu_bookstore_db
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    networks:
+      - aryu_network
+
   redis:
-    container_name: redis
     image: redis:7.0.11-alpine
     ports:
       - "6379:6379"
@@ -12,23 +40,9 @@ services:
     networks:
       - aryu_network
 
-  django:
-    container_name: aryu_bookstore
-    build: 
-      context: ./
-      dockerfile: Dockerfile
-    command: sh -c "python manage.py runserver 0.0.0.0:8000"
-    # volumes:
-    #   - .:/app
-    ports:
-      - "8000:8000"
-    depends_on:
-      - redis
-    networks:
-      - aryu_network
-
 volumes:
   redis_data:
+  postgres_data:
 
 networks:
   aryu_network:
