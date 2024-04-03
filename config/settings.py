@@ -81,6 +81,7 @@ AUTH_PASSWORD_VALIDATORS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # INTERNATIONALIZATION
+LOCALE_PATHS = [BASE_DIR / "apps" / "locale",]
 LANGUAGE_CODE = config("LANGUAGE_CODE", default="en-us")
 TIME_ZONE = config("TIME_ZONE", default="en-us")
 USE_I18N = True
