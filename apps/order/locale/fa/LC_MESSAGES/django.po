@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-04 00:24+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\apps\order\admin.py:17
+msgid "price"
+msgstr "قیمت"
+
+#: .\apps\order\admin.py:29 .\apps\order\admin.py:107
+msgid "customer information"
+msgstr "اطلاعات مشتری"
+
+#: .\apps\order\admin.py:30 .\apps\order\admin.py:108
+msgid "order information"
+msgstr "اطلاعات سفارش"
+
+#: .\apps\order\admin.py:43 .\apps\order\admin.py:67 .\apps\order\admin.py:121
+#: .\apps\order\admin.py:148 .\apps\order\admin.py:189
+#: .\apps\order\admin.py:205
+msgid "view/edit"
+msgstr "دیدن/ویرایش"
+
+#: .\apps\order\admin.py:51 .\apps\order\admin.py:68 .\apps\order\admin.py:129
+#: .\apps\order\admin.py:149 .\apps\order\admin.py:197
+#: .\apps\order\admin.py:206
+msgid "delete"
+msgstr "حذف"
+
+#: .\apps\order\admin.py:69 .\apps\order\admin.py:150
+msgid "full name"
+msgstr "اسم کامل"
+
+#: .\apps\order\admin.py:70 .\apps\order\admin.py:152
+msgid "full address"
+msgstr "آدرس کامل"
+
+#: .\apps\order\admin.py:71 .\apps\order\admin.py:153
+msgid "total cost"
+msgstr "مجموع قیمت"
+
+#: .\apps\order\admin.py:151
+msgid "phone"
+msgstr "تلفن"
+
+#: .\apps\order\admin.py:204
+msgid "date time"
+msgstr "تاریخ و زمان"
+
+#: .\apps\order\apps.py:8 .\apps\order\models.py:58 .\apps\order\models.py:78
+msgid "order"
+msgstr "سفارش"
+
+#: .\apps\order\models.py:15
+msgid "user"
+msgstr "کاربر"
+
+#: .\apps\order\models.py:20
+msgid "address"
+msgstr "آدرس"
+
+#: .\apps\order\models.py:27
+msgid "staff"
+msgstr "کارمند"
+
+#: .\apps\order\models.py:35
+msgid "pending"
+msgstr "در صف انتظار"
+
+#: .\apps\order\models.py:36
+msgid "processing"
+msgstr "در حال پردازش"
+
+#: .\apps\order\models.py:37
+msgid "completed"
+msgstr "تکمیل شده"
+
+#: .\apps\order\models.py:38
+msgid "deleted"
+msgstr "حذف شده"
+
+#: .\apps\order\models.py:42
+msgid "status"
+msgstr "وضعیت"
+
+#: .\apps\order\models.py:51
+msgid "book(s)"
+msgstr "کتاب(ها)"
+
+#: .\apps\order\models.py:59
+msgid "orders"
+msgstr "سفارشات"
+
+#: .\apps\order\models.py:72
+msgid "my order"
+msgstr "سفارش من"
+
+#: .\apps\order\models.py:73
+msgid "my orders"
+msgstr "سفارشات من"
+
+#: .\apps\order\models.py:83
+msgid "book"
+msgstr "کتاب"
+
+#: .\apps\order\models.py:88
+msgid "count"
+msgstr "تعداد"
+
+#: .\apps\order\models.py:96
+#, python-format
+msgid ""
+"%(book)s, inventory: %(count)s<br>order quantity is more than the stock."
+msgstr "%(book)s, موجودی: %(count)s<br>تعداد سفارش بیشتر از موجودی است."
+
+#: .\apps\order\models.py:107
+msgid "orderd book"
+msgstr "کتاب سفارش شده"
+
+#: .\apps\order\models.py:108
+msgid "ordered books"
+msgstr "کتاب های سفارش شده"
