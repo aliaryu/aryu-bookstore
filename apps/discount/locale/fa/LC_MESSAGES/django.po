@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-04 00:24+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\apps\discount\admin.py:16 .\apps\discount\admin.py:31
+msgid "view/edit"
+msgstr "دیدن/ویرایش"
+
+#: .\apps\discount\admin.py:24 .\apps\discount\admin.py:32
+msgid "delete"
+msgstr "حذف"
+
+#: .\apps\discount\apps.py:8 .\apps\discount\models.py:51
+msgid "discount"
+msgstr "تخفیف"
+
+#: .\apps\discount\models.py:10
+msgid "code"
+msgstr "کد"
+
+#: .\apps\discount\models.py:17
+msgid "percent"
+msgstr "درصد"
+
+#: .\apps\discount\models.py:23
+msgid "cash"
+msgstr "پول"
+
+#: .\apps\discount\models.py:28
+msgid "maximum"
+msgstr "حداکثر"
+
+#: .\apps\discount\models.py:31
+msgid "count"
+msgstr "تعداد"
+
+#: .\apps\discount\models.py:35
+msgid "expire date"
+msgstr "تاریخ انقضا"
+
+#: .\apps\discount\models.py:41
+msgid "It is not possible to enter both 'percent' and 'cash'."
+msgstr "ممکن نیست که هم 'درصد' و هم 'پول' وارد شود."
+
+#: .\apps\discount\models.py:43
+msgid "At least one of 'percent' and 'cash' must be entered."
+msgstr "حداقل یکی از 'درصد' یا 'پول' باید وارد شود."
+
+#: .\apps\discount\models.py:52
+msgid "discounts"
+msgstr "تخفیفات"

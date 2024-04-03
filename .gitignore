@@ -2,12 +2,7 @@
 venv/
 __pycache__/
 *.pyc
-.env
-
-# I will upload all the files, including the database and migration,
-# because I want you to watch the project with test data.
 
 migrations/
 !migrations/__init__.py
 *.sqlite3
-

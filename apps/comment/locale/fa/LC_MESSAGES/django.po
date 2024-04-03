@@ -1,0 +1,68 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-04 00:24+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\apps\comment\admin.py:15 .\apps\comment\admin.py:23
+#: .\apps\comment\admin.py:28
+msgid "comment information"
+msgstr "اطلاعات نظر"
+
+#: .\apps\comment\admin.py:16 .\apps\comment\admin.py:24
+#: .\apps\comment\admin.py:29
+msgid "comment & answer"
+msgstr "نظر و پاسخ"
+
+#: .\apps\comment\admin.py:48 .\apps\comment\admin.py:65
+msgid "view/edit"
+msgstr "دیدن/ویرایش"
+
+#: .\apps\comment\admin.py:56 .\apps\comment\admin.py:66
+msgid "delete"
+msgstr "حذف"
+
+#: .\apps\comment\admin.py:63
+msgid "model"
+msgstr "مدل"
+
+#: .\apps\comment\admin.py:64
+msgid "short text"
+msgstr "مختصر"
+
+#: .\apps\comment\apps.py:8 .\apps\comment\models.py:41
+msgid "comment"
+msgstr "نظر"
+
+#: .\apps\comment\models.py:17
+msgid "user"
+msgstr "کاربر"
+
+#: .\apps\comment\models.py:22
+msgid "text"
+msgstr "متن"
+
+#: .\apps\comment\models.py:25
+msgid "answer"
+msgstr "پاسخ"
+
+#: .\apps\comment\models.py:30
+msgid "approve"
+msgstr "تایید"
+
+#: .\apps\comment\models.py:42
+msgid "comments"
+msgstr "نظرات"

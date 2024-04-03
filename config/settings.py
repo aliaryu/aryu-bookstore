@@ -81,6 +81,7 @@ AUTH_PASSWORD_VALIDATORS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # INTERNATIONALIZATION
+LOCALE_PATHS = [BASE_DIR / "apps" / "locale",]
 LANGUAGE_CODE = config("LANGUAGE_CODE", default="en-us")
 TIME_ZONE = config("TIME_ZONE", default="en-us")
 USE_I18N = True
@@ -128,7 +129,8 @@ else:
     # REDIS
     REDIS_HOST = config("REDIS_HOST")
     REDIS_PORT = config("REDIS_PORT")
-    REDIS_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}"
+    REDIS_DB = config("REDIS_DB")
+    REDIS_URL = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}"
 
     # CASHE
     CACHES = {

@@ -1,0 +1,176 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-04 00:24+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\apps\user\admin.py:11 .\apps\user\models.py:152
+msgid "addresses"
+msgstr "آدرس ها"
+
+#: .\apps\user\admin.py:18
+msgid "staff information"
+msgstr "اطلاعات کارمند"
+
+#: .\apps\user\admin.py:35 .\apps\user\admin.py:44
+msgid "unique information"
+msgstr "اطلاعات یکتا"
+
+#: .\apps\user\admin.py:36 .\apps\user\admin.py:45
+msgid "personal information"
+msgstr "اطلاعات شخصی"
+
+#: .\apps\user\admin.py:37 .\apps\user\admin.py:46 .\apps\user\models.py:40
+msgid "image"
+msgstr "تصویر"
+
+#: .\apps\user\admin.py:38
+msgid "related dates"
+msgstr "تاریخ های مربوطه"
+
+#: .\apps\user\admin.py:39 .\apps\user\admin.py:47
+msgid "access level"
+msgstr "سطح دسترسی"
+
+#: .\apps\user\admin.py:40
+msgid "groups & permissions"
+msgstr "گروه ها و مجوز ها"
+
+#: .\apps\user\admin.py:48
+msgid "password"
+msgstr "رمز عبور"
+
+#: .\apps\user\admin.py:53
+msgid "Superuser"
+msgstr "سوپر یوزر"
+
+#: .\apps\user\admin.py:57
+msgid "Customer"
+msgstr "مشتری"
+
+#: .\apps\user\admin.py:60 .\apps\user\admin.py:82 .\apps\user\admin.py:113
+#: .\apps\user\admin.py:121 .\apps\user\admin.py:137 .\apps\user\admin.py:144
+#: .\apps\user\admin.py:157 .\apps\user\admin.py:164
+msgid "view/edit"
+msgstr "دیدن/ویرایش"
+
+#: .\apps\user\admin.py:68 .\apps\user\admin.py:83 .\apps\user\models.py:49
+msgid "delete"
+msgstr "حذف"
+
+#: .\apps\user\admin.py:79
+msgid "there is no image"
+msgstr "تصویری موجود نیست"
+
+#: .\apps\user\admin.py:81 .\apps\user\models.py:168 .\apps\user\models.py:180
+#: .\apps\user\models.py:194
+msgid "role"
+msgstr "نقش"
+
+#: .\apps\user\admin.py:84
+msgid "preview"
+msgstr "پیش نمایش"
+
+#: .\apps\user\admin.py:120
+msgid "username"
+msgstr "نام کاربری"
+
+#: .\apps\user\api\serializers.py:46
+msgid "passwords are not same."
+msgstr "رمز ها یکسان نیستند."
+
+#: .\apps\user\api\serializers.py:66 .\apps\user\models.py:62
+msgid "image must be square."
+msgstr "عکس باید مربع باشد."
+
+#: .\apps\user\api\serializers.py:104
+msgid "current password is incorrect."
+msgstr "رمز فعلی اشتباه است."
+
+#: .\apps\user\api\views.py:38
+msgid "login successfull."
+msgstr "با موفقیت وارد شدید"
+
+#: .\apps\user\api\views.py:40
+msgid "invalid username or password."
+msgstr "نام کاربری یا رمز عبور اشتباه است"
+
+#: .\apps\user\api\views.py:89
+msgid "password changed successfully."
+msgstr "پسورد با موفقیت تغییر کرد"
+
+#: .\apps\user\apps.py:8 .\apps\user\models.py:85 .\apps\user\models.py:129
+#: .\apps\user\models.py:189
+msgid "user"
+msgstr "کاربر"
+
+#: .\apps\user\models.py:22
+msgid "email"
+msgstr "ایمیل"
+
+#: .\apps\user\models.py:27
+msgid "birth date"
+msgstr "تاریخ تولد"
+
+#: .\apps\user\models.py:32
+msgid "active"
+msgstr "فعال"
+
+#: .\apps\user\models.py:35
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr "خطای ناشناخته"
+
+#: .\apps\user\models.py:58
+msgid "birth date cannot be in future."
+msgstr "تاریخ تولد نباید آینده باشد."
+
+#: .\apps\user\models.py:86
+msgid "users"
+msgstr "کاربران"
+
+#: .\apps\user\models.py:134
+msgid "province"
+msgstr "استان"
+
+#: .\apps\user\models.py:141
+msgid "postal code"
+msgstr "کد پستی"
+
+#: .\apps\user\models.py:145 .\apps\user\models.py:151
+msgid "address"
+msgstr "آدرس"
+
+#: .\apps\user\models.py:174
+msgid "salary"
+msgstr "حقوق"
+
+#: .\apps\user\models.py:181
+msgid "roles"
+msgstr "نقش ها"
+
+#: .\apps\user\models.py:284
+msgid "staff"
+msgstr "کارمند"
+
+#: .\apps\user\models.py:285
+msgid "staffs"
+msgstr "کارمندان"
+
+#: .\apps\user\validators.py:13
+msgid "postal code must be a 10-digit number"
+msgstr "کد پستی باید ده رقمی باشد"
