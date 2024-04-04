@@ -96,6 +96,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 if DEBUG:
     STATICFILES_DIRS = [BASE_DIR / 'static']
+    STATIC_ROOT = "staticapps"
 
     # CACHE
     CACHES = {
