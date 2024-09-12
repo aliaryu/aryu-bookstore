@@ -30,7 +30,7 @@ First, clone the project:
 
     git clone https://github.com/aliaryu/aryu-bookstore.git
 
-If you don't want to use docker, then **DEBUG** must be **True** (according to the .env file) and after creating the virtual environment, execute the following commands in order:
+If you don't want to use docker, then **DEBUG** must be **True** according to the .env.example file, (**you should change the name of this file to .env**) and after creating the virtual environment, execute the following commands in order:
 
     pip install -r requirements.txt
     python manage.py makemigrations
